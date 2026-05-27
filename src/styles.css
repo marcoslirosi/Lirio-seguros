@@ -62,9 +62,23 @@
 }
 
 :root {
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-light: var(--brand-light);
+  --color-brand-mid: var(--brand-mid);
+  --color-brand-main: var(--brand-main);
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --brand-bg: oklch(0.987 0.003 247);
+  --brand-light: oklch(0.953 0.018 240);
+  --brand-mid: oklch(0.853 0.045 234);
+  --brand-main: oklch(0.685 0.075 234);
+  --background: oklch(0.987 0.003 247);
+  --foreground: oklch(0.27 0.02 264);
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
