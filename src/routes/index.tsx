@@ -222,42 +222,50 @@ function Index() {
           </header>
 
           <div className="grid gap-8 md:grid-cols-2">
-            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-main/10">
-              <div className="relative">
+            {/* Cotton */}
+            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-duffy-yellow/30">
+              <div className="relative overflow-hidden rounded-[24px] bg-duffy-yellow-soft">
+                {/* soft cloud accents nodding to pack art */}
+                <span className="pointer-events-none absolute -left-8 bottom-6 size-24 rounded-full bg-white/70 blur-2xl" />
+                <span className="pointer-events-none absolute right-6 top-8 size-16 rounded-full bg-white/80 blur-xl" />
                 <img
                   src={productCotton}
-                  alt="Duffy Cotton"
+                  alt="Pañales Duffy Cotton"
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="aspect-square w-full rounded-[24px] bg-zinc-50 object-cover"
+                  className="relative aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Babysec-style floating badge */}
-                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-brand-main text-white shadow-lg">
+                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-duffy-yellow text-zinc-900 shadow-lg ring-4 ring-white/60">
                   <span className="font-display text-lg font-bold leading-none">12h</span>
                   <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-wider">
                     seco
                   </span>
+                </div>
+                {/* Tecnología japonesa seal */}
+                <div className="absolute right-4 top-4 flex size-14 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-brand-main text-center text-[8px] font-bold leading-tight text-white shadow-md">
+                  Tecnología<br/>Japonesa<br/>Nº1
                 </div>
               </div>
               <div className="px-4 py-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-display text-2xl font-bold text-zinc-800">
-                      Duffy Cotton
+                      Duffy <span className="text-duffy-orange">Cotton</span>
                     </h3>
                     <p className="mt-2 max-w-[40ch] text-zinc-500 text-pretty">
-                      Protección integral para todos los días. Suavidad clásica y
-                      absorción confiable.
+                      El clásico Duffy: máxima absorción, cintura elástica y suavidad
+                      con toque algodón para todos los días.
                     </p>
                   </div>
-                  <span className="shrink-0 rounded bg-brand-light px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-main">
-                    Classic
+                  <span className="shrink-0 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
+                    Hiperpack
                   </span>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle P · M · G</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle M · G · XG · XXG</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Cintura elástica</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Antipaspaduras</span>
                 </div>
                 <a
                   href="#"
@@ -268,50 +276,58 @@ function Index() {
               </div>
             </article>
 
-            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-main/10">
-              <div className="relative">
+            {/* Premium Cotton */}
+            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-duffy-orange/30">
+              <div className="relative overflow-hidden rounded-[24px] bg-duffy-orange-soft">
+                <span className="pointer-events-none absolute -right-10 top-4 size-28 rounded-full bg-white/60 blur-2xl" />
+                <span className="pointer-events-none absolute left-6 bottom-8 size-16 rounded-full bg-white/70 blur-xl" />
                 <img
                   src={productPremium}
-                  alt="Duffy Premium Cotton"
+                  alt="Pañales Duffy Premium Cotton"
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="aspect-square w-full rounded-[24px] bg-brand-light/30 object-cover"
+                  className="relative aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-zinc-900 text-white shadow-lg">
+                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-duffy-orange text-white shadow-lg ring-4 ring-white/60">
                   <span className="font-display text-lg font-bold leading-none">12h</span>
                   <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-wider">
                     seco
                   </span>
+                </div>
+                <div className="absolute right-4 top-4 flex size-14 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-brand-main text-center text-[8px] font-bold leading-tight text-white shadow-md">
+                  Tecnología<br/>Japonesa<br/>Nº1
                 </div>
               </div>
               <div className="px-4 py-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <h3 className="font-display text-2xl font-bold text-zinc-800">
-                      Duffy Premium Cotton
+                      Duffy <span className="text-duffy-orange">Premium Cotton</span>
                     </h3>
                     <p className="mt-2 max-w-[40ch] text-zinc-500 text-pretty">
-                      Calidad superior con fibras de algodón seleccionadas para una piel
-                      delicada.
+                      Super seco, canales de aire y toque suave. La versión más avanzada
+                      para pieles delicadas.
                     </p>
                   </div>
-                  <span className="shrink-0 rounded bg-brand-main px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                  <span className="shrink-0 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                     Premium
                   </span>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle RN · P · M · G · XG</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Orejas elastizadas</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle P · M · G · XG · XXG</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Canales de aire</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Super seco</span>
                 </div>
                 <a
                   href="#"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-main transition-transform hover:translate-x-1"
+                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-duffy-orange transition-transform hover:translate-x-1"
                 >
                   Ver detalles <span>→</span>
                 </a>
               </div>
             </article>
+
           </div>
         </div>
       </section>
