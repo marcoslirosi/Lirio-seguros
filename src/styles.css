@@ -77,24 +77,6 @@
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
 }
 
-:root {
-  --color-brand-bg: var(--brand-bg);
-  --color-brand-light: var(--brand-light);
-  --color-brand-mid: var(--brand-mid);
-  --color-brand-main: var(--brand-main);
-  --color-duffy-yellow: var(--duffy-yellow);
-  --color-duffy-yellow-soft: var(--duffy-yellow-soft);
-  --color-duffy-yellow-deep: var(--duffy-yellow-deep);
-  --color-duffy-orange: var(--duffy-orange);
-  --color-duffy-orange-soft: var(--duffy-orange-soft);
-  --color-duffy-plum: var(--duffy-plum);
-  --color-duffy-plum-soft: var(--duffy-plum-soft);
-  --color-duffy-cream: var(--duffy-cream);
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
-  --font-script: "Caveat", "Fraunces", ui-serif, cursive;
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
-}
 
 :root {
   --radius: 0.625rem;
