@@ -1,471 +1,464 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroMomLift from "@/assets/hero-momlift.jpg";
+import heroBaby from "@/assets/hero-yellow-baby.jpg";
+import heroToddler from "@/assets/hero-yellow-toddler.jpg";
+import heroMom from "@/assets/hero-yellow-mom.jpg";
+import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
-import tipsMother from "@/assets/tips-mother.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Duffy — Caminos de aire. Pañales premium para tu bebé" },
+      { title: "Duffy — Pañales listos para cualquier desafío" },
       {
         name: "description",
         content:
-          "Pañales Duffy: algodón puro, 12 horas de protección y ultra confort. Líneas Cotton y Premium Cotton para el cuidado diario de tu bebé.",
+          "Pañales Duffy Cotton y Premium Cotton: 12 horas de protección, canales de aire y toque suave. Tecnología japonesa Nº1 en calidad para el cuidado de tu bebé.",
       },
-      { property: "og:title", content: "Duffy — Pañales premium para tu bebé" },
+      { property: "og:title", content: "Duffy — Pañales listos para cualquier desafío" },
       {
         property: "og:description",
-        content: "La primera caricia después de la tuya. Algodón puro y tecnología de absorción.",
+        content: "Cotton y Premium Cotton. 12 horas de protección con tecnología japonesa.",
       },
     ],
   }),
   component: Index,
 });
 
-const benefits = [
-  { n: "01", label: "Ultra Suave" },
-  { n: "02", label: "100% Seguro" },
-  { n: "03", label: "Máxima Absorción" },
-  { n: "04", label: "Ultra Confort" },
-  { n: "05", label: "Siempre Seco" },
-];
-
-// Babysec-inspired baby stages
 const stages = [
-  { label: "Embarazo", sub: "Preparate" },
-  { label: "Recién nacido", sub: "0 — 3 meses" },
-  { label: "Bebé", sub: "3 — 12 meses" },
-  { label: "Pequeño", sub: "1 — 3 años" },
-  { label: "Dejando el pañal", sub: "+3 años" },
+  { n: "0-3", label: "Recién\nnacido" },
+  { n: "3-9", label: "Explorando\nel mundo" },
+  { n: "9-18", label: "Primeros\npasos" },
+  { n: "+18", label: "Corriendo\nlibres" },
 ];
 
-// Babysec-style usage steps
-const steps = [
-  {
-    n: "1",
-    title: "Colocá",
-    body: "Apoyá a tu bebé sobre el pañal abierto, alineando la cintura con su ombligo.",
-  },
-  {
-    n: "2",
-    title: "Ajustá",
-    body: "Cerrá las orejas elastizadas suavemente. Que quede firme pero no apretado.",
-  },
-  {
-    n: "3",
-    title: "Listo",
-    body: "12 horas de protección continua para que disfruten cada momento.",
-  },
+const features = [
+  { title: "12 h", sub: "Súper seco" },
+  { title: "N°1", sub: "Tecnología japonesa" },
+  { title: "100%", sub: "Toque algodón" },
+  { title: "0", sub: "Paspaduras" },
 ];
 
-const tips = [
-  "El ritual del cambio como momento de conexión.",
-  "Cómo cuidar la piel del recién nacido en invierno.",
-  "La importancia de elegir materiales respirables.",
-];
-
-const retailers = ["Farmacity", "Coto", "Carrefour", "Jumbo", "Pigmento"];
+const retailers = ["Farmacity", "Coto", "Carrefour", "Jumbo", "Pigmento", "DIA", "Vea"];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-brand-bg font-sans text-zinc-800 antialiased">
-      {/* Top promo bar — Huggies-inspired */}
-      <div className="bg-brand-main text-center text-xs font-medium text-white">
-        <div className="mx-auto max-w-7xl px-6 py-2 lg:px-12">
-          Envíos a todo el país · Encontrá Duffy en tu tienda más cercana →
+    <div className="min-h-screen bg-duffy-yellow font-sans text-zinc-900 antialiased selection:bg-duffy-plum selection:text-white">
+      {/* Announcement bar */}
+      <div className="bg-duffy-plum text-center text-xs font-medium text-white">
+        <div className="mx-auto max-w-7xl px-6 py-2.5 lg:px-12">
+          Nueva presentación, el mismo Duffy que conocés
+          <a href="#productos" className="ml-3 inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline">
+            Conocé la línea <span aria-hidden>→</span>
+          </a>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-zinc-950/5 bg-brand-bg/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-12">
-          <span className="font-display text-2xl font-bold tracking-tight text-brand-main">
-            Duffy
-          </span>
-          <div className="hidden gap-8 text-sm font-medium sm:flex">
-            <a href="#productos" className="text-zinc-800 hover:text-brand-main transition-colors">
-              Productos
-            </a>
-            <a href="#etapas" className="text-zinc-500 transition-colors hover:text-brand-main">
-              Mi bebé
-            </a>
-            <a href="#tips" className="text-zinc-500 transition-colors hover:text-brand-main">
-              Tips de cuidado
-            </a>
-            <a
-              href="#donde-comprar"
-              className="text-zinc-500 transition-colors hover:text-brand-main"
+      <nav className="relative z-40">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-8 px-6 py-6 lg:px-12">
+          <a href="/" className="flex items-baseline gap-1">
+            <span
+              className="text-4xl font-bold leading-none tracking-tight text-zinc-900"
+              style={{ fontFamily: "var(--font-script)" }}
             >
-              Dónde comprar
-            </a>
+              Duffy
+            </span>
+            <span className="text-xs font-bold text-duffy-plum">.</span>
+          </a>
+          <div className="hidden justify-center gap-10 text-sm font-semibold text-zinc-900 md:flex">
+            <a href="#productos" className="hover:text-duffy-plum transition-colors">Pañales</a>
+            <a href="#etapas" className="hover:text-duffy-plum transition-colors">Mi bebé</a>
+            <a href="#tips" className="hover:text-duffy-plum transition-colors">Tips</a>
+            <a href="#donde-comprar" className="hover:text-duffy-plum transition-colors">Dónde comprar</a>
           </div>
           <a
             href="#donde-comprar"
-            className="rounded-full bg-brand-main px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-main/90"
+            className="inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md"
           >
-            Comprar
+            Comprá ahora <span aria-hidden>→</span>
           </a>
         </div>
       </nav>
 
-      {/* Hero — Pampers-style full bleed photo with overlay */}
-      <header className="relative isolate overflow-hidden">
-        <img
-          src={heroMomLift}
-          alt="Mamá levantando a su bebé sonriendo"
-          width={1600}
-          height={1024}
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-bg via-brand-bg/85 to-brand-bg/10" />
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-32">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-main ring-1 ring-brand-main/15 backdrop-blur">
-              <span className="size-1.5 rounded-full bg-brand-main" />
-              Nueva línea Premium Cotton
-            </span>
-            <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] text-balance text-zinc-900 sm:text-6xl lg:text-7xl">
-              La primera caricia <span className="text-brand-main">después de la tuya.</span>
-            </h1>
-            <p className="mt-6 max-w-[46ch] text-lg text-zinc-700 text-pretty">
-              Algodón puro y 12 horas de protección para que el descanso de tu bebé sea
-              tan suave como tu abrazo.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+      {/* Hero — Rascals-style photo grid on flood color */}
+      <header className="relative">
+        <div className="mx-auto grid max-w-[1800px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
+          <div className="aspect-square overflow-hidden rounded-3xl">
+            <img
+              src={heroBaby}
+              alt="Bebé sonriendo con pañal Duffy"
+              width={1280}
+              height={1280}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="col-span-1 aspect-square overflow-hidden rounded-3xl md:col-span-2 md:aspect-auto">
+            {/* Center headline tile */}
+            <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-6 text-center">
+              <span className="rounded-full bg-white/60 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-900 backdrop-blur">
+                Nueva imagen · mismo Duffy
+              </span>
+              <h1 className="font-display text-4xl font-black leading-[0.95] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-7xl">
+                Listos para
+                <br />
+                <span style={{ fontFamily: "var(--font-script)" }} className="text-duffy-plum font-bold italic">
+                  cualquier desafío
+                </span>
+              </h1>
               <a
                 href="#productos"
-                className="rounded-full bg-brand-main px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand-main/25 transition-all hover:-translate-y-0.5 hover:bg-brand-main/90"
+                className="inline-flex items-center gap-2 rounded-full bg-duffy-plum px-7 py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-duffy-plum/90"
               >
-                Conocé nuestros pañales
-              </a>
-              <a
-                href="#etapas"
-                className="rounded-full bg-white/80 px-8 py-4 text-base font-semibold text-zinc-800 ring-1 ring-zinc-950/10 backdrop-blur transition-colors hover:bg-white"
-              >
-                Mi bebé crece
+                Conocé Duffy <span aria-hidden>→</span>
               </a>
             </div>
+          </div>
+          <div className="aspect-square overflow-hidden rounded-3xl">
+            <img
+              src={heroToddler}
+              alt="Bebé gateando con pañal Duffy"
+              width={1280}
+              height={1280}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Second row of tiles */}
+        <div className="mx-auto mt-2 grid max-w-[1800px] grid-cols-2 gap-2 px-2 md:mt-3 md:grid-cols-4 md:gap-3 md:px-3">
+          <div className="aspect-square overflow-hidden rounded-3xl bg-duffy-plum">
+            <div className="flex h-full flex-col justify-between p-6 text-white">
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">01 · Descubrí</span>
+              <p className="font-display text-2xl font-bold leading-tight">
+                Dos líneas.<br/>
+                Una promesa:<br/>
+                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">super seco.</span>
+              </p>
+            </div>
+          </div>
+          <div className="aspect-square overflow-hidden rounded-3xl">
+            <img
+              src={heroMom}
+              alt="Mamá levantando a su bebé sonriendo"
+              width={1280}
+              height={1280}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="aspect-square overflow-hidden rounded-3xl bg-duffy-orange">
+            <div className="flex h-full flex-col justify-between p-6 text-white">
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">02 · Suavidad</span>
+              <p className="font-display text-2xl font-bold leading-tight">
+                Toque algodón,<br/>
+                cintura elástica,<br/>
+                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">cero paspaduras.</span>
+              </p>
+            </div>
+          </div>
+          <div className="aspect-square overflow-hidden rounded-3xl">
+            <img
+              src={heroCream}
+              alt="Bebé sentado tranquilo"
+              width={1280}
+              height={1280}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </header>
 
-      {/* Benefits */}
-      <section className="border-y border-zinc-950/5 bg-white py-12">
+      {/* Features ticker */}
+      <section className="mt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-            {benefits.map((b) => (
-              <div key={b.n} className="flex flex-col items-center gap-3 text-center">
-                <div className="flex size-12 items-center justify-center rounded-full bg-brand-light font-semibold text-brand-main">
-                  {b.n.slice(1)}
-                </div>
-                <p className="text-sm font-semibold uppercase tracking-tight text-zinc-800">
-                  {b.label}
-                </p>
+          <div className="grid grid-cols-2 gap-6 border-y-2 border-zinc-900/10 py-10 md:grid-cols-4">
+            {features.map((f) => (
+              <div key={f.sub} className="flex flex-col items-start">
+                <span className="font-display text-5xl font-black leading-none tracking-tight text-zinc-900">
+                  {f.title}
+                </span>
+                <span className="mt-3 text-sm font-semibold text-zinc-700">{f.sub}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Etapas — Babysec-inspired baby journey */}
-      <section id="etapas" className="bg-brand-light/40 py-24">
+      {/* Products — packaging on tinted tiles */}
+      <section id="productos" className="mt-24 pb-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <header className="mb-16 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-main">
-              Mi bebé crece
-            </span>
-            <h2 className="mt-3 font-display text-4xl font-bold text-zinc-800 lg:text-5xl">
-              Acompañamos cada etapa
-            </h2>
-            <p className="mt-4 text-zinc-600">
-              Desde los primeros días hasta sus primeros pasos sin pañal. Encontrá el
-              talle y la línea ideal para cada momento.
+          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
+                Nuestros pañales
+              </span>
+              <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-zinc-900 lg:text-6xl">
+                Elegí tu
+                <span style={{ fontFamily: "var(--font-script)" }} className="ml-3 font-bold italic text-duffy-plum">
+                  Duffy
+                </span>
+              </h2>
+            </div>
+            <p className="max-w-xs text-sm text-zinc-700">
+              Dos líneas pensadas para cada momento del crecimiento. Ambas con tecnología japonesa Nº1 en calidad.
             </p>
-          </header>
+          </div>
 
-          <ol className="relative grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 md:grid-cols-5">
-            <div className="absolute left-8 right-8 top-12 hidden h-px bg-brand-mid/40 md:block" />
-            {stages.map((s, i) => (
-              <li
-                key={s.label}
-                className="relative flex flex-col items-center text-center"
-              >
-                <div className="relative flex size-24 items-center justify-center rounded-full bg-white ring-1 ring-brand-mid/40">
-                  <span className="font-display text-2xl font-bold text-brand-main">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <p className="mt-5 font-display text-base font-semibold text-zinc-800">
-                  {s.label}
-                </p>
-                <p className="mt-1 text-xs text-zinc-500">{s.sub}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Products */}
-      <section id="productos" className="bg-brand-bg py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <header className="mb-16 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-main">
-              Productos
-            </span>
-            <h2 className="mt-3 font-display text-4xl font-bold text-zinc-800 lg:text-5xl">
-              Líneas pensadas para vos
-            </h2>
-            <p className="mt-4 text-zinc-600">
-              Calidad superior con la confianza de las familias argentinas.
-            </p>
-          </header>
-
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {/* Cotton */}
-            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-duffy-yellow/30">
-              <div className="relative overflow-hidden rounded-[24px] bg-duffy-yellow-soft">
-                {/* soft cloud accents nodding to pack art */}
-                <span className="pointer-events-none absolute -left-8 bottom-6 size-24 rounded-full bg-white/70 blur-2xl" />
-                <span className="pointer-events-none absolute right-6 top-8 size-16 rounded-full bg-white/80 blur-xl" />
+            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-cream ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
+              <div className="relative overflow-hidden">
+                <span className="pointer-events-none absolute -left-10 bottom-6 size-40 rounded-full bg-white/70 blur-3xl" />
+                <span className="pointer-events-none absolute right-6 top-10 size-24 rounded-full bg-white/90 blur-2xl" />
                 <img
                   src={productCotton}
                   alt="Pañales Duffy Cotton"
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="relative aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-duffy-yellow text-zinc-900 shadow-lg ring-4 ring-white/60">
-                  <span className="font-display text-lg font-bold leading-none">12h</span>
-                  <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-wider">
-                    seco
-                  </span>
-                </div>
-                {/* Tecnología japonesa seal */}
-                <div className="absolute right-4 top-4 flex size-14 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-brand-main text-center text-[8px] font-bold leading-tight text-white shadow-md">
-                  Tecnología<br/>Japonesa<br/>Nº1
+                <div className="absolute left-6 top-6 rounded-full bg-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                  Cotton
                 </div>
               </div>
-              <div className="px-4 py-8">
+              <div className="border-t border-zinc-900/10 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-zinc-800">
-                      Duffy <span className="text-duffy-orange">Cotton</span>
-                    </h3>
-                    <p className="mt-2 max-w-[40ch] text-zinc-500 text-pretty">
-                      El clásico Duffy: máxima absorción, cintura elástica y suavidad
-                      con toque algodón para todos los días.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
+                    Duffy Cotton
+                  </h3>
                   <span className="shrink-0 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
                     Hiperpack
                   </span>
                 </div>
+                <p className="mt-3 text-zinc-600 text-pretty">
+                  El clásico Duffy: máxima absorción, cintura elástica y doble capa protectora para todos los días.
+                </p>
                 <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle M · G · XG · XXG</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Cintura elástica</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">M · G · XG · XXG</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Antipaspaduras</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">12 h</span>
                 </div>
                 <a
-                  href="#"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-main transition-transform hover:translate-x-1"
+                  href="#donde-comprar"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
                 >
-                  Ver detalles <span>→</span>
+                  Dónde comprar <span aria-hidden>→</span>
                 </a>
               </div>
             </article>
 
             {/* Premium Cotton */}
-            <article className="group relative flex flex-col overflow-hidden rounded-[32px] bg-white p-4 ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-duffy-orange/30">
-              <div className="relative overflow-hidden rounded-[24px] bg-duffy-orange-soft">
-                <span className="pointer-events-none absolute -right-10 top-4 size-28 rounded-full bg-white/60 blur-2xl" />
-                <span className="pointer-events-none absolute left-6 bottom-8 size-16 rounded-full bg-white/70 blur-xl" />
+            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-orange-soft ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
+              <div className="relative overflow-hidden">
+                <span className="pointer-events-none absolute -right-12 top-6 size-44 rounded-full bg-white/60 blur-3xl" />
+                <span className="pointer-events-none absolute left-8 bottom-8 size-24 rounded-full bg-white/80 blur-2xl" />
                 <img
                   src={productPremium}
                   alt="Pañales Duffy Premium Cotton"
                   width={1000}
                   height={1000}
                   loading="lazy"
-                  className="relative aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute left-4 top-4 flex size-16 flex-col items-center justify-center rounded-full bg-duffy-orange text-white shadow-lg ring-4 ring-white/60">
-                  <span className="font-display text-lg font-bold leading-none">12h</span>
-                  <span className="mt-0.5 text-[8px] font-semibold uppercase tracking-wider">
-                    seco
-                  </span>
-                </div>
-                <div className="absolute right-4 top-4 flex size-14 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-brand-main text-center text-[8px] font-bold leading-tight text-white shadow-md">
-                  Tecnología<br/>Japonesa<br/>Nº1
+                <div className="absolute left-6 top-6 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                  Premium Cotton
                 </div>
               </div>
-              <div className="px-4 py-8">
+              <div className="border-t border-zinc-900/10 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-zinc-800">
-                      Duffy <span className="text-duffy-orange">Premium Cotton</span>
-                    </h3>
-                    <p className="mt-2 max-w-[40ch] text-zinc-500 text-pretty">
-                      Super seco, canales de aire y toque suave. La versión más avanzada
-                      para pieles delicadas.
-                    </p>
-                  </div>
+                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
+                    Duffy Premium
+                  </h3>
                   <span className="shrink-0 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                    Premium
+                    Súper Seco
                   </span>
                 </div>
+                <p className="mt-3 text-zinc-600 text-pretty">
+                  Nuestra versión más avanzada: canales de aire, toque suave y absorción reforzada para pieles delicadas.
+                </p>
                 <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Talle P · M · G · XG · XXG</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">P · M · G · XG · XXG</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Canales de aire</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Super seco</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Toque suave</span>
                 </div>
                 <a
-                  href="#"
-                  className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-duffy-orange transition-transform hover:translate-x-1"
+                  href="#donde-comprar"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
                 >
-                  Ver detalles <span>→</span>
+                  Dónde comprar <span aria-hidden>→</span>
                 </a>
               </div>
             </article>
-
           </div>
         </div>
       </section>
 
-      {/* 3 pasos — Babysec-inspired */}
-      <section className="bg-white py-24">
+      {/* Etapas */}
+      <section id="etapas" className="mt-16 pb-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <header className="mb-16 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-main">
-              Fácil de usar
-            </span>
-            <h2 className="mt-3 font-display text-4xl font-bold text-zinc-800 lg:text-5xl">
-              Tres pasos y listo
-            </h2>
-          </header>
-          <div className="grid gap-8 md:grid-cols-3">
-            {steps.map((s) => (
-              <div
-                key={s.n}
-                className="relative overflow-hidden rounded-[28px] bg-brand-light/40 p-8 transition-colors hover:bg-brand-light/70"
-              >
-                <span className="absolute -right-4 -top-6 font-display text-[8rem] font-bold leading-none text-white/70 select-none">
-                  {s.n}
+          <div className="rounded-[40px] bg-duffy-plum p-10 text-white lg:p-16">
+            <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum-soft">
+                  Mi bebé crece
                 </span>
-                <div className="relative">
-                  <div className="mb-6 flex size-12 items-center justify-center rounded-full bg-brand-main text-base font-bold text-white">
-                    {s.n}
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-zinc-800">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{s.body}</p>
-                </div>
+                <h2 className="mt-3 font-display text-4xl font-black tracking-tight lg:text-5xl">
+                  Acompañamos cada
+                  <span style={{ fontFamily: "var(--font-script)" }} className="ml-3 font-bold italic text-duffy-yellow">
+                    etapa
+                  </span>
+                </h2>
               </div>
-            ))}
+              <p className="max-w-sm text-sm text-white/80">
+                Desde los primeros días hasta las primeras carreras. Duffy tiene el talle y la línea justa para cada momento.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+              {stages.map((s) => (
+                <div
+                  key={s.n}
+                  className="rounded-3xl bg-white/10 p-6 backdrop-blur transition-colors hover:bg-white/15"
+                >
+                  <span className="font-display text-4xl font-black leading-none text-duffy-yellow">
+                    {s.n}
+                    <span className="text-lg text-white/60"> m</span>
+                  </span>
+                  <p className="mt-6 whitespace-pre-line font-display text-lg font-bold leading-tight text-white">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Tips */}
-      <section id="tips" className="bg-brand-light/20 py-24">
+      <section id="tips" className="mt-16 pb-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="overflow-hidden rounded-[40px] bg-white ring-1 ring-black/5">
-            <div className="grid lg:grid-cols-2">
-              <div className="flex flex-col justify-center p-12 lg:p-20">
-                <span className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-brand-main">
-                  Comunidad Duffy
-                </span>
-                <h2 className="mb-6 font-display text-3xl font-bold leading-tight text-zinc-800 lg:text-4xl">
-                  Tips para transitar esta etapa con calma
-                </h2>
-                <ul className="space-y-6">
-                  {tips.map((t) => (
-                    <li key={t} className="flex gap-4">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-mid" />
-                      <p className="text-zinc-600 text-pretty">{t}</p>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#"
-                  className="mt-10 self-start rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
-                >
-                  Leer el blog completo
-                </a>
-              </div>
-              <img
-                src={tipsMother}
-                alt="Madre sosteniendo los pies de su bebé"
-                width={1200}
-                height={1200}
-                loading="lazy"
-                className="aspect-square w-full bg-brand-light object-cover lg:aspect-auto"
-              />
-            </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            <article className="rounded-[32px] bg-white p-8 ring-1 ring-zinc-900/5">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">Tip 01</span>
+              <h3 className="mt-4 font-display text-2xl font-black leading-tight text-zinc-900">
+                El ritual del cambio como momento de conexión
+              </h3>
+              <p className="mt-4 text-sm text-zinc-600">
+                Bajá el ritmo, mirá a tu bebé a los ojos y contale lo que estás haciendo. El pañal también es vínculo.
+              </p>
+              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-plum hover:underline">
+                Leer más →
+              </a>
+            </article>
+            <article className="rounded-[32px] bg-duffy-plum p-8 text-white">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-yellow">Tip 02</span>
+              <h3 className="mt-4 font-display text-2xl font-black leading-tight">
+                Cuidar la piel del recién nacido en invierno
+              </h3>
+              <p className="mt-4 text-sm text-white/80">
+                Habitación tibia, cambios frecuentes y una capa suave de crema barrera después de cada cambio.
+              </p>
+              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-yellow hover:underline">
+                Leer más →
+              </a>
+            </article>
+            <article className="rounded-[32px] bg-white p-8 ring-1 ring-zinc-900/5">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">Tip 03</span>
+              <h3 className="mt-4 font-display text-2xl font-black leading-tight text-zinc-900">
+                Cómo elegir el talle correcto sin errores
+              </h3>
+              <p className="mt-4 text-sm text-zinc-600">
+                Guiate por el peso más que por la edad. Y si te queda marca en la piel, es momento de subir de talle.
+              </p>
+              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-plum hover:underline">
+                Leer más →
+              </a>
+            </article>
           </div>
         </div>
       </section>
 
       {/* Retailers */}
-      <section id="donde-comprar" className="bg-brand-bg py-20">
-        <div className="mx-auto max-w-7xl px-6 text-center lg:px-12">
-          <h2 className="font-display text-2xl font-bold text-zinc-800 sm:text-3xl">
-            ¿Dónde comprar Duffy?
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-zinc-500">
-            Estamos en las principales farmacias y supermercados de todo el país.
-          </p>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {retailers.map((r) => (
-              <span
-                key={r}
-                className="font-display text-xl font-semibold tracking-tight text-zinc-400 transition-colors hover:text-brand-main"
-              >
-                {r}
+      <section id="donde-comprar" className="mt-16 pb-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="rounded-[40px] bg-white p-10 ring-1 ring-zinc-900/5 lg:p-16">
+            <div className="text-center">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
+                Dónde encontrarnos
               </span>
-            ))}
+              <h2 className="mx-auto mt-3 max-w-2xl font-display text-4xl font-black tracking-tight text-zinc-900 lg:text-5xl">
+                En las
+                <span style={{ fontFamily: "var(--font-script)" }} className="mx-3 font-bold italic text-duffy-plum">
+                  góndolas
+                </span>
+                de todo el país
+              </h2>
+            </div>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
+              {retailers.map((r) => (
+                <span
+                  key={r}
+                  className="font-display text-xl font-black tracking-tight text-zinc-400 transition-colors hover:text-duffy-plum lg:text-2xl"
+                >
+                  {r}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contacto" className="border-t border-zinc-950/5 bg-white py-20">
+      <footer id="contacto" className="mt-16 pb-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            <div>
-              <span className="font-display text-2xl font-bold tracking-tight text-brand-main">
-                Duffy
-              </span>
-              <p className="mt-6 max-w-[30ch] text-sm leading-relaxed text-zinc-500">
-                Caminos de aire. Cuidando el futuro de Argentina, un pañal a la vez.
-              </p>
+          <div className="rounded-[40px] bg-zinc-900 p-10 text-white lg:p-16">
+            <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
+              <div>
+                <div className="flex items-baseline gap-1">
+                  <span
+                    className="text-5xl font-bold leading-none tracking-tight text-duffy-yellow"
+                    style={{ fontFamily: "var(--font-script)" }}
+                  >
+                    Duffy
+                  </span>
+                  <span className="text-lg font-bold text-duffy-plum-soft">.</span>
+                </div>
+                <p className="mt-6 max-w-sm text-sm text-white/70">
+                  Duffy diseña pañales con tecnología japonesa para acompañar el crecimiento de las familias argentinas.
+                </p>
+                <a
+                  href="#productos"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-yellow px-6 py-3 text-sm font-bold text-zinc-900 transition-transform hover:-translate-y-0.5"
+                >
+                  Conocé los productos <span aria-hidden>→</span>
+                </a>
+              </div>
+              <div>
+                <p className="mb-5 text-sm font-bold uppercase tracking-[0.15em] text-white/50">Navegar</p>
+                <ul className="space-y-3 text-sm text-white/90">
+                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Cotton</a></li>
+                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Premium Cotton</a></li>
+                  <li><a href="#etapas" className="hover:text-duffy-yellow transition-colors">Etapas</a></li>
+                  <li><a href="#tips" className="hover:text-duffy-yellow transition-colors">Tips</a></li>
+                  <li><a href="#donde-comprar" className="hover:text-duffy-yellow transition-colors">Puntos de venta</a></li>
+                </ul>
+              </div>
+              <div>
+                <p className="mb-5 text-sm font-bold uppercase tracking-[0.15em] text-white/50">Contacto</p>
+                <ul className="space-y-3 text-sm text-white/90">
+                  <li>@duffy_arg</li>
+                  <li>Duffy Argentina</li>
+                  <li>hola@duffy.com.ar</li>
+                  <li>0800-333-DUFFY</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <p className="mb-6 text-sm font-semibold text-zinc-800">Navegación</p>
-              <ul className="space-y-4 text-sm text-zinc-500">
-                <li><a href="#productos" className="transition-colors hover:text-brand-main">Línea Cotton</a></li>
-                <li><a href="#productos" className="transition-colors hover:text-brand-main">Línea Premium</a></li>
-                <li><a href="#etapas" className="transition-colors hover:text-brand-main">Etapas del bebé</a></li>
-                <li><a href="#tips" className="transition-colors hover:text-brand-main">Tips para padres</a></li>
-                <li><a href="#donde-comprar" className="transition-colors hover:text-brand-main">Puntos de venta</a></li>
-              </ul>
+            <div className="mt-14 flex flex-col justify-between gap-3 border-t border-white/10 pt-8 text-[11px] text-white/50 sm:flex-row">
+              <p>© {new Date().getFullYear()} Duffy Argentina — Todos los derechos reservados</p>
+              <p>Tecnología japonesa Nº1 en calidad · Súper seco</p>
             </div>
-            <div>
-              <p className="mb-6 text-sm font-semibold text-zinc-800">Contacto</p>
-              <ul className="space-y-4 text-sm text-zinc-500">
-                <li>Instagram · @duffy_arg</li>
-                <li>Facebook · Duffy Argentina</li>
-                <li>hola@duffy.com.ar</li>
-                <li>0800-333-DUFFY</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-20 flex flex-col justify-between gap-4 border-t border-zinc-950/5 pt-8 sm:flex-row">
-            <p className="text-[11px] text-zinc-400">
-              © {new Date().getFullYear()} Duffy Argentina. Todos los derechos reservados.
-            </p>
-            <p className="text-[11px] text-zinc-400">Caminos de aire · Súper seco</p>
           </div>
         </div>
       </footer>
