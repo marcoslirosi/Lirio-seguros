@@ -66,6 +66,10 @@
   --color-brand-light: var(--brand-light);
   --color-brand-mid: var(--brand-mid);
   --color-brand-main: var(--brand-main);
+  --color-duffy-yellow: var(--duffy-yellow);
+  --color-duffy-yellow-soft: var(--duffy-yellow-soft);
+  --color-duffy-orange: var(--duffy-orange);
+  --color-duffy-orange-soft: var(--duffy-orange-soft);
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
 }
@@ -75,7 +79,11 @@
   --brand-bg: oklch(0.987 0.003 247);
   --brand-light: oklch(0.953 0.018 240);
   --brand-mid: oklch(0.853 0.045 234);
-  --brand-main: oklch(0.685 0.075 234);
+  --brand-main: oklch(0.62 0.09 234);
+  --duffy-yellow: oklch(0.88 0.16 92);
+  --duffy-yellow-soft: oklch(0.965 0.06 95);
+  --duffy-orange: oklch(0.76 0.16 55);
+  --duffy-orange-soft: oklch(0.955 0.05 60);
   --background: oklch(0.987 0.003 247);
   --foreground: oklch(0.27 0.02 264);
 
