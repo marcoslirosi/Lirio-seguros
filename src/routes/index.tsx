@@ -5,6 +5,7 @@ import heroMom from "@/assets/hero-yellow-mom.jpg";
 import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
+import duffyLogo from "@/assets/duffy-logo.png.asset.json";
 
 // TODO: reemplazar por imágenes reales cuando el usuario las suba
 const productJunior = "/placeholder.svg";
