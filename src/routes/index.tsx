@@ -567,14 +567,14 @@ function Index() {
           <div className="rounded-[40px] bg-zinc-900 p-10 text-white lg:p-16">
             <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
               <div>
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="text-5xl font-bold leading-none tracking-tight text-duffy-yellow"
-                    style={{ fontFamily: "var(--font-script)" }}
-                  >
-                    Duffy
-                  </span>
-                  <span className="text-lg font-bold text-duffy-plum-soft">.</span>
+                <div className="inline-flex items-center rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <img
+                    src={duffyLogo.url}
+                    alt="Duffy"
+                    width={480}
+                    height={360}
+                    className="h-14 w-auto"
+                  />
                 </div>
                 <p className="mt-6 max-w-sm text-sm text-white/70">
                   Duffy diseña pañales con tecnología japonesa para acompañar el crecimiento de las familias argentinas.
