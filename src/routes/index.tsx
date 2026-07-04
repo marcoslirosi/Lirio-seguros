@@ -266,10 +266,9 @@ function Index() {
                   href={ML_LINKS.cotton}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 pt-8 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
-                  style={{ marginTop: "auto" }}
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
                 >
-                  <span className="inline-flex items-center gap-2">Comprar <span aria-hidden>→</span></span>
+                  Comprar <span aria-hidden>→</span>
                 </a>
               </div>
             </article>
