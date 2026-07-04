@@ -6,6 +6,22 @@ import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
 
+// TODO: reemplazar por imágenes reales cuando el usuario las suba
+const productJunior = "/placeholder.svg";
+const wipesFlex = "/placeholder.svg";
+const wipesHard = "/placeholder.svg";
+
+const ML_LINKS = {
+  cotton:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Cotton",
+  premium:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Premium",
+  junior:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Junior",
+  wipes:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Toallitas-H%C3%BAmedas",
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -13,12 +29,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pañales Duffy Cotton y Premium Cotton: 12 horas de protección, canales de aire y toque suave. Tecnología japonesa Nº1 en calidad para el cuidado de tu bebé.",
+          "Pañales Duffy Cotton, Premium Cotton y Junior + Toallitas Húmedas: 12 horas de protección con tecnología japonesa Nº1 en calidad.",
       },
       { property: "og:title", content: "Duffy — Pañales listos para cualquier desafío" },
       {
         property: "og:description",
-        content: "Cotton y Premium Cotton. 12 horas de protección con tecnología japonesa.",
+        content: "Cotton, Premium y Junior. 12 horas de protección con tecnología japonesa.",
       },
     ],
   }),
@@ -26,10 +42,10 @@ export const Route = createFileRoute("/")({
 });
 
 const stages = [
-  { n: "0-3", label: "Recién\nnacido" },
-  { n: "3-9", label: "Explorando\nel mundo" },
-  { n: "9-18", label: "Primeros\npasos" },
-  { n: "+18", label: "Corriendo\nlibres" },
+  { n: "0-3", label: "Recién\nnacido", size: "Talle P" },
+  { n: "3-9", label: "Explorando\nel mundo", size: "Talle M" },
+  { n: "9-18", label: "Primeros\npasos", size: "Talle G – XG" },
+  { n: "+18", label: "Corriendo\nlibres", size: "Talle XXG · Junior XXXG" },
 ];
 
 const features = [
@@ -66,8 +82,11 @@ function Index() {
             </span>
             <span className="text-xs font-bold text-duffy-plum">.</span>
           </a>
-          <div className="hidden justify-center gap-10 text-sm font-semibold text-zinc-900 md:flex">
+          <div className="hidden items-center justify-center gap-8 text-sm font-semibold text-zinc-900 md:flex">
             <a href="#productos" className="hover:text-duffy-plum transition-colors">Pañales</a>
+            <a href="#toallitas" className="text-zinc-700 hover:text-duffy-plum transition-colors text-[13px]">
+              Toallitas
+            </a>
             <a href="#etapas" className="hover:text-duffy-plum transition-colors">Mi bebé</a>
             <a href="#tips" className="hover:text-duffy-plum transition-colors">Tips</a>
             <a href="#donde-comprar" className="hover:text-duffy-plum transition-colors">Dónde comprar</a>
@@ -94,7 +113,6 @@ function Index() {
             />
           </div>
           <div className="col-span-1 aspect-square overflow-hidden rounded-3xl md:col-span-2 md:aspect-auto">
-            {/* Center headline tile */}
             <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-6 text-center">
               <span className="rounded-full bg-white/60 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-900 backdrop-blur">
                 Nueva imagen · mismo Duffy
@@ -131,8 +149,9 @@ function Index() {
             <div className="flex h-full flex-col justify-between p-6 text-white">
               <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">01 · Descubrí</span>
               <p className="font-display text-2xl font-bold leading-tight">
-                Dos líneas.<br/>
-                Una promesa:<br/>
+                Tres líneas.<br/>
+                Una sola<br/>
+                promesa:<br/>
                 <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">super seco.</span>
               </p>
             </div>
@@ -151,9 +170,10 @@ function Index() {
             <div className="flex h-full flex-col justify-between p-6 text-white">
               <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">02 · Suavidad</span>
               <p className="font-display text-2xl font-bold leading-tight">
-                Toque algodón,<br/>
-                cintura elástica,<br/>
-                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">cero paspaduras.</span>
+                De pies<br/>
+                a cabeza:<br/>
+                pañales y toallitas<br/>
+                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">que los cuidan siempre.</span>
               </p>
             </div>
           </div>
@@ -186,7 +206,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Products — packaging on tinted tiles */}
+      {/* Products — 3-up grid */}
       <section id="productos" className="mt-24 pb-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-12">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
@@ -202,11 +222,11 @@ function Index() {
               </h2>
             </div>
             <p className="max-w-xs text-sm text-zinc-700">
-              Dos líneas pensadas para cada momento del crecimiento. Ambas con tecnología japonesa Nº1 en calidad.
+              Tres líneas pensadas para cada momento del crecimiento. Todas con tecnología japonesa Nº1 en calidad.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {/* Cotton */}
             <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-cream ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
               <div className="relative overflow-hidden">
@@ -224,28 +244,31 @@ function Index() {
                   Cotton
                 </div>
               </div>
-              <div className="border-t border-zinc-900/10 bg-white p-8">
+              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
                     Duffy Cotton
                   </h3>
                   <span className="shrink-0 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
-                    Hiperpack
+                    Megapack
                   </span>
                 </div>
                 <p className="mt-3 text-zinc-600 text-pretty">
                   El clásico Duffy: máxima absorción, cintura elástica y doble capa protectora para todos los días.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">M · G · XG · XXG</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">P · M · G · XG · XXG</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Antipaspaduras</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">12 h</span>
                 </div>
+                <p className="mt-4 text-[11px] text-zinc-500">Disponible en Megapack, Hiperpack y Mega Ahorro.</p>
                 <a
-                  href="#donde-comprar"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
+                  href={ML_LINKS.cotton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
                 >
-                  Dónde comprar <span aria-hidden>→</span>
+                  Comprar <span aria-hidden>→</span>
                 </a>
               </div>
             </article>
@@ -267,13 +290,13 @@ function Index() {
                   Premium Cotton
                 </div>
               </div>
-              <div className="border-t border-zinc-900/10 bg-white p-8">
+              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
                     Duffy Premium
                   </h3>
                   <span className="shrink-0 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                    Súper Seco
+                    Hiperpack
                   </span>
                 </div>
                 <p className="mt-3 text-zinc-600 text-pretty">
@@ -284,14 +307,138 @@ function Index() {
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Canales de aire</span>
                   <span className="rounded-full bg-zinc-100 px-3 py-1">Toque suave</span>
                 </div>
+                <p className="mt-4 text-[11px] text-zinc-500">Formato Hiperpack.</p>
                 <a
-                  href="#donde-comprar"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
+                  href={ML_LINKS.premium}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
                 >
-                  Dónde comprar <span aria-hidden>→</span>
+                  Comprar <span aria-hidden>→</span>
                 </a>
               </div>
             </article>
+
+            {/* Junior */}
+            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-yellow-soft ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
+              <div className="relative overflow-hidden">
+                <span className="pointer-events-none absolute -right-10 -top-6 size-44 rounded-full bg-white/70 blur-3xl" />
+                <span className="pointer-events-none absolute left-6 bottom-6 size-24 rounded-full bg-white/80 blur-2xl" />
+                <img
+                  src={productJunior}
+                  alt="Pañales Duffy Junior"
+                  width={1000}
+                  height={1000}
+                  loading="lazy"
+                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute left-6 top-6 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
+                  Junior · XXXG
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
+                    Duffy Junior
+                  </h3>
+                  <span className="shrink-0 rounded-full bg-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                    +18 kg
+                  </span>
+                </div>
+                <p className="mt-3 text-zinc-600 text-pretty">
+                  Máxima protección para los más grandes e inquietos. Uso diurno y nocturno, pensado para chicos activos sin perder contención.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">XXXG</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Air Paths Technology</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Máxima absorción</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Orejas repegables</span>
+                  <span className="rounded-full bg-zinc-100 px-3 py-1">Toque suave</span>
+                </div>
+                <p className="mt-4 text-[11px] text-zinc-500">Disponible en pack x30 y x50 unidades.</p>
+                <a
+                  href={ML_LINKS.junior}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
+                >
+                  Comprar <span aria-hidden>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Toallitas — sección secundaria */}
+      <section id="toallitas" className="mt-16 pb-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="overflow-hidden rounded-[36px] bg-white ring-1 ring-zinc-900/5">
+            <div className="grid gap-0 md:grid-cols-[1.1fr_1fr]">
+              {/* Copy */}
+              <div className="flex flex-col justify-between gap-8 p-10 lg:p-14">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
+                    Complemento del ritual
+                  </span>
+                  <h2 className="mt-3 font-display text-3xl font-black tracking-tight text-zinc-900 lg:text-5xl">
+                    Toallitas Húmedas
+                    <span style={{ fontFamily: "var(--font-script)" }} className="ml-2 font-bold italic text-duffy-plum">
+                      Duffy
+                    </span>
+                  </h2>
+                  <p className="mt-5 max-w-md text-sm text-zinc-600">
+                    Ultra suaves para una limpieza delicada. Hipoalergénicas y dermatológicamente testeadas, libres de fragancias, alcohol etílico y parabenos. No testeadas en animales. Ideales para cara, manos, pies y todo el cuerpo.
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-600">
+                    <span className="rounded-full bg-zinc-100 px-3 py-1">48 unidades</span>
+                    <span className="rounded-full bg-zinc-100 px-3 py-1">20 × 15 cm</span>
+                    <span className="rounded-full bg-zinc-100 px-3 py-1">Sin alcohol ni parabenos</span>
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-900">
+                    <span className="rounded-full bg-duffy-yellow-soft px-3 py-1 ring-1 ring-zinc-900/10">Tapa flexible</span>
+                    <span className="rounded-full bg-duffy-orange-soft px-3 py-1 ring-1 ring-zinc-900/10">Tapa plástica</span>
+                  </div>
+                </div>
+                <a
+                  href={ML_LINKS.wipes}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
+                >
+                  Comprar <span aria-hidden>→</span>
+                </a>
+              </div>
+              {/* Imgs */}
+              <div className="grid grid-cols-2 gap-2 bg-duffy-cream p-4 md:p-6">
+                <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
+                  <img
+                    src={wipesFlex}
+                    alt="Toallitas Húmedas Duffy tapa flexible"
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="aspect-square w-full object-contain p-6"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 ring-1 ring-zinc-900/10">
+                    Flexible
+                  </span>
+                </div>
+                <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
+                  <img
+                    src={wipesHard}
+                    alt="Toallitas Húmedas Duffy tapa plástica"
+                    width={800}
+                    height={800}
+                    loading="lazy"
+                    className="aspect-square w-full object-contain p-6"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 ring-1 ring-zinc-900/10">
+                    Plástica
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -320,7 +467,7 @@ function Index() {
               {stages.map((s) => (
                 <div
                   key={s.n}
-                  className="rounded-3xl bg-white/10 p-6 backdrop-blur transition-colors hover:bg-white/15"
+                  className="flex flex-col rounded-3xl bg-white/10 p-6 backdrop-blur transition-colors hover:bg-white/15"
                 >
                   <span className="font-display text-4xl font-black leading-none text-duffy-yellow">
                     {s.n}
@@ -329,6 +476,9 @@ function Index() {
                   <p className="mt-6 whitespace-pre-line font-display text-lg font-bold leading-tight text-white">
                     {s.label}
                   </p>
+                  <span className="mt-4 inline-flex w-fit rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-duffy-yellow">
+                    {s.size}
+                  </span>
                 </div>
               ))}
             </div>
@@ -440,6 +590,8 @@ function Index() {
                 <ul className="space-y-3 text-sm text-white/90">
                   <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Cotton</a></li>
                   <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Premium Cotton</a></li>
+                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Junior</a></li>
+                  <li><a href="#toallitas" className="hover:text-duffy-yellow transition-colors">Toallitas Húmedas</a></li>
                   <li><a href="#etapas" className="hover:text-duffy-yellow transition-colors">Etapas</a></li>
                   <li><a href="#tips" className="hover:text-duffy-yellow transition-colors">Tips</a></li>
                   <li><a href="#donde-comprar" className="hover:text-duffy-yellow transition-colors">Puntos de venta</a></li>
