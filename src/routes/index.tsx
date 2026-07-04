@@ -74,14 +74,14 @@ function Index() {
       {/* Navigation */}
       <nav className="relative z-40">
         <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-8 px-6 py-6 lg:px-12">
-          <a href="/" className="flex items-baseline gap-1">
-            <span
-              className="text-4xl font-bold leading-none tracking-tight text-zinc-900"
-              style={{ fontFamily: "var(--font-script)" }}
-            >
-              Duffy
-            </span>
-            <span className="text-xs font-bold text-duffy-plum">.</span>
+          <a href="/" className="flex items-center" aria-label="Duffy inicio">
+            <img
+              src={duffyLogo.url}
+              alt="Duffy"
+              width={480}
+              height={360}
+              className="h-12 w-auto md:h-14"
+            />
           </a>
           <div className="hidden items-center justify-center gap-8 text-sm font-semibold text-zinc-900 md:flex">
             <a href="#productos" className="hover:text-duffy-plum transition-colors">Pañales</a>
