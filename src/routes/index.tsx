@@ -5,6 +5,7 @@ import heroMom from "@/assets/hero-yellow-mom.jpg";
 import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
+import duffyLogo from "@/assets/duffy-logo.png.asset.json";
 
 // TODO: reemplazar por imágenes reales cuando el usuario las suba
 const productJunior = "/placeholder.svg";
@@ -73,14 +74,14 @@ function Index() {
       {/* Navigation */}
       <nav className="relative z-40">
         <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-8 px-6 py-6 lg:px-12">
-          <a href="/" className="flex items-baseline gap-1">
-            <span
-              className="text-4xl font-bold leading-none tracking-tight text-zinc-900"
-              style={{ fontFamily: "var(--font-script)" }}
-            >
-              Duffy
-            </span>
-            <span className="text-xs font-bold text-duffy-plum">.</span>
+          <a href="/" className="flex items-center" aria-label="Duffy inicio">
+            <img
+              src={duffyLogo.url}
+              alt="Duffy"
+              width={480}
+              height={360}
+              className="h-12 w-auto md:h-14"
+            />
           </a>
           <div className="hidden items-center justify-center gap-8 text-sm font-semibold text-zinc-900 md:flex">
             <a href="#productos" className="hover:text-duffy-plum transition-colors">Pañales</a>
@@ -566,14 +567,14 @@ function Index() {
           <div className="rounded-[40px] bg-zinc-900 p-10 text-white lg:p-16">
             <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
               <div>
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="text-5xl font-bold leading-none tracking-tight text-duffy-yellow"
-                    style={{ fontFamily: "var(--font-script)" }}
-                  >
-                    Duffy
-                  </span>
-                  <span className="text-lg font-bold text-duffy-plum-soft">.</span>
+                <div className="inline-flex items-center rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <img
+                    src={duffyLogo.url}
+                    alt="Duffy"
+                    width={480}
+                    height={360}
+                    className="h-14 w-auto"
+                  />
                 </div>
                 <p className="mt-6 max-w-sm text-sm text-white/70">
                   Duffy diseña pañales con tecnología japonesa para acompañar el crecimiento de las familias argentinas.
