@@ -64,19 +64,26 @@ function Index() {
   return (
     <div className="min-h-screen bg-duffy-yellow font-sans text-zinc-900 antialiased selection:bg-duffy-plum selection:text-white">
       {/* Announcement bar */}
-      <div className="bg-duffy-plum text-center text-xs font-medium text-white">
-        <div className="mx-auto max-w-7xl px-6 py-2.5 lg:px-12">
+      <div className="bg-duffy-plum text-center text-sm font-bold text-white sm:text-[15px]">
+        <div className="mx-auto max-w-7xl px-6 py-3 lg:px-12">
           Nueva presentación, el mismo Duffy que conocés
-          <a href="#productos" className="ml-3 inline-flex items-center gap-1 underline underline-offset-2 hover:no-underline">
+          <a
+            href="#productos"
+            className="ml-3 inline-flex items-center gap-1 rounded-sm underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-plum"
+          >
             Conocé la línea <span aria-hidden>→</span>
           </a>
         </div>
       </div>
 
       {/* Navigation */}
-      <nav className="relative z-40">
+      <nav aria-label="Principal" className="relative z-40">
         <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:gap-8 sm:px-6 sm:py-6 lg:px-12">
-          <a href="/" className="flex min-w-0 shrink-0 items-center" aria-label="Duffy inicio">
+          <a
+            href="/"
+            aria-label="Duffy — Ir al inicio"
+            className="flex min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-yellow"
+          >
             <img
               src={duffyLogo.url}
               alt="Duffy"
@@ -85,18 +92,28 @@ function Index() {
               className="h-10 w-auto sm:h-12 md:h-14"
             />
           </a>
-          <div className="hidden items-center justify-center gap-8 text-sm font-semibold text-zinc-900 md:flex">
-            <a href="#productos" className="hover:text-duffy-plum transition-colors">Pañales</a>
-            <a href="#toallitas" className="text-zinc-700 hover:text-duffy-plum transition-colors text-[13px]">
-              Toallitas
-            </a>
-            <a href="#etapas" className="hover:text-duffy-plum transition-colors">Mi bebé</a>
-            <a href="#tips" className="hover:text-duffy-plum transition-colors">Tips</a>
-            <a href="#donde-comprar" className="hover:text-duffy-plum transition-colors">Dónde comprar</a>
-          </div>
+          <ul className="hidden items-center justify-center gap-8 text-[15px] font-bold text-zinc-900 md:flex">
+            {[
+              { href: "#productos", label: "Pañales" },
+              { href: "#toallitas", label: "Toallitas" },
+              { href: "#etapas", label: "Mi bebé" },
+              { href: "#tips", label: "Tips" },
+              { href: "#donde-comprar", label: "Dónde comprar" },
+            ].map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="rounded-sm transition-colors hover:text-duffy-plum focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-4 focus-visible:ring-offset-duffy-yellow"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
           <a
             href="#donde-comprar"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-duffy-plum px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
+            aria-label="Comprá ahora — Ir a la sección Dónde comprar"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-duffy-plum px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-yellow sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
           >
             <span className="hidden sm:inline">Comprá ahora</span>
             <span className="sm:hidden">Comprar</span>
@@ -104,6 +121,7 @@ function Index() {
           </a>
         </div>
       </nav>
+
 
 
       {/* Hero — Rascals-style photo grid on flood color */}
