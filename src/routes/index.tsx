@@ -434,7 +434,7 @@ function Index() {
                 </a>
               </div>
               {/* Imgs */}
-              <div className="mx-auto grid w-full max-w-md grid-cols-2 place-items-center gap-4 bg-duffy-cream p-4 md:p-6">
+              <div className="mx-auto grid w-full max-w-md grid-cols-2 items-stretch justify-items-center gap-4 bg-duffy-cream p-4 md:p-6">
                 <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
                   <img
                     src={wipesFlex}
