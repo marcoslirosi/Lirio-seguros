@@ -58,7 +58,7 @@ const features = [
   { title: "0", sub: "Paspaduras" },
 ];
 
-const retailers = ["Farmacity", "Coto", "Carrefour", "Jumbo", "Pigmento", "DIA", "Vea"];
+const retailers = ["Carrefour", "Makro", "Pañaleras"];
 
 function Index() {
   return (
@@ -92,7 +92,7 @@ function Index() {
               className="h-10 w-auto sm:h-12 md:h-14"
             />
           </a>
-          <ul className="hidden items-center justify-center gap-8 text-[15px] font-bold text-zinc-900 md:flex">
+          <ul className="hidden items-center justify-center gap-10 text-[17px] font-extrabold uppercase tracking-wide text-zinc-900 md:flex lg:text-[18px]">
             {[
               { href: "#productos", label: "Pañales" },
               { href: "#toallitas", label: "Toallitas" },
@@ -434,7 +434,7 @@ function Index() {
                 </a>
               </div>
               {/* Imgs */}
-              <div className="grid grid-cols-2 gap-2 bg-duffy-cream p-4 md:p-6">
+              <div className="mx-auto grid w-full max-w-md grid-cols-2 place-items-center gap-4 bg-duffy-cream p-4 md:p-6">
                 <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
                   <img
                     src={wipesFlex}
