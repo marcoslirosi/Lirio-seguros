@@ -6,11 +6,13 @@ import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
 import duffyLogo from "@/assets/duffy-logo.png.asset.json";
+import productJuniorAsset from "@/assets/duffy-junior.png.asset.json";
+import wipesFlexAsset from "@/assets/duffy-wipes-flex.png.asset.json";
+import wipesHardAsset from "@/assets/duffy-wipes-hard.png.asset.json";
 
-// TODO: reemplazar por imágenes reales cuando el usuario las suba
-const productJunior = "/placeholder.svg";
-const wipesFlex = "/placeholder.svg";
-const wipesHard = "/placeholder.svg";
+const productJunior = productJuniorAsset.url;
+const wipesFlex = wipesFlexAsset.url;
+const wipesHard = wipesHardAsset.url;
 
 const ML_LINKS = {
   cotton:
