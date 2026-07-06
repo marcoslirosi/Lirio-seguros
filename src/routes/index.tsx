@@ -75,14 +75,14 @@ function Index() {
 
       {/* Navigation */}
       <nav className="relative z-40">
-        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-8 px-6 py-6 lg:px-12">
-          <a href="/" className="flex items-center" aria-label="Duffy inicio">
+        <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:gap-8 sm:px-6 sm:py-6 lg:px-12">
+          <a href="/" className="flex min-w-0 shrink-0 items-center" aria-label="Duffy inicio">
             <img
               src={duffyLogo.url}
               alt="Duffy"
               width={480}
               height={360}
-              className="h-12 w-auto md:h-14"
+              className="h-10 w-auto sm:h-12 md:h-14"
             />
           </a>
           <div className="hidden items-center justify-center gap-8 text-sm font-semibold text-zinc-900 md:flex">
@@ -96,12 +96,15 @@ function Index() {
           </div>
           <a
             href="#donde-comprar"
-            className="inline-flex items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-duffy-plum px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
           >
-            Comprá ahora <span aria-hidden>→</span>
+            <span className="hidden sm:inline">Comprá ahora</span>
+            <span className="sm:hidden">Comprar</span>
+            <span aria-hidden>→</span>
           </a>
         </div>
       </nav>
+
 
       {/* Hero — Rascals-style photo grid on flood color */}
       <header className="relative">
