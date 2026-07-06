@@ -92,7 +92,7 @@ function Index() {
               className="h-10 w-auto sm:h-12 md:h-14"
             />
           </a>
-          <ul className="hidden items-center justify-center gap-8 text-[15px] font-bold text-zinc-900 md:flex">
+          <ul className="hidden items-center justify-center gap-10 text-[17px] font-extrabold uppercase tracking-wide text-zinc-900 md:flex lg:text-[18px]">
             {[
               { href: "#productos", label: "Pañales" },
               { href: "#toallitas", label: "Toallitas" },
