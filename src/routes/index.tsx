@@ -58,7 +58,7 @@ const features = [
   { title: "0", sub: "Paspaduras" },
 ];
 
-const retailers = ["Farmacity", "Coto", "Carrefour", "Jumbo", "Pigmento", "DIA", "Vea"];
+const retailers = ["Carrefour", "Makro", "Pañaleras"];
 
 function Index() {
   return (
