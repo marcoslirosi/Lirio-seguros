@@ -92,7 +92,7 @@ function Index() {
               className="h-10 w-auto sm:h-12 md:h-14"
             />
           </a>
-          <ul className="hidden items-center justify-center gap-10 text-[17px] font-extrabold uppercase tracking-wide text-zinc-900 md:flex lg:text-[18px]">
+          <ul className="hidden items-center justify-center gap-7 text-[13px] font-bold uppercase tracking-wide text-white md:flex lg:gap-8 lg:text-sm" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}>
             {[
               { href: "#productos", label: "Pañales" },
               { href: "#toallitas", label: "Toallitas" },
@@ -103,7 +103,7 @@ function Index() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="rounded-sm transition-colors hover:text-duffy-plum focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-4 focus-visible:ring-offset-duffy-yellow"
+                  className="rounded-sm transition-colors hover:text-duffy-plum-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-4 focus-visible:ring-offset-duffy-yellow"
                 >
                   {item.label}
                 </a>
@@ -434,7 +434,7 @@ function Index() {
                 </a>
               </div>
               {/* Imgs */}
-              <div className="mx-auto grid w-full max-w-md grid-cols-2 place-items-center gap-4 bg-duffy-cream p-4 md:p-6">
+              <div className="mx-auto grid w-full max-w-md grid-cols-2 items-stretch justify-items-center gap-4 bg-duffy-cream p-4 md:p-6">
                 <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
                   <img
                     src={wipesFlex}
