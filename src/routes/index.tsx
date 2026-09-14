@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBaby from "@/assets/hero-yellow-baby.jpg";
-import heroToddler from "@/assets/hero-yellow-toddler.jpg";
 import heroMom from "@/assets/hero-yellow-mom.jpg";
-import heroCream from "@/assets/hero-cream-baby.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
 import duffyLogo from "@/assets/duffy-logo.png.asset.json";
@@ -14,64 +12,134 @@ const productJunior = productJuniorAsset.url;
 const wipesFlex = wipesFlexAsset.url;
 const wipesHard = wipesHardAsset.url;
 
-const ML_LINKS = {
-  cotton:
+const ML = {
+  duffy:
     "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Cotton",
-  premium:
-    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Premium",
-  junior:
-    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Junior",
-  wipes:
-    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Toallitas-H%C3%BAmedas",
+  promise: "https://listado.mercadolibre.com.ar/panales-promise",
+  lalas: "https://listado.mercadolibre.com.ar/panales-lalas",
 };
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Duffy — Pañales listos para cualquier desafío" },
+      { title: "Zanhang — Higiene descartable: Duffy, Promise y Lalas" },
       {
         name: "description",
         content:
-          "Pañales Duffy Cotton, Premium Cotton y Junior + Toallitas Húmedas: 12 horas de protección con tecnología japonesa Nº1 en calidad.",
+          "Zanhang desarrolla y fabrica productos de higiene descartables en Argentina. Conocé nuestras marcas Duffy, Promise y Lalas y compralas en Mercado Libre.",
       },
-      { property: "og:title", content: "Duffy — Pañales listos para cualquier desafío" },
+      { property: "og:title", content: "Zanhang — Duffy, Promise y Lalas" },
       {
         property: "og:description",
-        content: "Cotton, Premium y Junior. 12 horas de protección con tecnología japonesa.",
+        content:
+          "Fabricamos pañales y toallitas que mejoran la calidad de vida en cada etapa. Duffy, Promise y Lalas.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
 });
 
-const stages = [
-  { n: "0-3", label: "Recién\nnacido", size: "Talle P" },
-  { n: "3-9", label: "Explorando\nel mundo", size: "Talle M" },
-  { n: "9-18", label: "Primeros\npasos", size: "Talle G – XG" },
-  { n: "+18", label: "Corriendo\nlibres", size: "Talle XXG · Junior XXXG" },
+const brands = [
+  {
+    name: "Duffy",
+    tag: "Caminitos de aire",
+    desc: "La línea premium del cuidado diario. Pañales con toque algodón y tecnología japonesa, en talles RN a XXXG, más toallitas húmedas.",
+    bg: "bg-duffy-yellow",
+    soft: "bg-duffy-yellow-soft",
+    text: "text-zinc-900",
+    href: "#duffy",
+    ml: ML.duffy,
+  },
+  {
+    name: "Promise",
+    tag: "Protección para todos los días",
+    desc: "Pañales confiables y accesibles, con máxima absorción y ajuste cómodo para acompañar cada etapa del bebé.",
+    bg: "bg-promise",
+    soft: "bg-promise-soft",
+    text: "text-white",
+    href: "#marcas",
+    ml: ML.promise,
+  },
+  {
+    name: "Lalas",
+    tag: "Suavidad que abraza",
+    desc: "Pañales suaves y económicos pensados para el uso diario, con el respaldo de calidad de Zanhang.",
+    bg: "bg-lalas",
+    soft: "bg-lalas-soft",
+    text: "text-white",
+    href: "#marcas",
+    ml: ML.lalas,
+  },
+];
+
+const duffyProducts = [
+  {
+    img: productCotton,
+    alt: "Pañales Duffy Cotton",
+    name: "Duffy Cotton",
+    note: "Megapack · Hiperpack · Mega Ahorro",
+    chips: ["Suave", "Cintura elástica", "Barreras de protección"],
+    bg: "bg-duffy-yellow-soft",
+    ml: ML.duffy,
+  },
+  {
+    img: productPremium,
+    alt: "Pañales Duffy Premium Cotton",
+    name: "Duffy Premium Cotton",
+    note: "Hiperpack",
+    chips: ["Súper suave", "Orejas elastizadas", "Caminitos de aire"],
+    bg: "bg-duffy-orange-soft",
+    ml: ML.duffy,
+  },
+  {
+    img: productJunior,
+    alt: "Pañales Duffy Junior",
+    name: "Duffy Junior",
+    note: "Pack x30 · x50 — Talle XXXG",
+    chips: ["Para grandes", "Súper seco 12 h", "Ajuste flexible"],
+    bg: "bg-duffy-yellow-soft",
+    ml: ML.duffy,
+  },
+];
+
+const wipes = [
+  {
+    img: wipesFlex,
+    alt: "Toallitas húmedas Duffy tapa flexible",
+    name: "Tapa flexible",
+    desc: "El formato clásico para llevar a todos lados.",
+  },
+  {
+    img: wipesHard,
+    alt: "Toallitas húmedas Duffy tapa plástica",
+    name: "Tapa plástica",
+    desc: "Cierre hermético que mantiene la humedad por más tiempo.",
+  },
 ];
 
 const features = [
   { title: "12 h", sub: "Súper seco" },
   { title: "N°1", sub: "Tecnología japonesa" },
   { title: "100%", sub: "Toque algodón" },
-  { title: "0", sub: "Paspaduras" },
+  { title: "0%", sub: "Alcohol en toallitas" },
 ];
 
 const retailers = ["Carrefour", "Makro", "Pañaleras"];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-duffy-yellow font-sans text-zinc-900 antialiased selection:bg-duffy-plum selection:text-white">
+    <div className="min-h-screen bg-duffy-cream font-sans text-zinc-900 antialiased selection:bg-duffy-plum selection:text-white">
       {/* Announcement bar */}
       <div className="bg-duffy-plum text-center text-sm font-bold text-white sm:text-[15px]">
         <div className="mx-auto max-w-7xl px-6 py-3 lg:px-12">
-          Nueva presentación, el mismo Duffy que conocés
+          Fabricamos higiene descartable en Argentina desde 2020
           <a
-            href="#productos"
+            href="#marcas"
             className="ml-3 inline-flex items-center gap-1 rounded-sm underline underline-offset-4 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-plum"
           >
-            Conocé la línea <span aria-hidden>→</span>
+            Conocé las marcas <span aria-hidden>→</span>
           </a>
         </div>
       </div>
@@ -81,29 +149,28 @@ function Index() {
         <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 py-4 sm:gap-8 sm:px-6 sm:py-6 lg:px-12">
           <a
             href="/"
-            aria-label="Duffy — Ir al inicio"
-            className="flex min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-yellow"
+            aria-label="Zanhang — Ir al inicio"
+            className="flex min-w-0 shrink-0 items-baseline gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
           >
-            <img
-              src={duffyLogo.url}
-              alt="Duffy"
-              width={480}
-              height={360}
-              className="h-10 w-auto sm:h-12 md:h-14"
-            />
+            <span className="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">
+              Zanhang
+            </span>
+            <span className="hidden font-script text-xl text-duffy-plum sm:inline">
+              cuidamos cada etapa
+            </span>
           </a>
-          <ul className="hidden items-center justify-center gap-7 text-[13px] font-bold uppercase tracking-wide text-white md:flex lg:gap-8 lg:text-sm" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}>
+          <ul className="hidden items-center justify-center gap-7 text-sm font-bold uppercase tracking-wide md:flex lg:gap-8">
             {[
-              { href: "#productos", label: "Pañales" },
+              { href: "#marcas", label: "Marcas" },
+              { href: "#duffy", label: "Duffy" },
               { href: "#toallitas", label: "Toallitas" },
-              { href: "#etapas", label: "Mi bebé" },
-              { href: "#tips", label: "Tips" },
+              { href: "#nosotros", label: "Nosotros" },
               { href: "#donde-comprar", label: "Dónde comprar" },
             ].map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="rounded-sm transition-colors hover:text-duffy-plum-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-4 focus-visible:ring-offset-duffy-yellow"
+                  className="rounded-sm transition-colors hover:text-duffy-plum focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-4"
                 >
                   {item.label}
                 </a>
@@ -113,7 +180,7 @@ function Index() {
           <a
             href="#donde-comprar"
             aria-label="Comprá ahora — Ir a la sección Dónde comprar"
-            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-duffy-plum px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2 focus-visible:ring-offset-duffy-yellow sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-duffy-plum px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-duffy-plum/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2 sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
           >
             <span className="hidden sm:inline">Comprá ahora</span>
             <span className="sm:hidden">Comprar</span>
@@ -122,520 +189,339 @@ function Index() {
         </div>
       </nav>
 
-
-
-      {/* Hero — Rascals-style photo grid on flood color */}
-      <header className="relative">
-        <div className="mx-auto grid max-w-[1800px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
-          <div className="aspect-square overflow-hidden rounded-3xl">
-            <img
-              src={heroBaby}
-              alt="Bebé sonriendo con pañal Duffy"
-              width={1280}
-              height={1280}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="col-span-1 aspect-square overflow-hidden rounded-3xl md:col-span-2 md:aspect-auto">
-            <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-6 text-center">
-              <span className="rounded-full bg-white/60 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-900 backdrop-blur">
-                Nueva imagen · mismo Duffy
-              </span>
-              <h1 className="font-display text-4xl font-black leading-[0.95] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-7xl">
-                Listos para
-                <br />
-                <span style={{ fontFamily: "var(--font-script)" }} className="text-duffy-plum font-bold italic">
-                  cualquier desafío
-                </span>
-              </h1>
+      {/* Hero */}
+      <header className="relative overflow-hidden">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-10 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-24">
+          <div>
+            <p className="font-script text-3xl text-duffy-plum sm:text-4xl">
+              caminitos de aire
+            </p>
+            <h1 className="mt-3 font-display text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+              Higiene descartable que cuida{" "}
+              <span className="text-duffy-plum">en cada etapa</span>
+            </h1>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-zinc-700">
+              En Zanhang desarrollamos y fabricamos pañales y toallitas con un
+              objetivo claro: mejorar la calidad de vida de las personas. Tres
+              marcas, un mismo compromiso.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#productos"
-                className="inline-flex items-center gap-2 rounded-full bg-duffy-plum px-7 py-4 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-duffy-plum/90"
+                href="#marcas"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-zinc-900 px-7 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
               >
-                Conocé Duffy <span aria-hidden>→</span>
+                Ver las marcas <span aria-hidden>→</span>
+              </a>
+              <a
+                href={ML.duffy}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-zinc-900 px-7 py-3 text-sm font-bold transition-colors hover:bg-zinc-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+              >
+                Comprar en Mercado Libre
               </a>
             </div>
           </div>
-          <div className="aspect-square overflow-hidden rounded-3xl">
+          <div className="grid grid-cols-2 gap-4">
             <img
-              src={heroToddler}
-              alt="Bebé gateando con pañal Duffy"
-              width={1280}
-              height={1280}
-              className="h-full w-full object-cover"
+              src={heroBaby}
+              alt="Bebé sonriendo sobre fondo amarillo"
+              className="aspect-[3/4] w-full rounded-[36px] object-cover"
             />
-          </div>
-        </div>
-
-        {/* Second row of tiles */}
-        <div className="mx-auto mt-2 grid max-w-[1800px] grid-cols-2 gap-2 px-2 md:mt-3 md:grid-cols-4 md:gap-3 md:px-3">
-          <div className="aspect-square overflow-hidden rounded-3xl bg-duffy-plum">
-            <div className="flex h-full flex-col justify-between p-6 text-white">
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">01 · Descubrí</span>
-              <p className="font-display text-2xl font-bold leading-tight">
-                Tres líneas.<br/>
-                Una sola<br/>
-                promesa:<br/>
-                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">super seco.</span>
-              </p>
-            </div>
-          </div>
-          <div className="aspect-square overflow-hidden rounded-3xl">
             <img
               src={heroMom}
-              alt="Mamá levantando a su bebé sonriendo"
-              width={1280}
-              height={1280}
-              loading="lazy"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="aspect-square overflow-hidden rounded-3xl bg-duffy-orange">
-            <div className="flex h-full flex-col justify-between p-6 text-white">
-              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/80">02 · Suavidad</span>
-              <p className="font-display text-2xl font-bold leading-tight">
-                De pies<br/>
-                a cabeza:<br/>
-                pañales y toallitas<br/>
-                <span style={{ fontFamily: "var(--font-script)" }} className="text-3xl font-bold italic">que los cuidan siempre.</span>
-              </p>
-            </div>
-          </div>
-          <div className="aspect-square overflow-hidden rounded-3xl">
-            <img
-              src={heroCream}
-              alt="Bebé sentado tranquilo"
-              width={1280}
-              height={1280}
-              loading="lazy"
-              className="h-full w-full object-cover"
+              alt="Mamá sosteniendo a su bebé"
+              className="mt-10 aspect-[3/4] w-full rounded-[36px] object-cover"
             />
           </div>
         </div>
       </header>
 
       {/* Features ticker */}
-      <section className="mt-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid grid-cols-2 gap-6 border-y-2 border-zinc-900/10 py-10 md:grid-cols-4">
-            {features.map((f) => (
-              <div key={f.sub} className="flex flex-col items-start">
-                <span className="font-display text-5xl font-black leading-none tracking-tight text-zinc-900">
-                  {f.title}
-                </span>
-                <span className="mt-3 text-sm font-semibold text-zinc-700">{f.sub}</span>
-              </div>
+      <div className="bg-zinc-900 py-5 text-white">
+        <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 lg:px-12">
+          {features.map((f) => (
+            <li key={f.sub} className="flex items-baseline gap-2">
+              <span className="font-display text-2xl font-black text-duffy-yellow">
+                {f.title}
+              </span>
+              <span className="text-sm font-semibold uppercase tracking-wide">
+                {f.sub}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Brands */}
+      <section id="marcas" className="scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <p className="font-script text-3xl text-duffy-plum">nuestras marcas</p>
+          <h2 className="mt-2 max-w-2xl font-display text-4xl font-black tracking-tight sm:text-5xl">
+            Tres marcas, una misma fábrica de calidad
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {brands.map((b) => (
+              <article
+                key={b.name}
+                className={`flex flex-col rounded-[36px] ${b.bg} ${b.text} p-8 shadow-sm`}
+              >
+                <h3 className="font-display text-4xl font-black">{b.name}</h3>
+                <p className="mt-1 font-script text-2xl opacity-90">{b.tag}</p>
+                <p className="mt-4 flex-1 leading-relaxed opacity-95">{b.desc}</p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href={b.ml}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+                  >
+                    Ver en Mercado Libre <span aria-hidden>→</span>
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Products — 3-up grid */}
-      <section id="productos" className="mt-24 pb-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
+      {/* Duffy lineup */}
+      <section id="duffy" className="scroll-mt-24 bg-duffy-yellow">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
+              <img
+                src={duffyLogo.url}
+                alt="Duffy"
+                width={480}
+                height={360}
+                className="h-14 w-auto sm:h-16"
+              />
+              <h2 className="mt-4 font-display text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl">
                 Nuestros pañales
-              </span>
-              <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-zinc-900 lg:text-6xl">
-                Elegí tu
-                <span style={{ fontFamily: "var(--font-script)" }} className="ml-3 font-bold italic text-duffy-plum">
-                  Duffy
-                </span>
               </h2>
+              <p className="mt-3 max-w-xl text-zinc-800">
+                Tres líneas para acompañar cada etapa, del recién nacido al que
+                ya corre libre.
+              </p>
             </div>
-            <p className="max-w-xs text-sm text-zinc-700">
-              Tres líneas pensadas para cada momento del crecimiento. Todas con tecnología japonesa Nº1 en calidad.
+            <span className="rounded-full bg-duffy-plum px-5 py-2 text-sm font-bold text-white">
+              Tecnología japonesa N°1
+            </span>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {duffyProducts.map((p) => (
+              <article
+                key={p.name}
+                className={`flex flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm`}
+              >
+                <img
+                  src={p.img}
+                  alt={p.alt}
+                  className="aspect-square w-full object-contain p-6"
+                />
+                <div className="flex flex-1 flex-col p-7 pt-0">
+                  <h3 className="font-display text-2xl font-black">{p.name}</h3>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-duffy-plum">
+                    {p.note}
+                  </p>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {p.chips.map((c) => (
+                      <li
+                        key={c}
+                        className="rounded-full bg-white/70 px-3 py-1 text-xs font-bold"
+                      >
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={p.ml}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-duffy-plum px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
+                  >
+                    Comprar <span aria-hidden>→</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wipes */}
+      <section id="toallitas" className="scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <div className="overflow-hidden rounded-[36px] bg-duffy-orange-soft p-8 sm:p-12">
+            <p className="font-script text-3xl text-duffy-plum">
+              de pies a cabeza
             </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Cotton */}
-            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-cream ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
-              <div className="relative overflow-hidden">
-                <span className="pointer-events-none absolute -left-10 bottom-6 size-40 rounded-full bg-white/70 blur-3xl" />
-                <span className="pointer-events-none absolute right-6 top-10 size-24 rounded-full bg-white/90 blur-2xl" />
-                <img
-                  src={productCotton}
-                  alt="Pañales Duffy Cotton"
-                  width={1000}
-                  height={1000}
-                  loading="lazy"
-                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute left-6 top-6 rounded-full bg-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                  Cotton
-                </div>
-              </div>
-              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
-                    Duffy Cotton
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
-                    Megapack
-                  </span>
-                </div>
-                <p className="mt-3 text-zinc-600 text-pretty">
-                  El clásico Duffy: máxima absorción, cintura elástica y doble capa protectora para todos los días.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">P · M · G · XG · XXG</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Antipaspaduras</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">12 h</span>
-                </div>
-                <p className="mt-4 text-[11px] text-zinc-500">Disponible en Megapack, Hiperpack y Mega Ahorro.</p>
-                <a
-                  href={ML_LINKS.cotton}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
+            <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
+              Toallitas Húmedas Duffy
+            </h2>
+            <p className="mt-4 max-w-xl text-zinc-700">
+              0% alcohol, extra suaves y con el mismo cuidado de siempre. Dos
+              formatos para elegir.
+            </p>
+            <div className="mt-10 grid max-w-2xl items-stretch justify-items-center gap-6 sm:grid-cols-2">
+              {wipes.map((w) => (
+                <article
+                  key={w.name}
+                  className="flex w-full max-w-xs flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm"
                 >
-                  Comprar <span aria-hidden>→</span>
-                </a>
-              </div>
-            </article>
-
-            {/* Premium Cotton */}
-            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-orange-soft ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
-              <div className="relative overflow-hidden">
-                <span className="pointer-events-none absolute -right-12 top-6 size-44 rounded-full bg-white/60 blur-3xl" />
-                <span className="pointer-events-none absolute left-8 bottom-8 size-24 rounded-full bg-white/80 blur-2xl" />
-                <img
-                  src={productPremium}
-                  alt="Pañales Duffy Premium Cotton"
-                  width={1000}
-                  height={1000}
-                  loading="lazy"
-                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute left-6 top-6 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                  Premium Cotton
-                </div>
-              </div>
-              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
-                    Duffy Premium
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-duffy-orange px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                    Hiperpack
-                  </span>
-                </div>
-                <p className="mt-3 text-zinc-600 text-pretty">
-                  Nuestra versión más avanzada: canales de aire, toque suave y absorción reforzada para pieles delicadas.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">P · M · G · XG · XXG</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Canales de aire</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Toque suave</span>
-                </div>
-                <p className="mt-4 text-[11px] text-zinc-500">Formato Hiperpack.</p>
-                <a
-                  href={ML_LINKS.premium}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
-                >
-                  Comprar <span aria-hidden>→</span>
-                </a>
-              </div>
-            </article>
-
-            {/* Junior */}
-            <article className="group relative flex flex-col overflow-hidden rounded-[36px] bg-duffy-yellow-soft ring-1 ring-zinc-900/5 transition-all hover:-translate-y-1">
-              <div className="relative overflow-hidden">
-                <span className="pointer-events-none absolute -right-10 -top-6 size-44 rounded-full bg-white/70 blur-3xl" />
-                <span className="pointer-events-none absolute left-6 bottom-6 size-24 rounded-full bg-white/80 blur-2xl" />
-                <img
-                  src={productJunior}
-                  alt="Pañales Duffy Junior"
-                  width={1000}
-                  height={1000}
-                  loading="lazy"
-                  className="relative aspect-square w-full object-contain p-10 transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute left-6 top-6 rounded-full bg-duffy-yellow px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900">
-                  Junior · XXXG
-                </div>
-              </div>
-              <div className="flex flex-1 flex-col border-t border-zinc-900/10 bg-white p-8">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-3xl font-black tracking-tight text-zinc-900">
-                    Duffy Junior
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-zinc-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                    +18 kg
-                  </span>
-                </div>
-                <p className="mt-3 text-zinc-600 text-pretty">
-                  Máxima protección para los más grandes e inquietos. Uso diurno y nocturno, pensado para chicos activos sin perder contención.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-500">
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">XXXG</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Air Paths Technology</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Máxima absorción</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Orejas repegables</span>
-                  <span className="rounded-full bg-zinc-100 px-3 py-1">Toque suave</span>
-                </div>
-                <p className="mt-4 text-[11px] text-zinc-500">Disponible en pack x30 y x50 unidades.</p>
-                <a
-                  href={ML_LINKS.junior}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
-                >
-                  Comprar <span aria-hidden>→</span>
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Toallitas — sección secundaria */}
-      <section id="toallitas" className="mt-16 pb-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="overflow-hidden rounded-[36px] bg-white ring-1 ring-zinc-900/5">
-            <div className="grid gap-0 md:grid-cols-[1.1fr_1fr]">
-              {/* Copy */}
-              <div className="flex flex-col justify-between gap-8 p-10 lg:p-14">
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
-                    Complemento del ritual
-                  </span>
-                  <h2 className="mt-3 font-display text-3xl font-black tracking-tight text-zinc-900 lg:text-5xl">
-                    Toallitas Húmedas
-                    <span style={{ fontFamily: "var(--font-script)" }} className="ml-2 font-bold italic text-duffy-plum">
-                      Duffy
-                    </span>
-                  </h2>
-                  <p className="mt-5 max-w-md text-sm text-zinc-600">
-                    Ultra suaves para una limpieza delicada. Hipoalergénicas y dermatológicamente testeadas, libres de fragancias, alcohol etílico y parabenos. No testeadas en animales. Ideales para cara, manos, pies y todo el cuerpo.
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-medium text-zinc-600">
-                    <span className="rounded-full bg-zinc-100 px-3 py-1">48 unidades</span>
-                    <span className="rounded-full bg-zinc-100 px-3 py-1">20 × 15 cm</span>
-                    <span className="rounded-full bg-zinc-100 px-3 py-1">Sin alcohol ni parabenos</span>
-                  </div>
-                  <div className="mt-5 flex flex-wrap gap-2 text-[11px] font-semibold text-zinc-900">
-                    <span className="rounded-full bg-duffy-yellow-soft px-3 py-1 ring-1 ring-zinc-900/10">Tapa flexible</span>
-                    <span className="rounded-full bg-duffy-orange-soft px-3 py-1 ring-1 ring-zinc-900/10">Tapa plástica</span>
-                  </div>
-                </div>
-                <a
-                  href={ML_LINKS.wipes}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-2 rounded-full bg-duffy-plum px-6 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90"
-                >
-                  Comprar <span aria-hidden>→</span>
-                </a>
-              </div>
-              {/* Imgs */}
-              <div className="mx-auto grid w-full max-w-md grid-cols-2 items-stretch justify-items-center gap-4 bg-duffy-cream p-4 md:p-6">
-                <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
                   <img
-                    src={wipesFlex}
-                    alt="Toallitas Húmedas Duffy tapa flexible"
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                    className="aspect-square w-full object-contain p-6"
+                    src={w.img}
+                    alt={w.alt}
+                    className="aspect-square w-full object-contain"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 ring-1 ring-zinc-900/10">
-                    Flexible
-                  </span>
-                </div>
-                <div className="relative overflow-hidden rounded-3xl bg-white ring-1 ring-zinc-900/5">
-                  <img
-                    src={wipesHard}
-                    alt="Toallitas Húmedas Duffy tapa plástica"
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                    className="aspect-square w-full object-contain p-6"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-900 ring-1 ring-zinc-900/10">
-                    Plástica
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Etapas */}
-      <section id="etapas" className="mt-16 pb-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="rounded-[40px] bg-duffy-plum p-10 text-white lg:p-16">
-            <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum-soft">
-                  Mi bebé crece
-                </span>
-                <h2 className="mt-3 font-display text-4xl font-black tracking-tight lg:text-5xl">
-                  Acompañamos cada
-                  <span style={{ fontFamily: "var(--font-script)" }} className="ml-3 font-bold italic text-duffy-yellow">
-                    etapa
-                  </span>
-                </h2>
-              </div>
-              <p className="max-w-sm text-sm text-white/80">
-                Desde los primeros días hasta las primeras carreras. Duffy tiene el talle y la línea justa para cada momento.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-              {stages.map((s) => (
-                <div
-                  key={s.n}
-                  className="flex flex-col rounded-3xl bg-white/10 p-6 backdrop-blur transition-colors hover:bg-white/15"
-                >
-                  <span className="font-display text-4xl font-black leading-none text-duffy-yellow">
-                    {s.n}
-                    <span className="text-lg text-white/60"> m</span>
-                  </span>
-                  <p className="mt-6 whitespace-pre-line font-display text-lg font-bold leading-tight text-white">
-                    {s.label}
-                  </p>
-                  <span className="mt-4 inline-flex w-fit rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-duffy-yellow">
-                    {s.size}
-                  </span>
-                </div>
+                  <h3 className="mt-4 font-display text-xl font-black">
+                    {w.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-zinc-600">{w.desc}</p>
+                </article>
               ))}
             </div>
+            <a
+              href={ML.duffy}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex min-h-11 items-center gap-2 rounded-full bg-zinc-900 px-7 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+            >
+              Comprar toallitas en Mercado Libre <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Tips */}
-      <section id="tips" className="mt-16 pb-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid gap-3 md:grid-cols-3">
-            <article className="rounded-[32px] bg-white p-8 ring-1 ring-zinc-900/5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">Tip 01</span>
-              <h3 className="mt-4 font-display text-2xl font-black leading-tight text-zinc-900">
-                El ritual del cambio como momento de conexión
-              </h3>
-              <p className="mt-4 text-sm text-zinc-600">
-                Bajá el ritmo, mirá a tu bebé a los ojos y contale lo que estás haciendo. El pañal también es vínculo.
-              </p>
-              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-plum hover:underline">
-                Leer más →
-              </a>
-            </article>
-            <article className="rounded-[32px] bg-duffy-plum p-8 text-white">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-yellow">Tip 02</span>
-              <h3 className="mt-4 font-display text-2xl font-black leading-tight">
-                Cuidar la piel del recién nacido en invierno
-              </h3>
-              <p className="mt-4 text-sm text-white/80">
-                Habitación tibia, cambios frecuentes y una capa suave de crema barrera después de cada cambio.
-              </p>
-              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-yellow hover:underline">
-                Leer más →
-              </a>
-            </article>
-            <article className="rounded-[32px] bg-white p-8 ring-1 ring-zinc-900/5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">Tip 03</span>
-              <h3 className="mt-4 font-display text-2xl font-black leading-tight text-zinc-900">
-                Cómo elegir el talle correcto sin errores
-              </h3>
-              <p className="mt-4 text-sm text-zinc-600">
-                Guiate por el peso más que por la edad. Y si te queda marca en la piel, es momento de subir de talle.
-              </p>
-              <a href="#" className="mt-6 inline-flex text-sm font-bold text-duffy-plum hover:underline">
-                Leer más →
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Retailers */}
-      <section id="donde-comprar" className="mt-16 pb-8">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="rounded-[40px] bg-white p-10 ring-1 ring-zinc-900/5 lg:p-16">
-            <div className="text-center">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-duffy-plum">
-                Dónde encontrarnos
-              </span>
-              <h2 className="mx-auto mt-3 max-w-2xl font-display text-4xl font-black tracking-tight text-zinc-900 lg:text-5xl">
-                En las
-                <span style={{ fontFamily: "var(--font-script)" }} className="mx-3 font-bold italic text-duffy-plum">
-                  góndolas
-                </span>
-                de todo el país
+      {/* About */}
+      <section id="nosotros" className="scroll-mt-24 bg-duffy-plum text-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p className="font-script text-3xl text-duffy-yellow">nosotros</p>
+              <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
+                Industria argentina con estándar internacional
               </h2>
+              <p className="mt-5 max-w-lg leading-relaxed text-white/85">
+                Desde 2020 fabricamos productos de higiene descartables con
+                tecnología japonesa y controles de calidad en cada lote.
+                Pañales para bebés y adultos, y toallitas húmedas que llegan a
+                todo el país.
+              </p>
             </div>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-              {retailers.map((r) => (
-                <span
-                  key={r}
-                  className="font-display text-xl font-black tracking-tight text-zinc-400 transition-colors hover:text-duffy-plum lg:text-2xl"
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {[
+                { n: "2020", d: "Año de fundación" },
+                { n: "3", d: "Marcas propias" },
+                { n: "100%", d: "Fabricación nacional" },
+                { n: "+40", d: "Personas en el equipo" },
+              ].map((s) => (
+                <li
+                  key={s.d}
+                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm"
                 >
-                  {r}
-                </span>
+                  <p className="font-display text-4xl font-black text-duffy-yellow">
+                    {s.n}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">
+                    {s.d}
+                  </p>
+                </li>
               ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Where to buy */}
+      <section id="donde-comprar" className="scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <p className="font-script text-3xl text-duffy-plum">cerca tuyo</p>
+          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
+            Dónde encontrarnos
+          </h2>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-[36px] bg-zinc-900 p-8 text-white sm:p-10">
+              <h3 className="font-display text-2xl font-black">Comprá online</h3>
+              <p className="mt-3 text-white/80">
+                Encontrá todo el catálogo de Duffy, Promise y Lalas con envío a
+                todo el país.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {[
+                  { label: "Duffy en Mercado Libre", href: ML.duffy },
+                  { label: "Promise en Mercado Libre", href: ML.promise },
+                  { label: "Lalas en Mercado Libre", href: ML.lalas },
+                ].map((l) => (
+                  <li key={l.label}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-duffy-yellow px-6 py-2.5 text-sm font-bold text-zinc-900 transition-all hover:bg-duffy-yellow-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+                    >
+                      {l.label} <span aria-hidden>→</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 sm:p-10">
+              <h3 className="font-display text-2xl font-black">
+                En tiendas físicas
+              </h3>
+              <p className="mt-3 text-zinc-700">
+                Buscá nuestros productos en las principales cadenas y pañaleras
+                del país.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-3">
+                {retailers.map((r) => (
+                  <li
+                    key={r}
+                    className="rounded-full bg-white px-6 py-2.5 text-sm font-bold shadow-sm"
+                  >
+                    {r}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contacto" className="mt-16 pb-10">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="rounded-[40px] bg-zinc-900 p-10 text-white lg:p-16">
-            <div className="grid gap-12 md:grid-cols-[2fr_1fr_1fr]">
-              <div>
-                <div className="inline-flex items-center rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
-                  <img
-                    src={duffyLogo.url}
-                    alt="Duffy"
-                    width={480}
-                    height={360}
-                    className="h-14 w-auto"
-                  />
-                </div>
-                <p className="mt-6 max-w-sm text-sm text-white/70">
-                  Duffy diseña pañales con tecnología japonesa para acompañar el crecimiento de las familias argentinas.
-                </p>
-                <a
-                  href="#productos"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-duffy-yellow px-6 py-3 text-sm font-bold text-zinc-900 transition-transform hover:-translate-y-0.5"
-                >
-                  Conocé los productos <span aria-hidden>→</span>
-                </a>
-              </div>
-              <div>
-                <p className="mb-5 text-sm font-bold uppercase tracking-[0.15em] text-white/50">Navegar</p>
-                <ul className="space-y-3 text-sm text-white/90">
-                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Cotton</a></li>
-                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Premium Cotton</a></li>
-                  <li><a href="#productos" className="hover:text-duffy-yellow transition-colors">Junior</a></li>
-                  <li><a href="#toallitas" className="hover:text-duffy-yellow transition-colors">Toallitas Húmedas</a></li>
-                  <li><a href="#etapas" className="hover:text-duffy-yellow transition-colors">Etapas</a></li>
-                  <li><a href="#tips" className="hover:text-duffy-yellow transition-colors">Tips</a></li>
-                  <li><a href="#donde-comprar" className="hover:text-duffy-yellow transition-colors">Puntos de venta</a></li>
-                </ul>
-              </div>
-              <div>
-                <p className="mb-5 text-sm font-bold uppercase tracking-[0.15em] text-white/50">Contacto</p>
-                <ul className="space-y-3 text-sm text-white/90">
-                  <li>@duffy_arg</li>
-                  <li>Duffy Argentina</li>
-                  <li>hola@duffy.com.ar</li>
-                  <li>0800-333-DUFFY</li>
-                </ul>
-              </div>
-            </div>
-            <div className="mt-14 flex flex-col justify-between gap-3 border-t border-white/10 pt-8 text-[11px] text-white/50 sm:flex-row">
-              <p>© {new Date().getFullYear()} Duffy Argentina — Todos los derechos reservados</p>
-              <p>Tecnología japonesa Nº1 en calidad · Súper seco</p>
-            </div>
+      <footer className="bg-zinc-900 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-14 sm:flex-row sm:items-center lg:px-12">
+          <div>
+            <p className="font-display text-3xl font-black uppercase">Zanhang</p>
+            <p className="mt-2 max-w-sm text-sm text-white/70">
+              Higiene descartable que mejora la calidad de vida en cada etapa.
+              Duffy · Promise · Lalas.
+            </p>
           </div>
+          <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold uppercase tracking-wide">
+            {[
+              { href: "#marcas", label: "Marcas" },
+              { href: "#duffy", label: "Duffy" },
+              { href: "#toallitas", label: "Toallitas" },
+              { href: "#nosotros", label: "Nosotros" },
+              { href: "#donde-comprar", label: "Dónde comprar" },
+            ].map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="rounded-sm transition-colors hover:text-duffy-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="border-t border-white/10 py-6 text-center text-xs text-white/50">
+          © {new Date().getFullYear()} Zanhang S.A. — Todos los derechos
+          reservados.
         </div>
       </footer>
     </div>
