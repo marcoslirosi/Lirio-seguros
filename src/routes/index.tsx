@@ -15,8 +15,8 @@ const wipesHard = wipesHardAsset.url;
 const ML = {
   duffy:
     "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Cotton",
-  promise: "https://listado.mercadolibre.com.ar/panales-promise",
-  lalas: "https://listado.mercadolibre.com.ar/panales-lalas",
+  promise: "https://listado.mercadolibre.com.ar/panales-adultos-promise",
+  lalas: "https://listado.mercadolibre.com.ar/toallas-femeninas-lalas",
 };
 
 export const Route = createFileRoute("/")({
@@ -54,22 +54,22 @@ const brands = [
   },
   {
     name: "Promise",
-    tag: "Protección para todos los días",
-    desc: "Pañales confiables y accesibles, con máxima absorción y ajuste cómodo para acompañar cada etapa del bebé.",
+    tag: "Protección para adultos",
+    desc: "Pañales para adultos con máxima absorción, ajuste suave y discreción total, para acompañar cada día con comodidad y dignidad.",
     bg: "bg-promise",
     soft: "bg-promise-soft",
     text: "text-white",
-    href: "#marcas",
+    href: "#promise",
     ml: ML.promise,
   },
   {
     name: "Lalas",
-    tag: "Suavidad que abraza",
-    desc: "Pañales suaves y económicos pensados para el uso diario, con el respaldo de calidad de Zanhang.",
+    tag: "Higiene femenina",
+    desc: "Toallas y toallitas femeninas ultra suaves, con protección confiable y cómoda para acompañar cada día del mes.",
     bg: "bg-lalas",
     soft: "bg-lalas-soft",
     text: "text-white",
-    href: "#marcas",
+    href: "#lalas",
     ml: ML.lalas,
   },
 ];
@@ -160,13 +160,14 @@ function Index() {
             </span>
           </a>
           <ul className="hidden items-center justify-center gap-7 text-sm font-bold uppercase tracking-wide md:flex lg:gap-8">
-            {[
-              { href: "#marcas", label: "Marcas" },
-              { href: "#duffy", label: "Duffy" },
-              { href: "#toallitas", label: "Toallitas" },
-              { href: "#nosotros", label: "Nosotros" },
-              { href: "#donde-comprar", label: "Dónde comprar" },
-            ].map((item) => (
+              {[
+                { href: "#marcas", label: "Marcas" },
+                { href: "#duffy", label: "Duffy" },
+                { href: "#promise", label: "Promise" },
+                { href: "#lalas", label: "Lalas" },
+                { href: "#nosotros", label: "Nosotros" },
+                { href: "#donde-comprar", label: "Dónde comprar" },
+              ].map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
@@ -350,6 +351,92 @@ function Index() {
         </div>
       </section>
 
+      {/* Promise — adult diapers */}
+      <article
+        id="promise"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 lg:px-12"
+      >
+        <div className="overflow-hidden rounded-[36px] bg-promise p-8 text-white shadow-sm sm:p-12">
+          <p className="font-script text-3xl opacity-90">
+            protección en cada momento
+          </p>
+          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
+            Promise
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed opacity-95">
+            Pañales para adultos con máxima absorción y ajuste suave, pensados
+            para dar comodidad, seguridad y discreción todos los días, de día
+            y de noche.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {[
+              "Máxima absorción",
+              "Ajuste suave y discreto",
+              "Uso diurno y nocturno",
+              "Cintura elástica",
+            ].map((c) => (
+              <li
+                key={c}
+                className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold backdrop-blur-sm"
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={ML.promise}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-promise transition-all hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-promise"
+          >
+            Ver Promise en Mercado Libre <span aria-hidden>→</span>
+          </a>
+        </div>
+      </article>
+
+      {/* Lalas — feminine care */}
+      <article
+        id="lalas"
+        className="mx-auto max-w-7xl scroll-mt-24 px-6 pt-6 lg:px-12"
+      >
+        <div className="overflow-hidden rounded-[36px] bg-lalas p-8 text-white shadow-sm sm:p-12">
+          <p className="font-script text-3xl opacity-90">
+            suavidad todos los días
+          </p>
+          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
+            Lalas
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed opacity-95">
+            Higiene femenina ultra suave: toallas y toallitas femeninas con
+            protección confiable y confort delicado para acompañar cada día
+            del mes.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {[
+              "Ultra suaves",
+              "Protección confiable",
+              "Confort delicado",
+              "Para cada día del mes",
+            ].map((c) => (
+              <li
+                key={c}
+                className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold backdrop-blur-sm"
+              >
+                {c}
+              </li>
+            ))}
+          </ul>
+          <a
+            href={ML.lalas}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-bold text-lalas transition-all hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-lalas"
+          >
+            Ver Lalas en Mercado Libre <span aria-hidden>→</span>
+          </a>
+        </div>
+      </article>
+
       {/* Wipes */}
       <section id="toallitas" className="scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
@@ -406,8 +493,8 @@ function Index() {
               <p className="mt-5 max-w-lg leading-relaxed text-white/85">
                 Desde 2020 fabricamos productos de higiene descartables con
                 tecnología japonesa y controles de calidad en cada lote.
-                Pañales para bebés y adultos, y toallitas húmedas que llegan a
-                todo el país.
+                Pañales para bebés y adultos, higiene femenina y toallitas
+                húmedas que llegan a todo el país.
               </p>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
@@ -504,7 +591,8 @@ function Index() {
             {[
               { href: "#marcas", label: "Marcas" },
               { href: "#duffy", label: "Duffy" },
-              { href: "#toallitas", label: "Toallitas" },
+              { href: "#promise", label: "Promise" },
+              { href: "#lalas", label: "Lalas" },
               { href: "#nosotros", label: "Nosotros" },
               { href: "#donde-comprar", label: "Dónde comprar" },
             ].map((l) => (
