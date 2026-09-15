@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Zanhang desarrolla y fabrica productos de higiene descartables en Argentina. Conocé nuestras marcas Duffy, Promise y Lalas y compralas en Mercado Libre.",
+          "Zanhang fabrica pañales para bebés (Duffy) y adultos (Promise) e higiene femenina (Lalas) en Argentina. Comprá en Mercado Libre.",
       },
       { property: "og:title", content: "Zanhang — Duffy, Promise y Lalas" },
       {
@@ -202,9 +202,10 @@ function Index() {
               <span className="text-duffy-plum">en cada etapa</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-zinc-700">
-              En Zanhang desarrollamos y fabricamos pañales y toallitas con un
-              objetivo claro: mejorar la calidad de vida de las personas. Tres
-              marcas, un mismo compromiso.
+              En Zanhang desarrollamos y fabricamos pañales para bebés y
+              adultos, higiene femenina y toallitas húmedas con un objetivo
+              claro: mejorar la calidad de vida de las personas. Tres marcas,
+              un mismo compromiso.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
