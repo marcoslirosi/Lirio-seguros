@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import heroBaby from "@/assets/hero-yellow-baby.jpg";
 import heroMom from "@/assets/hero-yellow-mom.jpg";
@@ -128,6 +129,92 @@ const features = [
 
 const retailers = ["Carrefour", "Makro", "Pañaleras"];
 
+const stages = [
+  {
+    emoji: "🍼",
+    age: "0 – 18 meses",
+    title: "Primeros días",
+    desc: "Piel delicada que pide lo más suave: Duffy la envuelve en toque algodón, súper seca y protegida día y noche.",
+    brand: "Duffy",
+    href: "#duffy",
+    bg: "bg-duffy-yellow",
+    text: "text-zinc-900",
+  },
+  {
+    emoji: "🧒",
+    age: "+18 kg",
+    title: "Corriendo libres",
+    desc: "Nada frena a los más grandes: Duffy Junior XXXG sigue el ritmo con máxima absorción y orejas repegables.",
+    brand: "Duffy Junior",
+    href: "#duffy",
+    bg: "bg-duffy-orange",
+    text: "text-white",
+  },
+  {
+    emoji: "🌸",
+    age: "Cada día del mes",
+    title: "Tu momento",
+    desc: "Lalas cuida con toallas y toallitas femeninas ultra suaves: confort delicado y protección confiable.",
+    brand: "Lalas",
+    href: "#lalas",
+    bg: "bg-lalas",
+    text: "text-white",
+  },
+  {
+    emoji: "🌅",
+    age: "Todas las edades",
+    title: "Años con dignidad",
+    desc: "Promise acompaña a los adultos con pañales de máxima absorción, ajuste suave y discreción total.",
+    brand: "Promise",
+    href: "#promise",
+    bg: "bg-promise",
+    text: "text-white",
+  },
+];
+
+function Reveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-duffy-cream font-sans text-zinc-900 antialiased selection:bg-duffy-plum selection:text-white">
@@ -162,6 +249,7 @@ function Index() {
           <ul className="hidden items-center justify-center gap-7 text-sm font-bold uppercase tracking-wide md:flex lg:gap-8">
               {[
                 { href: "#marcas", label: "Marcas" },
+                { href: "#etapas", label: "Etapas" },
                 { href: "#duffy", label: "Duffy" },
                 { href: "#promise", label: "Promise" },
                 { href: "#lalas", label: "Lalas" },
@@ -192,22 +280,43 @@ function Index() {
 
       {/* Hero */}
       <header className="relative overflow-hidden">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-10 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-24">
+        {/* Blobs flotantes */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="zan-float-slow absolute -left-20 top-32 h-64 w-64 rounded-full bg-duffy-yellow opacity-70 blur-3xl" />
+          <div
+            className="zan-float absolute right-4 top-8 h-44 w-44 rounded-full bg-duffy-plum-soft opacity-40 blur-3xl"
+            style={{ animationDelay: "1.4s" }}
+          />
+          <div
+            className="zan-float-slow absolute bottom-8 left-1/3 h-52 w-52 rounded-full bg-duffy-orange-soft opacity-80 blur-3xl"
+            style={{ animationDelay: "2.4s" }}
+          />
+        </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-10 sm:pt-16 lg:grid-cols-2 lg:gap-16 lg:px-12 lg:pb-24">
           <div>
-            <p className="font-script text-3xl text-duffy-plum sm:text-4xl">
-              caminitos de aire
+            <p className="zan-rise font-script text-3xl text-duffy-plum sm:text-4xl">
+              te acompañamos en cada etapa
             </p>
-            <h1 className="mt-3 font-display text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-              Higiene descartable que cuida{" "}
-              <span className="text-duffy-plum">en cada etapa</span>
+            <h1
+              className="zan-rise mt-3 font-display text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+              style={{ animationDelay: "120ms" }}
+            >
+              Zanhang cuida{" "}
+              <span className="text-duffy-plum">toda tu vida</span>
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-zinc-700">
-              En Zanhang desarrollamos y fabricamos pañales para bebés y
-              adultos, higiene femenina y toallitas húmedas con un objetivo
-              claro: mejorar la calidad de vida de las personas. Tres marcas,
-              un mismo compromiso.
+            <p
+              className="zan-rise mt-6 max-w-lg text-lg leading-relaxed text-zinc-700"
+              style={{ animationDelay: "240ms" }}
+            >
+              De la primera upa a los años dorados: desarrollamos y fabricamos
+              pañales para bebés y adultos, higiene femenina y toallitas
+              húmedas. Tres marcas, un mismo compromiso: mejorar tu calidad de
+              vida en cada etapa.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div
+              className="zan-rise mt-8 flex flex-wrap gap-3"
+              style={{ animationDelay: "360ms" }}
+            >
               <a
                 href="#marcas"
                 className="inline-flex min-h-11 items-center gap-2 rounded-full bg-zinc-900 px-7 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
@@ -228,31 +337,43 @@ function Index() {
             <img
               src={heroBaby}
               alt="Bebé sonriendo sobre fondo amarillo"
-              className="aspect-[3/4] w-full rounded-[36px] object-cover"
+              className="zan-float aspect-[3/4] w-full rounded-[36px] object-cover shadow-lg"
             />
             <img
               src={heroMom}
               alt="Mamá sosteniendo a su bebé"
-              className="mt-10 aspect-[3/4] w-full rounded-[36px] object-cover"
+              className="zan-float mt-10 aspect-[3/4] w-full rounded-[36px] object-cover shadow-lg"
+              style={{ animationDelay: "1s" }}
             />
           </div>
         </div>
       </header>
 
       {/* Features ticker */}
-      <div className="bg-zinc-900 py-5 text-white">
-        <ul className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 px-6 lg:px-12">
-          {features.map((f) => (
-            <li key={f.sub} className="flex items-baseline gap-2">
-              <span className="font-display text-2xl font-black text-duffy-yellow">
-                {f.title}
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-wide">
-                {f.sub}
-              </span>
-            </li>
+      <div className="overflow-hidden bg-zinc-900 py-5 text-white">
+        <div className="zan-marquee flex w-max items-center">
+          {[0, 1].map((dup) => (
+            <ul
+              key={dup}
+              aria-hidden={dup === 1}
+              className="flex items-center gap-10 pr-10"
+            >
+              {features.map((f) => (
+                <li key={f.sub} className="flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-black text-duffy-yellow">
+                    {f.title}
+                  </span>
+                  <span className="whitespace-nowrap text-sm font-semibold uppercase tracking-wide">
+                    {f.sub}
+                  </span>
+                  <span aria-hidden className="ml-6 text-duffy-plum-soft">
+                    ✦
+                  </span>
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
 
       {/* Brands */}
@@ -263,12 +384,12 @@ function Index() {
             Tres marcas, una misma fábrica de calidad
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {brands.map((b) => (
+            {brands.map((b, i) => (
+              <Reveal key={b.name} delay={i * 120} className="h-full">
               <article
-                key={b.name}
-                className={`flex flex-col rounded-[36px] ${b.bg} ${b.text} p-8 shadow-sm`}
+                className={`group flex h-full flex-col rounded-[36px] ${b.bg} ${b.text} p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
               >
-                <h3 className="font-display text-4xl font-black">{b.name}</h3>
+                <h3 className="origin-left font-display text-4xl font-black transition-transform duration-300 group-hover:scale-105">{b.name}</h3>
                 <p className="mt-1 font-script text-2xl opacity-90">{b.tag}</p>
                 <p className="mt-4 flex-1 leading-relaxed opacity-95">{b.desc}</p>
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -282,7 +403,63 @@ function Index() {
                   </a>
                 </div>
               </article>
+              </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Life stages */}
+      <section id="etapas" className="scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <Reveal>
+            <p className="font-script text-3xl text-duffy-plum">
+              de la primera upa a los años dorados
+            </p>
+            <h2 className="mt-2 max-w-2xl font-display text-4xl font-black tracking-tight sm:text-5xl">
+              Zanhang te acompaña en cada etapa de tu vida
+            </h2>
+            <p className="mt-4 max-w-xl text-lg text-zinc-700">
+              Un mismo cuidado que crece con vos, marca tras marca.
+            </p>
+          </Reveal>
+          <div className="relative mt-14">
+            <div
+              aria-hidden
+              className="zan-dash-line absolute inset-x-16 top-12 hidden h-1 rounded-full opacity-40 lg:block"
+            />
+            <ol className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {stages.map((s, i) => (
+                <Reveal key={s.title} delay={i * 140} className="h-full">
+                  <li
+                    className={`group flex h-full flex-col rounded-[36px] ${s.bg} ${s.text} p-7 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl`}
+                  >
+                    <span
+                      aria-hidden
+                      className="zan-float text-5xl"
+                      style={{ animationDelay: `${i * 0.5}s` }}
+                    >
+                      {s.emoji}
+                    </span>
+                    <p className="mt-5 text-xs font-bold uppercase tracking-widest opacity-70">
+                      {s.age}
+                    </p>
+                    <h3 className="mt-1 font-display text-2xl font-black">
+                      {s.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed opacity-90">
+                      {s.desc}
+                    </p>
+                    <a
+                      href={s.href}
+                      className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full bg-white/25 px-4 py-2 text-xs font-bold backdrop-blur-sm transition-colors hover:bg-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    >
+                      {s.brand} <span aria-hidden>→</span>
+                    </a>
+                  </li>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
@@ -312,15 +489,15 @@ function Index() {
             </span>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {duffyProducts.map((p) => (
+            {duffyProducts.map((p, i) => (
+              <Reveal key={p.name} delay={i * 120} className="h-full">
               <article
-                key={p.name}
-                className={`flex flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm`}
+                className={`group flex h-full flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
               >
                 <img
                   src={p.img}
                   alt={p.alt}
-                  className="aspect-square w-full object-contain p-6"
+                  className="aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.06]"
                 />
                 <div className="flex flex-1 flex-col p-7 pt-0">
                   <h3 className="font-display text-2xl font-black">{p.name}</h3>
@@ -347,6 +524,7 @@ function Index() {
                   </a>
                 </div>
               </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -357,6 +535,7 @@ function Index() {
         id="promise"
         className="mx-auto max-w-7xl scroll-mt-24 px-6 lg:px-12"
       >
+        <Reveal>
         <div className="overflow-hidden rounded-[36px] bg-promise p-8 text-white shadow-sm sm:p-12">
           <p className="font-script text-3xl opacity-90">
             protección en cada momento
@@ -393,6 +572,7 @@ function Index() {
             Ver Promise en Mercado Libre <span aria-hidden>→</span>
           </a>
         </div>
+        </Reveal>
       </article>
 
       {/* Lalas — feminine care */}
@@ -400,6 +580,7 @@ function Index() {
         id="lalas"
         className="mx-auto max-w-7xl scroll-mt-24 px-6 pt-6 lg:px-12"
       >
+        <Reveal>
         <div className="overflow-hidden rounded-[36px] bg-lalas p-8 text-white shadow-sm sm:p-12">
           <p className="font-script text-3xl opacity-90">
             suavidad todos los días
@@ -436,11 +617,13 @@ function Index() {
             Ver Lalas en Mercado Libre <span aria-hidden>→</span>
           </a>
         </div>
+        </Reveal>
       </article>
 
       {/* Wipes */}
       <section id="toallitas" className="scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <Reveal>
           <div className="overflow-hidden rounded-[36px] bg-duffy-orange-soft p-8 sm:p-12">
             <p className="font-script text-3xl text-duffy-plum">
               de pies a cabeza
@@ -456,7 +639,7 @@ function Index() {
               {wipes.map((w) => (
                 <article
                   key={w.name}
-                  className="flex w-full max-w-xs flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm"
+                  className="flex w-full max-w-xs flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
                 >
                   <img
                     src={w.img}
@@ -479,6 +662,7 @@ function Index() {
               Comprar toallitas en Mercado Libre <span aria-hidden>→</span>
             </a>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -507,7 +691,7 @@ function Index() {
               ].map((s) => (
                 <li
                   key={s.d}
-                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm"
+                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:bg-white/15"
                 >
                   <p className="font-display text-4xl font-black text-duffy-yellow">
                     {s.n}
@@ -530,7 +714,7 @@ function Index() {
             Dónde encontrarnos
           </h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[36px] bg-zinc-900 p-8 text-white sm:p-10">
+            <div className="rounded-[36px] bg-zinc-900 p-8 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
               <h3 className="font-display text-2xl font-black">Comprá online</h3>
               <p className="mt-3 text-white/80">
                 Encontrá todo el catálogo de Duffy, Promise y Lalas con envío a
@@ -555,7 +739,7 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 sm:p-10">
+            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
               <h3 className="font-display text-2xl font-black">
                 En tiendas físicas
               </h3>
@@ -591,6 +775,7 @@ function Index() {
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold uppercase tracking-wide">
             {[
               { href: "#marcas", label: "Marcas" },
+              { href: "#etapas", label: "Etapas" },
               { href: "#duffy", label: "Duffy" },
               { href: "#promise", label: "Promise" },
               { href: "#lalas", label: "Lalas" },
