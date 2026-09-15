@@ -181,3 +181,99 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============ Zanhang animations ============ */
+@keyframes zan-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes zan-rise {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zan-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes zan-slide-dash {
+  to {
+    background-position: 28px 0;
+  }
+}
+
+.zan-rise {
+  animation: zan-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.zan-float {
+  animation: zan-float 6s ease-in-out infinite;
+}
+
+.zan-float-slow {
+  animation: zan-float 9s ease-in-out infinite;
+}
+
+.zan-marquee {
+  animation: zan-marquee 30s linear infinite;
+}
+
+.zan-marquee:hover {
+  animation-play-state: paused;
+}
+
+.zan-dash-line {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--duffy-plum-soft) 0 14px,
+    transparent 14px 28px
+  );
+  background-size: 28px 100%;
+  animation: zan-slide-dash 1.2s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zan-rise,
+  .zan-float,
+  .zan-float-slow,
+  .zan-marquee,
+  .zan-dash-line {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
