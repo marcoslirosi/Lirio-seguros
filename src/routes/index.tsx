@@ -282,6 +282,7 @@ function Index() {
                   </a>
                 </div>
               </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -312,15 +313,15 @@ function Index() {
             </span>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {duffyProducts.map((p) => (
+            {duffyProducts.map((p, i) => (
+              <Reveal key={p.name} delay={i * 120} className="h-full">
               <article
-                key={p.name}
-                className={`flex flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm`}
+                className={`group flex h-full flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
               >
                 <img
                   src={p.img}
                   alt={p.alt}
-                  className="aspect-square w-full object-contain p-6"
+                  className="aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.06]"
                 />
                 <div className="flex flex-1 flex-col p-7 pt-0">
                   <h3 className="font-display text-2xl font-black">{p.name}</h3>
@@ -347,6 +348,7 @@ function Index() {
                   </a>
                 </div>
               </article>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -357,6 +359,7 @@ function Index() {
         id="promise"
         className="mx-auto max-w-7xl scroll-mt-24 px-6 lg:px-12"
       >
+        <Reveal>
         <div className="overflow-hidden rounded-[36px] bg-promise p-8 text-white shadow-sm sm:p-12">
           <p className="font-script text-3xl opacity-90">
             protección en cada momento
@@ -393,6 +396,7 @@ function Index() {
             Ver Promise en Mercado Libre <span aria-hidden>→</span>
           </a>
         </div>
+        </Reveal>
       </article>
 
       {/* Lalas — feminine care */}
@@ -400,6 +404,7 @@ function Index() {
         id="lalas"
         className="mx-auto max-w-7xl scroll-mt-24 px-6 pt-6 lg:px-12"
       >
+        <Reveal>
         <div className="overflow-hidden rounded-[36px] bg-lalas p-8 text-white shadow-sm sm:p-12">
           <p className="font-script text-3xl opacity-90">
             suavidad todos los días
@@ -436,11 +441,13 @@ function Index() {
             Ver Lalas en Mercado Libre <span aria-hidden>→</span>
           </a>
         </div>
+        </Reveal>
       </article>
 
       {/* Wipes */}
       <section id="toallitas" className="scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+          <Reveal>
           <div className="overflow-hidden rounded-[36px] bg-duffy-orange-soft p-8 sm:p-12">
             <p className="font-script text-3xl text-duffy-plum">
               de pies a cabeza
@@ -456,7 +463,7 @@ function Index() {
               {wipes.map((w) => (
                 <article
                   key={w.name}
-                  className="flex w-full max-w-xs flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm"
+                  className="flex w-full max-w-xs flex-col items-center rounded-[28px] bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
                 >
                   <img
                     src={w.img}
@@ -479,6 +486,7 @@ function Index() {
               Comprar toallitas en Mercado Libre <span aria-hidden>→</span>
             </a>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -507,7 +515,7 @@ function Index() {
               ].map((s) => (
                 <li
                   key={s.d}
-                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm"
+                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:bg-white/15"
                 >
                   <p className="font-display text-4xl font-black text-duffy-yellow">
                     {s.n}
@@ -530,7 +538,7 @@ function Index() {
             Dónde encontrarnos
           </h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[36px] bg-zinc-900 p-8 text-white sm:p-10">
+            <div className="rounded-[36px] bg-zinc-900 p-8 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
               <h3 className="font-display text-2xl font-black">Comprá online</h3>
               <p className="mt-3 text-white/80">
                 Encontrá todo el catálogo de Duffy, Promise y Lalas con envío a
@@ -555,7 +563,7 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 sm:p-10">
+            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
               <h3 className="font-display text-2xl font-black">
                 En tiendas físicas
               </h3>
@@ -591,6 +599,7 @@ function Index() {
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold uppercase tracking-wide">
             {[
               { href: "#marcas", label: "Marcas" },
+              { href: "#etapas", label: "Etapas" },
               { href: "#duffy", label: "Duffy" },
               { href: "#promise", label: "Promise" },
               { href: "#lalas", label: "Lalas" },
