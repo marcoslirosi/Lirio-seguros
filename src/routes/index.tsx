@@ -8,10 +8,16 @@ import duffyLogo from "@/assets/duffy-logo.png.asset.json";
 import productJuniorAsset from "@/assets/duffy-junior.png.asset.json";
 import wipesFlexAsset from "@/assets/duffy-wipes-flex.png.asset.json";
 import wipesHardAsset from "@/assets/duffy-wipes-hard.png.asset.json";
+import duffyBrandAsset from "@/assets/duffy-brand.png.asset.json";
+import promiseBrandAsset from "@/assets/promise-brand.png.asset.json";
+import lalasBrandAsset from "@/assets/lalas-brand.png.asset.json";
 
 const productJunior = productJuniorAsset.url;
 const wipesFlex = wipesFlexAsset.url;
 const wipesHard = wipesHardAsset.url;
+const duffyBrand = duffyBrandAsset.url;
+const promiseBrand = promiseBrandAsset.url;
+const lalasBrand = lalasBrandAsset.url;
 
 const ML = {
   duffy:
@@ -45,6 +51,7 @@ export const Route = createFileRoute("/")({
 const brands = [
   {
     name: "Duffy",
+    logo: duffyBrand,
     tag: "Caminitos de aire",
     desc: "La línea premium del cuidado diario. Pañales con toque algodón y tecnología japonesa, en talles RN a XXXG, más toallitas húmedas.",
     bg: "bg-duffy-yellow",
@@ -55,6 +62,7 @@ const brands = [
   },
   {
     name: "Promise",
+    logo: promiseBrand,
     tag: "Protección para adultos",
     desc: "Pañales para adultos con máxima absorción, ajuste suave y discreción total, para acompañar cada día con comodidad y dignidad.",
     bg: "bg-promise",
@@ -65,6 +73,7 @@ const brands = [
   },
   {
     name: "Lalas",
+    logo: lalasBrand,
     tag: "Higiene femenina",
     desc: "Toallas y toallitas femeninas ultra suaves, con protección confiable y cómoda para acompañar cada día del mes.",
     bg: "bg-lalas",
@@ -389,8 +398,14 @@ function Index() {
               <article
                 className={`group flex h-full flex-col rounded-[36px] ${b.bg} ${b.text} p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
               >
-                <h3 className="origin-left font-display text-4xl font-black transition-transform duration-300 group-hover:scale-105">{b.name}</h3>
-                <p className="mt-1 font-script text-2xl opacity-90">{b.tag}</p>
+                <img
+                  src={b.logo}
+                  alt={b.name}
+                  width={300}
+                  height={160}
+                  className="h-16 w-auto max-w-[230px] object-contain object-left transition-transform duration-300 group-hover:scale-105 sm:h-20"
+                />
+                <p className="mt-2 font-script text-2xl opacity-90">{b.tag}</p>
                 <p className="mt-4 flex-1 leading-relaxed opacity-95">{b.desc}</p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <a
@@ -540,9 +555,13 @@ function Index() {
           <p className="font-script text-3xl opacity-90">
             protección en cada momento
           </p>
-          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
-            Promise
-          </h2>
+          <img
+            src={promiseBrand}
+            alt="Promise"
+            width={480}
+            height={190}
+            className="mt-2 h-14 w-auto sm:h-16"
+          />
           <p className="mt-4 max-w-2xl text-lg leading-relaxed opacity-95">
             Pañales para adultos con máxima absorción y ajuste suave, pensados
             para dar comodidad, seguridad y discreción todos los días, de día
@@ -585,9 +604,13 @@ function Index() {
           <p className="font-script text-3xl opacity-90">
             suavidad todos los días
           </p>
-          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
-            Lalas
-          </h2>
+          <img
+            src={lalasBrand}
+            alt="Lalas"
+            width={480}
+            height={260}
+            className="mt-2 h-20 w-auto sm:h-24"
+          />
           <p className="mt-4 max-w-2xl text-lg leading-relaxed opacity-95">
             Higiene femenina ultra suave: toallas y toallitas femeninas con
             protección confiable y confort delicado para acompañar cada día
