@@ -714,7 +714,7 @@ function Index() {
               ].map((s) => (
                 <li
                   key={s.d}
-                  className="rounded-[28px] bg-white/10 p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:bg-white/15"
+                  className="rounded-[28px] bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:bg-white/10"
                 >
                   <p className="font-display text-4xl font-black text-duffy-yellow">
                     {s.n}
