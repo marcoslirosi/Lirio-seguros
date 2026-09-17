@@ -5,6 +5,7 @@ import heroMom from "@/assets/hero-yellow-mom.jpg";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
 import duffyLogo from "@/assets/duffy-logo.png.asset.json";
+import zanhangLogo from "@/assets/zanhang-logo.png.asset.json";
 import productJuniorAsset from "@/assets/duffy-junior.png.asset.json";
 import wipesFlexAsset from "@/assets/duffy-wipes-flex.png.asset.json";
 import wipesHardAsset from "@/assets/duffy-wipes-hard.png.asset.json";
@@ -236,11 +237,13 @@ function Index() {
           <a
             href="/"
             aria-label="Zanhang — Ir al inicio"
-            className="flex min-w-0 shrink-0 items-baseline gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
+            className="flex min-w-0 shrink-0 items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
           >
-            <span className="font-display text-3xl font-black uppercase tracking-tight sm:text-4xl">
-              Zanhang
-            </span>
+            <img
+              src={zanhangLogo.url}
+              alt="Zanhang S.A."
+              className="h-10 w-auto sm:h-12 md:h-14"
+            />
             <span className="hidden font-script text-xl text-duffy-plum sm:inline">
               cuidamos cada etapa
             </span>
@@ -684,7 +687,12 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <p className="font-script text-3xl text-duffy-yellow">nosotros</p>
+              <img
+                src={zanhangLogo.url}
+                alt="Logo de Zanhang S.A."
+                className="w-52 rounded-[28px] bg-white p-4 shadow-lg sm:w-60"
+              />
+              <p className="mt-6 font-script text-3xl text-duffy-yellow">nosotros</p>
               <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
                 Industria argentina con estándar internacional
               </h2>
@@ -697,19 +705,45 @@ function Index() {
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
               {[
-                { n: "2020", d: "Año de fundación" },
-                { n: "3", d: "Marcas propias" },
-                { n: "100%", d: "Fabricación nacional" },
-                { n: "+40", d: "Personas en el equipo" },
+                {
+                  n: "2020",
+                  d: "Año de fundación",
+                  card: "bg-duffy-yellow shadow-lg shadow-duffy-yellow/25",
+                  num: "text-zinc-900",
+                  label: "text-zinc-900/75",
+                },
+                {
+                  n: "3",
+                  d: "Marcas propias",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-zinc-600",
+                },
+                {
+                  n: "100%",
+                  d: "Fabricación nacional",
+                  card: "bg-duffy-orange shadow-lg shadow-duffy-orange/30",
+                  num: "text-zinc-900",
+                  label: "text-zinc-900/75",
+                },
+                {
+                  n: "+40",
+                  d: "Personas en el equipo",
+                  card: "bg-zinc-900 shadow-lg",
+                  num: "text-duffy-yellow",
+                  label: "text-white/80",
+                },
               ].map((s) => (
                 <li
                   key={s.d}
-                  className="rounded-[28px] bg-white/[0.04] p-6 backdrop-blur-sm transition-all duration-300 hover:scale-[1.04] hover:bg-white/10"
+                  className={`rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${s.card}`}
                 >
-                  <p className="font-display text-4xl font-black text-duffy-yellow">
+                  <p className={`font-display text-4xl font-black ${s.num}`}>
                     {s.n}
                   </p>
-                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-white/80">
+                  <p
+                    className={`mt-1 text-sm font-semibold uppercase tracking-wide ${s.label}`}
+                  >
                     {s.d}
                   </p>
                 </li>
