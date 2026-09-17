@@ -141,20 +141,10 @@ const retailers = ["Carrefour", "Makro", "Pañaleras"];
 const stages = [
   {
     emoji: "🍼",
-    age: "0 – 18 meses",
-    title: "Primeros días",
-    desc: "Piel delicada que pide lo más suave: Duffy la envuelve en toque algodón, súper seca y protegida día y noche.",
-    brand: "Duffy",
-    href: "#duffy",
-    bg: "bg-duffy-yellow",
-    text: "text-zinc-900",
-  },
-  {
-    emoji: "🧒",
-    age: "+18 kg",
-    title: "Corriendo libres",
-    desc: "Nada frena a los más grandes: Duffy Junior XXXG sigue el ritmo con máxima absorción y orejas repegables.",
-    brand: "Duffy Junior",
+    age: "0 meses – 18 kg",
+    title: "Bebés",
+    desc: "Duffy los cuida desde el primer upa y Duffy Junior sigue el ritmo de los más grandes e inquietos: toque algodón, súper secos día y noche y orejas repegables.",
+    brand: "Duffy & Duffy Junior",
     href: "#duffy",
     bg: "bg-duffy-orange",
     text: "text-white",
@@ -162,18 +152,18 @@ const stages = [
   {
     emoji: "🌸",
     age: "Cada día del mes",
-    title: "Tu momento",
-    desc: "Lalas cuida con toallas y toallitas femeninas ultra suaves: confort delicado y protección confiable.",
+    title: "Femenino",
+    desc: "Lalas cuida con toallas y toallitas femeninas ultra suaves: confort delicado, protección confiable y libertad para sentirte vos.",
     brand: "Lalas",
     href: "#lalas",
     bg: "bg-lalas",
     text: "text-white",
   },
   {
-    emoji: "🌅",
+    emoji: "💙",
     age: "Todas las edades",
-    title: "Años con dignidad",
-    desc: "Promise acompaña a los adultos con pañales de máxima absorción, ajuste suave y discreción total.",
+    title: "Incontinencia",
+    desc: "Promise acompaña a adultos y adultos mayores con pañales de máxima absorción, ajuste suave y discreción total.",
     brand: "Promise",
     href: "#promise",
     bg: "bg-promise",
@@ -443,7 +433,7 @@ function Index() {
               aria-hidden
               className="zan-dash-line absolute inset-x-16 top-12 hidden h-1 rounded-full opacity-40 lg:block"
             />
-            <ol className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {stages.map((s, i) => (
                 <Reveal key={s.title} delay={i * 140} className="h-full">
                   <li
