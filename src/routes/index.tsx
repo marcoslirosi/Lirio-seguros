@@ -244,9 +244,6 @@ function Index() {
               alt="Zanhang S.A."
               className="h-10 w-auto sm:h-12 md:h-14"
             />
-            <span className="hidden font-script text-xl text-duffy-plum sm:inline">
-              cuidamos cada etapa
-            </span>
           </a>
           <ul className="hidden items-center justify-center gap-7 text-sm font-bold uppercase tracking-wide md:flex lg:gap-8">
               {[
