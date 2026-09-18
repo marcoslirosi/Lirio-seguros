@@ -285,7 +285,7 @@ function Index() {
       <header className="relative overflow-hidden">
         {/* Blobs flotantes */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="zan-float-slow absolute -left-20 top-32 h-64 w-64 rounded-full bg-duffy-plum opacity-45 blur-3xl" />
+          <div className="zan-float-slow absolute -left-20 top-32 h-64 w-64 rounded-full bg-duffy-yellow opacity-70 blur-3xl" />
           <div
             className="zan-float absolute right-4 top-8 h-44 w-44 rounded-full bg-duffy-plum-soft opacity-40 blur-3xl"
             style={{ animationDelay: "1.4s" }}
