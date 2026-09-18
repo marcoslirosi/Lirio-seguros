@@ -684,15 +684,15 @@ function Index() {
 
       {/* About */}
       <section id="nosotros" className="scroll-mt-24 bg-duffy-plum text-white">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <img
                 src={zanhangLogo.url}
                 alt="Logo de Zanhang S.A."
-                className="w-52 rounded-[28px] bg-white p-4 shadow-lg sm:w-60"
+                className="w-44 rounded-[24px] bg-white p-3 shadow-lg sm:w-52"
               />
-              <p className="mt-6 font-script text-3xl text-duffy-yellow">nosotros</p>
+              <p className="mt-5 font-script text-3xl text-duffy-yellow">nosotros</p>
               <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
                 Industria argentina con estándar internacional
               </h2>
@@ -708,37 +708,37 @@ function Index() {
                 {
                   n: "2020",
                   d: "Año de fundación",
-                  card: "bg-duffy-yellow shadow-lg shadow-duffy-yellow/25",
-                  num: "text-zinc-900",
-                  label: "text-zinc-900/75",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "3",
                   d: "Marcas propias",
                   card: "bg-white shadow-lg",
                   num: "text-duffy-plum",
-                  label: "text-zinc-600",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "100%",
                   d: "Fabricación nacional",
-                  card: "bg-duffy-orange shadow-lg shadow-duffy-orange/30",
-                  num: "text-zinc-900",
-                  label: "text-zinc-900/75",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "+40",
                   d: "Personas en el equipo",
-                  card: "bg-zinc-900 shadow-lg",
-                  num: "text-duffy-yellow",
-                  label: "text-white/80",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
               ].map((s) => (
                 <li
                   key={s.d}
-                  className={`rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${s.card}`}
+                  className={`rounded-[24px] p-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${s.card}`}
                 >
-                  <p className={`font-display text-4xl font-black ${s.num}`}>
+                  <p className={`font-display text-3xl font-black ${s.num}`}>
                     {s.n}
                   </p>
                   <p
