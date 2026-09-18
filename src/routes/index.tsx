@@ -684,15 +684,15 @@ function Index() {
 
       {/* About */}
       <section id="nosotros" className="scroll-mt-24 bg-duffy-plum text-white">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <div>
               <img
                 src={zanhangLogo.url}
                 alt="Logo de Zanhang S.A."
-                className="w-52 rounded-[28px] bg-white p-4 shadow-lg sm:w-60"
+                className="w-44 rounded-[24px] bg-white p-3 shadow-lg sm:w-52"
               />
-              <p className="mt-6 font-script text-3xl text-duffy-yellow">nosotros</p>
+              <p className="mt-5 font-script text-3xl text-duffy-yellow">nosotros</p>
               <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
                 Industria argentina con estándar internacional
               </h2>
