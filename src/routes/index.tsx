@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import heroBaby from "@/assets/hero-yellow-baby.jpg";
-import heroMom from "@/assets/hero-yellow-mom.jpg";
+import heroEtapaBebeAsset from "@/assets/hero-etapa-bebe.png.asset.json";
+import heroEtapaAdultosAsset from "@/assets/hero-etapa-adultos.jpg.asset.json";
+import heroEtapaMujeresAsset from "@/assets/hero-etapa-mujeres.jpg.asset.json";
 import productCotton from "@/assets/product-cotton.jpg";
 import productPremium from "@/assets/product-premium.jpg";
 import duffyLogo from "@/assets/duffy-logo.png.asset.json";
@@ -13,6 +14,9 @@ import duffyBrandAsset from "@/assets/duffy-brand.png.asset.json";
 import promiseBrandAsset from "@/assets/promise-brand.png.asset.json";
 import lalasBrandAsset from "@/assets/lalas-brand.png.asset.json";
 
+const heroEtapaBebe = heroEtapaBebeAsset.url;
+const heroEtapaAdultos = heroEtapaAdultosAsset.url;
+const heroEtapaMujeres = heroEtapaMujeresAsset.url;
 const productJunior = productJuniorAsset.url;
 const wipesFlex = wipesFlexAsset.url;
 const wipesHard = wipesHardAsset.url;
@@ -281,7 +285,7 @@ function Index() {
       <header className="relative overflow-hidden">
         {/* Blobs flotantes */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="zan-float-slow absolute -left-20 top-32 h-64 w-64 rounded-full bg-duffy-yellow opacity-70 blur-3xl" />
+          <div className="zan-float-slow absolute -left-20 top-32 h-64 w-64 rounded-full bg-duffy-plum opacity-45 blur-3xl" />
           <div
             className="zan-float absolute right-4 top-8 h-44 w-44 rounded-full bg-duffy-plum-soft opacity-40 blur-3xl"
             style={{ animationDelay: "1.4s" }}
@@ -332,17 +336,23 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 items-end gap-3 sm:gap-4">
             <img
-              src={heroBaby}
-              alt="Bebé sonriendo sobre fondo amarillo"
-              className="zan-float aspect-[3/4] w-full rounded-[36px] object-cover shadow-lg"
+              src={heroEtapaBebe}
+              alt="Bebé jugando, línea Duffy"
+              className="zan-float aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
             />
             <img
-              src={heroMom}
-              alt="Mamá sosteniendo a su bebé"
-              className="zan-float mt-10 aspect-[3/4] w-full rounded-[36px] object-cover shadow-lg"
-              style={{ animationDelay: "1s" }}
+              src={heroEtapaAdultos}
+              alt="Pareja mayor sonriendo, línea Promise"
+              className="zan-float z-10 aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
+              style={{ animationDelay: "0.8s" }}
+            />
+            <img
+              src={heroEtapaMujeres}
+              alt="Mujeres riendo juntas, línea Lalas"
+              className="zan-float aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
+              style={{ animationDelay: "1.6s" }}
             />
           </div>
         </div>
