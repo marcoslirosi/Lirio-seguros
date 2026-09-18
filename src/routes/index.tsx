@@ -708,37 +708,37 @@ function Index() {
                 {
                   n: "2020",
                   d: "Año de fundación",
-                  card: "bg-duffy-yellow shadow-lg shadow-duffy-yellow/25",
-                  num: "text-zinc-900",
-                  label: "text-zinc-900/75",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "3",
                   d: "Marcas propias",
                   card: "bg-white shadow-lg",
                   num: "text-duffy-plum",
-                  label: "text-zinc-600",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "100%",
                   d: "Fabricación nacional",
-                  card: "bg-duffy-orange shadow-lg shadow-duffy-orange/30",
-                  num: "text-zinc-900",
-                  label: "text-zinc-900/75",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
                 {
                   n: "+40",
                   d: "Personas en el equipo",
-                  card: "bg-zinc-900 shadow-lg",
-                  num: "text-duffy-yellow",
-                  label: "text-white/80",
+                  card: "bg-white shadow-lg",
+                  num: "text-duffy-plum",
+                  label: "text-duffy-plum/70",
                 },
               ].map((s) => (
                 <li
                   key={s.d}
-                  className={`rounded-[28px] p-6 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${s.card}`}
+                  className={`rounded-[24px] p-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] ${s.card}`}
                 >
-                  <p className={`font-display text-4xl font-black ${s.num}`}>
+                  <p className={`font-display text-3xl font-black ${s.num}`}>
                     {s.n}
                   </p>
                   <p
