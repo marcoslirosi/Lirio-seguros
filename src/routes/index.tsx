@@ -322,7 +322,7 @@ function Index() {
             >
               <a
                 href="#marcas"
-                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-zinc-900 px-7 py-3 text-sm font-bold text-white transition-all hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-duffy-plum px-7 py-3 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
               >
                 Ver las marcas <span aria-hidden>→</span>
               </a>
@@ -330,7 +330,7 @@ function Index() {
                 href={ML.duffy}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-zinc-900 px-7 py-3 text-sm font-bold transition-colors hover:bg-zinc-900 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-duffy-plum px-7 py-3 text-sm font-bold text-zinc-900 transition-colors hover:bg-duffy-plum hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
               >
                 Comprar en Mercado Libre
               </a>
