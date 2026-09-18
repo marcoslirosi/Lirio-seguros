@@ -336,22 +336,22 @@ function Index() {
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-3 items-end gap-3 sm:gap-4">
+          <div className="grid grid-cols-3 items-start gap-3 sm:gap-4 lg:scale-[1.06] lg:origin-bottom">
             <img
               src={heroEtapaBebe}
               alt="Bebé jugando, línea Duffy"
               className="zan-float aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
             />
             <img
-              src={heroEtapaAdultos}
-              alt="Pareja mayor sonriendo, línea Promise"
-              className="zan-float z-10 aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
+              src={heroEtapaMujeres}
+              alt="Mujeres riendo juntas, línea Lalas"
+              className="zan-float mt-5 aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:mt-8 sm:rounded-[36px] lg:mt-14"
               style={{ animationDelay: "0.8s" }}
             />
             <img
-              src={heroEtapaMujeres}
-              alt="Mujeres riendo juntas, línea Lalas"
-              className="zan-float aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:rounded-[36px]"
+              src={heroEtapaAdultos}
+              alt="Pareja mayor sonriendo, línea Promise"
+              className="zan-float z-10 mt-10 aspect-[2/3] w-full rounded-[28px] object-cover shadow-lg sm:mt-16 sm:rounded-[36px] lg:mt-28"
               style={{ animationDelay: "1.6s" }}
             />
           </div>
