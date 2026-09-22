@@ -141,7 +141,12 @@ const features = [
   { title: "0%", sub: "Alcohol en toallitas" },
 ];
 
-const retailers = ["Carrefour", "Makro", "Pañaleras"];
+const retailers = [
+  "Carrefour",
+  "Makro",
+  "Principales pañaleras del país",
+  "Supermercados",
+];
 
 const stages = [
   {
