@@ -12,7 +12,7 @@ import wipesFlexAsset from "@/assets/duffy-wipes-flex.png.asset.json";
 import wipesHardAsset from "@/assets/duffy-wipes-hard.png.asset.json";
 import duffyBrandAsset from "@/assets/duffy-brand.png.asset.json";
 import promiseBrandAsset from "@/assets/promise-brand.png.asset.json";
-import lalasBrandAsset from "@/assets/lalas-brand.png.asset.json";
+import lalasBrandAsset from "@/assets/lalas-brand-v2.png.asset.json";
 
 const heroEtapaBebe = heroEtapaBebeAsset.url;
 const heroEtapaAdultos = heroEtapaAdultosAsset.url;
