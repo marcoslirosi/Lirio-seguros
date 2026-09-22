@@ -761,56 +761,103 @@ function Index() {
       </section>
 
       {/* Where to buy */}
-      <section id="donde-comprar" className="scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
-          <p className="font-script text-3xl text-duffy-plum">cerca tuyo</p>
-          <h2 className="mt-2 font-display text-4xl font-black tracking-tight sm:text-5xl">
-            Dónde encontrarnos
-          </h2>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[36px] bg-zinc-900 p-8 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
-              <h3 className="font-display text-2xl font-black">Comprá online</h3>
-              <p className="mt-3 text-white/80">
-                Encontrá todo el catálogo de Duffy, Promise y Lalas con envío a
-                todo el país.
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-3">
+      <section
+        id="donde-comprar"
+        className="scroll-mt-24 overflow-hidden bg-duffy-yellow-soft"
+      >
+        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-20">
+          <div className="grid items-end gap-6 border-b-2 border-duffy-plum/20 pb-8 md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="font-script text-3xl text-duffy-plum">cerca tuyo</p>
+              <h2 className="mt-1 max-w-2xl font-display text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+                Elegí cómo querés encontrarnos
+              </h2>
+            </div>
+            <p className="max-w-sm text-base font-semibold text-zinc-700 md:text-right">
+              Tres marcas argentinas para acompañarte, estés donde estés.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+            <div className="relative overflow-hidden rounded-[36px] bg-duffy-plum p-7 text-white shadow-xl sm:p-10">
+              <div
+                className="absolute -right-16 -top-20 h-56 w-56 rounded-full border-[36px] border-duffy-yellow/90"
+                aria-hidden="true"
+              />
+              <div className="relative max-w-xl">
+                <span className="inline-flex rounded-full bg-white/15 px-4 py-2 text-xs font-black uppercase tracking-wider">
+                  Envíos a todo el país
+                </span>
+                <h3 className="mt-6 font-display text-3xl font-black sm:text-4xl">
+                  Comprá online
+                </h3>
+                <p className="mt-3 max-w-lg text-white/85">
+                  Entrá a la tienda de cada marca y encontrá la línea que mejor
+                  acompaña tu etapa.
+                </p>
+              </div>
+
+              <ul className="relative mt-8 grid gap-3 sm:grid-cols-3">
                 {[
-                  { label: "Duffy en Mercado Libre", href: ML.duffy },
-                  { label: "Promise en Mercado Libre", href: ML.promise },
-                  { label: "Lalas en Mercado Libre", href: ML.lalas },
-                ].map((l) => (
-                  <li key={l.label}>
+                  { label: "Duffy", logo: duffyBrand, href: ML.duffy },
+                  { label: "Lalas", logo: lalasBrand, href: ML.lalas },
+                  { label: "Promise", logo: promiseBrand, href: ML.promise },
+                ].map((brand) => (
+                  <li key={brand.label}>
                     <a
-                      href={l.href}
+                      href={brand.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-duffy-yellow px-6 py-2.5 text-sm font-bold text-zinc-900 transition-all hover:bg-duffy-yellow-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+                      aria-label={`Comprar ${brand.label} en Mercado Libre`}
+                      className="group flex min-h-32 flex-col justify-between rounded-[24px] bg-white p-4 text-duffy-plum shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-duffy-yellow"
                     >
-                      {l.label} <span aria-hidden>→</span>
+                      <img
+                        src={brand.logo}
+                        alt=""
+                        className="h-14 w-full object-contain object-left"
+                      />
+                      <span className="mt-3 flex items-center justify-between text-sm font-black uppercase">
+                        Comprar
+                        <span
+                          className="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+                          aria-hidden="true"
+                        >
+                          ↗
+                        </span>
+                      </span>
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-[36px] bg-duffy-yellow-soft p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl sm:p-10">
-              <h3 className="font-display text-2xl font-black">
+
+            <div className="flex flex-col rounded-[36px] bg-white p-7 shadow-lg sm:p-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-duffy-yellow text-2xl" aria-hidden="true">
+                ●
+              </div>
+              <h3 className="mt-7 font-display text-3xl font-black text-duffy-plum">
                 En tiendas físicas
               </h3>
               <p className="mt-3 text-zinc-700">
-                Buscá nuestros productos en las principales cadenas y pañaleras
-                del país.
+                Encontrá nuestros productos en las principales cadenas y
+                pañaleras de todo el país.
               </p>
-              <ul className="mt-6 flex flex-wrap gap-3">
-                {retailers.map((r) => (
+              <ul className="mt-8 divide-y-2 divide-duffy-plum/10 border-y-2 border-duffy-plum/10">
+                {retailers.map((retailer, index) => (
                   <li
-                    key={r}
-                    className="rounded-full bg-white px-6 py-2.5 text-sm font-bold shadow-sm"
+                    key={retailer}
+                    className="flex items-center gap-4 py-4 font-display text-lg font-black"
                   >
-                    {r}
+                    <span className="text-sm text-duffy-plum" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                    {retailer}
                   </li>
                 ))}
               </ul>
+              <p className="mt-auto pt-8 font-script text-2xl text-duffy-plum">
+                cuidado para cada etapa
+              </p>
             </div>
           </div>
         </div>
