@@ -863,6 +863,51 @@ function Index() {
         </div>
       </section>
 
+      {/* Fábrica */}
+      <section id="fabrica" className="scroll-mt-24 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div data-reveal>
+              <p className="font-script text-3xl text-duffy-plum">dónde estamos</p>
+              <h2 className="mt-2 font-display text-4xl font-black uppercase leading-[0.95] text-zinc-900 sm:text-5xl">
+                Nuestra fábrica
+              </h2>
+              <p className="mt-5 max-w-md text-lg text-zinc-700">
+                Producimos en Fátima, Provincia de Buenos Aires, desde donde
+                abastecemos a todo el país.
+              </p>
+              <p className="mt-6 font-display text-xl font-black text-duffy-plum">
+                Av. Dr. Arturo Frondizi 2088
+                <br />
+                B1629 Fátima, Provincia de Buenos Aires
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Av.+Dr.+Arturo+Frondizi+2088,+B1629+Fatima,+Provincia+de+Buenos+Aires"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-full bg-duffy-plum px-7 py-3 font-display text-base font-black uppercase text-white transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-duffy-plum/40"
+              >
+                Cómo llegar
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <div
+              className="overflow-hidden rounded-[36px] border-4 border-duffy-plum/10 shadow-lg"
+              data-reveal
+            >
+              <iframe
+                title="Mapa de la fábrica de Zanhang en Fátima, Provincia de Buenos Aires"
+                src="https://www.google.com/maps?q=Av.%20Dr.%20Arturo%20Frondizi%202088%2C%20B1629%20Fatima%2C%20Provincia%20de%20Buenos%20Aires&output=embed"
+                className="h-[360px] w-full sm:h-[440px]"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-zinc-900 text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-14 sm:flex-row sm:items-center lg:px-12">
