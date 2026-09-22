@@ -141,7 +141,12 @@ const features = [
   { title: "0%", sub: "Alcohol en toallitas" },
 ];
 
-const retailers = ["Carrefour", "Makro", "Pañaleras"];
+const retailers = [
+  "Carrefour",
+  "Makro",
+  "Principales pañaleras del país",
+  "Supermercados",
+];
 
 const stages = [
   {
@@ -778,59 +783,7 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
-            <div className="relative overflow-hidden rounded-[36px] bg-duffy-plum p-7 text-white shadow-xl sm:p-10">
-              <div
-                className="absolute -right-16 -top-20 h-56 w-56 rounded-full border-[36px] border-duffy-yellow/90"
-                aria-hidden="true"
-              />
-              <div className="relative max-w-xl">
-                <span className="inline-flex rounded-full bg-white/15 px-4 py-2 text-xs font-black uppercase tracking-wider">
-                  Envíos a todo el país
-                </span>
-                <h3 className="mt-6 font-display text-3xl font-black sm:text-4xl">
-                  Comprá online
-                </h3>
-                <p className="mt-3 max-w-lg text-white/85">
-                  Entrá a la tienda de cada marca y encontrá la línea que mejor
-                  acompaña tu etapa.
-                </p>
-              </div>
-
-              <ul className="relative mt-8 grid gap-3 sm:grid-cols-3">
-                {[
-                  { label: "Duffy", logo: duffyBrand, href: ML.duffy },
-                  { label: "Lalas", logo: lalasBrand, href: ML.lalas },
-                  { label: "Promise", logo: promiseBrand, href: ML.promise },
-                ].map((brand) => (
-                  <li key={brand.label}>
-                    <a
-                      href={brand.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Comprar ${brand.label} en Mercado Libre`}
-                      className="group flex min-h-32 flex-col justify-between rounded-[24px] bg-white p-4 text-duffy-plum shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-duffy-yellow"
-                    >
-                      <img
-                        src={brand.logo}
-                        alt=""
-                        className="h-14 w-full object-contain object-left"
-                      />
-                      <span className="mt-3 flex items-center justify-between text-sm font-black uppercase">
-                        Comprar
-                        <span
-                          className="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                          aria-hidden="true"
-                        >
-                          ↗
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="flex flex-col rounded-[36px] bg-white p-7 shadow-lg sm:p-10">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-duffy-yellow text-2xl" aria-hidden="true">
                 ●
@@ -842,11 +795,11 @@ function Index() {
                 Encontrá nuestros productos en las principales cadenas y
                 pañaleras de todo el país.
               </p>
-              <ul className="mt-8 divide-y-2 divide-duffy-plum/10 border-y-2 border-duffy-plum/10">
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {retailers.map((retailer, index) => (
                   <li
                     key={retailer}
-                    className="flex items-center gap-4 py-4 font-display text-lg font-black"
+                    className="flex items-center gap-4 rounded-[24px] bg-duffy-yellow-soft px-5 py-4 font-display text-lg font-black leading-tight"
                   >
                     <span className="text-sm text-duffy-plum" aria-hidden="true">
                       0{index + 1}
@@ -858,6 +811,35 @@ function Index() {
               <p className="mt-auto pt-8 font-script text-2xl text-duffy-plum">
                 cuidado para cada etapa
               </p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[36px] bg-duffy-plum p-7 text-white shadow-xl sm:p-10">
+              <div
+                className="absolute -right-16 -top-20 h-56 w-56 rounded-full border-[36px] border-duffy-yellow/90"
+                aria-hidden="true"
+              />
+              <div className="relative flex h-full flex-col">
+                <span className="inline-flex self-start rounded-full bg-white/15 px-4 py-2 text-xs font-black uppercase tracking-wider">
+                  Distribuidores y comercios
+                </span>
+                <h3 className="mt-6 font-display text-3xl font-black sm:text-4xl">
+                  ¿Querés vender nuestros productos?
+                </h3>
+                <p className="mt-3 max-w-md text-white/85">
+                  Sumate a la red de comercios, pañaleras y distribuidores que
+                  trabajan con Duffy, Lalas y Promise en todo el país.
+                </p>
+                <a
+                  href="mailto:ventas@zanhang.com.ar?subject=Quiero%20vender%20productos%20Zanhang"
+                  className="mt-8 inline-flex min-h-11 items-center gap-2 self-start rounded-full bg-white px-7 py-3 font-display text-base font-black uppercase text-duffy-plum transition hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-duffy-yellow"
+                >
+                  Contactanos
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <p className="mt-auto pt-8 font-script text-2xl text-duffy-yellow">
+                  crezcamos juntos
+                </p>
+              </div>
             </div>
           </div>
         </div>
