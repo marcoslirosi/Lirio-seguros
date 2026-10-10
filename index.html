@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Web Lirio Seguros</title>
-<meta name="description" content="Andrea Gimenez, agente de seguros y mandataria del automotor: seguros de auto, hogar, vida, comercio y consorcios, y trámites del auto en un mismo lugar. Atención personalizada, sin call center. Cotizá sin cargo.">
+<meta name="description" content="Andrea Gimenez, agente de seguros y Mandataria del automotor: seguros de auto, hogar, vida, comercio y consorcios, y trámites del auto en un mismo lugar. Atención personalizada, sin call center. Cotizá sin cargo.">
 <meta name="theme-color" content="#1B2D4A">
 <link rel="canonical" href="https://segurosygestoria.com.ar/">
 <script type="application/ld+json">
@@ -171,21 +171,22 @@
   .cov-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   .cov{position:relative; display:flex; flex-direction:column; min-height:250px; padding:26px; background:var(--white); border-radius:var(--radius); text-decoration:none; border:1px solid var(--line); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s;}
   .cov::before{content:""; position:absolute; right:0; top:0; width:84px; height:84px; background:var(--iris-tint); clip-path:polygon(0 0,100% 0,100% 100%); transition:all .3s ease;}
-  .cov:hover{transform:translateY(-4px); box-shadow:0 24px 40px -24px rgba(27,45,74,.35); border-color:transparent;}
-  .cov:hover::before{width:140px; height:140px; background:var(--iris);}
+  .cov:hover,.cov.is-active{transform:translateY(-4px); box-shadow:0 24px 40px -24px rgba(27,45,74,.35); border-color:transparent;}
+  .cov:hover::before,.cov.is-active::before{width:140px; height:140px; background:var(--iris);}
   .cov-icon{position:relative; width:46px; height:46px; color:var(--ink);}
   .cov-icon svg{width:100%; height:100%;}
   .cov h3{font-size:22px; font-weight:600; margin-top:auto; padding-top:28px;}
   .cov p{margin-top:8px; font-size:15px; color:var(--muted); line-height:1.5;}
   .cov .go{margin-top:16px; font-size:14px; font-weight:700; color:var(--iris); display:flex; align-items:center; gap:6px;}
   .cov .go span{transition:transform .2s;}
-  .cov:hover .go span{transform:translateX(4px);}
+  .cov:hover .go span,.cov.is-active .go span{transform:translateX(4px);}
   .cov-help{grid-column:span 2; background:var(--iris-tint); border-color:transparent; justify-content:flex-end;}
   .cov-help::before{background:var(--white);}
+  .cov-help:hover::before,.cov-help.is-active::before{background:var(--iris);}
   .cov-help h3{padding-top:0; font-size:26px;}
   .cov.feature{grid-column:span 2; background:linear-gradient(135deg,var(--ink) 0%,#23407A 100%); color:#fff; border-color:var(--ink);}
   .cov.feature::before{background:var(--iris); width:120px; height:120px;}
-  .cov.feature:hover::before{background:var(--signal); width:180px; height:180px;}
+  .cov.feature:hover::before,.cov.feature.is-active::before{background:var(--signal); width:180px; height:180px;}
   .cov.feature .cov-icon{color:#fff;}
   .cov.feature h3{font-size:30px;}
   .cov.feature p{color:rgba(255,255,255,.72); max-width:380px;}
@@ -200,12 +201,14 @@
     .cov.feature,.cov-help{grid-column:auto;}
     .cov{min-height:0; padding:20px; display:grid; grid-template-columns:40px 1fr; column-gap:16px; align-items:start;}
     .cov::before{width:56px; height:56px;}
+    .cov:hover::before,.cov.is-active::before{width:84px; height:84px;}
     .cov-icon{width:36px; height:36px; grid-row:span 3;}
     .cov h3{padding-top:4px; font-size:20px;}
     .cov p{margin-top:4px;}
     .cov .go{margin-top:10px;}
     .cov.feature h3{font-size:24px;}
     .cov.feature::before{width:60px; height:60px;}
+    .cov.feature:hover::before,.cov.feature.is-active::before{width:84px; height:84px;}
     .cov-help{display:flex;}
     .cov-help h3{font-size:22px;}
   }
@@ -236,7 +239,9 @@
   .gestoria .section-head p.mat-line{margin-top:14px; font-size:14px; letter-spacing:.06em; color:var(--signal);}
   .g-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
   .g-list{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  .g-list li{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:22px; font-family:var(--display); font-weight:700; font-size:19px; line-height:1.2; display:flex; flex-direction:column; gap:14px;}
+  .g-list li{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:10px;}
+  .g-list li strong{font-family:var(--display); font-weight:600; font-size:19px; line-height:1.2;}
+  .g-list li span{font-size:14.5px; line-height:1.5; color:rgba(255,255,255,.78);}
   .g-list li b{font-family:var(--body); font-size:13px; color:var(--signal); letter-spacing:.1em;}
   .g-cta{display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin-top:34px;}
   .g-cta small{color:rgba(255,255,255,.72); font-size:14px;}
@@ -571,9 +576,9 @@
       <div class="reveal">
         <div class="section-head" style="margin-bottom:0;">
           <span class="eyebrow">Mandataria del automotor</span>
-          <h2>Los trámites del auto, <em class="s">sin hacer la cola.</em></h2>
-          <p>Como mandataria matriculada, Andrea puede hacer los trámites de tu vehículo ante el Registro del Automotor en tu nombre. Vos firmás lo necesario y ella se encarga del resto, de principio a fin. Funciona aunque tu seguro no sea con nosotros.</p>
-          <p class="mat-line">Mat. mandataria M202627203507971DN</p>
+          <h2>Los trámites del auto, <em class="s">sin perder tiempo.</em></h2>
+          <p>Como Mandataria matriculada, Andrea puede hacer los trámites de tu vehículo ante el Registro del Automotor en tu nombre. Vos firmás lo necesario y ella se encarga del resto, de principio a fin. Funciona aunque tu seguro no sea con nosotros.</p>
+          <p class="mat-line">Mat. Mandataria M202627203507971DN</p>
         </div>
         <div class="g-cta">
           <a class="btn btn-wa" data-wa="Hola Andrea! Necesito hacer un trámite del automotor." href="https://wa.me/5491164898985" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Consultar un trámite</a>
@@ -581,12 +586,12 @@
         </div>
       </div>
       <ul class="g-list reveal">
-        <li><b>01</b>Transferencias de dominio</li>
-        <li><b>02</b>Informes de dominio</li>
-        <li><b>03</b>Denuncias de venta</li>
-        <li><b>04</b>Patentamientos</li>
-        <li><b>05</b>Cédulas verde y azul</li>
-        <li><b>06</b>Trámites integrales</li>
+        <li><b>01</b><strong>Transferencias de dominio</strong><span>Pasamos el auto a nombre del nuevo dueño, con toda la documentación en regla.</span></li>
+        <li><b>02</b><strong>Informes de dominio</strong><span>Verificamos titular, deudas, embargos o prendas antes de comprar o vender.</span></li>
+        <li><b>03</b><strong>Denuncias de venta</strong><span>Te desligás de multas, patentes y responsabilidades del auto que ya vendiste.</span></li>
+        <li><b>04</b><strong>Patentamientos</strong><span>Inscribimos tu 0 km para que salga con patente, título y cédula.</span></li>
+        <li><b>05</b><strong>Cédulas verde y azul</strong><span>Emisión o duplicado de la cédula, y autorización para que otra persona maneje.</span></li>
+        <li><b>06</b><strong>Trámites integrales</strong><span>Bajas, cambios de radicación, duplicados y cualquier otro trámite ante el Registro.</span></li>
       </ul>
     </div>
   </section>
@@ -628,7 +633,7 @@
         <div class="role">Agente de seguros · Mandataria</div>
         <dl>
           <div><dt>Mat. seguros</dt><dd>104650</dd></div>
-          <div><dt>Mat. mandataria</dt><dd>M202627203507971DN</dd></div>
+          <div><dt>Mat. Mandataria</dt><dd>M202627203507971DN</dd></div>
           <div><dt>Base</dt><dd>Grand Bourg, Bs. As.</dd></div>
           <div><dt>Atención</dt><dd>Toda la Argentina</dd></div>
         </dl>
@@ -639,7 +644,7 @@
           <h2>Quien te asesora, <em class="s">te acompaña.</em></h2>
         </div>
         <p>Andrea Gimenez asesora a familias, comercios y empresas en la elección de sus coberturas, acompañando cada trámite de principio a fin. A diferencia de un 0800 o una app, del otro lado hay una persona real, interesada en encontrar la opción que realmente te conviene.</p>
-        <p>Es agente de seguros matriculada (Mat. 104650) y mandataria del automotor (Mat. M202627203507971DN). Combina ambos roles para simplificarte algo que normalmente implica dos gestiones distintas: asegurar tu auto y resolver sus papeles.</p>
+        <p>Es agente de seguros matriculada (Mat. 104650) y Mandataria del automotor (Mat. M202627203507971DN). Combina ambos roles para simplificarte algo que normalmente implica dos gestiones distintas: asegurar tu auto y resolver sus papeles.</p>
         <blockquote class="big-quote">
           <p>Cada póliza es distinta porque cada familia es distinta. Prefiero una charla de cinco minutos antes que un formulario de cien preguntas.</p>
           <footer>— Andrea</footer>
@@ -730,7 +735,7 @@
               <option>Seguro de vida</option>
               <option>Seguro de retiro</option>
               <option>ART</option>
-              <option>Trámite del automotor (mandataria)</option>
+              <option>Trámite del automotor (Mandataria)</option>
               <option>Otro</option>
             </select>
           </div>
@@ -829,6 +834,14 @@
     document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // Coberturas en pantallas táctiles: se resalta la tarjeta que pasa por el centro
+  if(window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window){
+    var covObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){ entry.target.classList.toggle('is-active', entry.isIntersecting); });
+    }, {rootMargin:'-42% 0px -42% 0px'});
+    document.querySelectorAll('.cov').forEach(function(c){ covObserver.observe(c); });
   }
 
   // Selector del hero
