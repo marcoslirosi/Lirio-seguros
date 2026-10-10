@@ -302,7 +302,6 @@
   .field textarea{min-height:96px; resize:vertical;}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
   form .micro{margin-top:12px; font-size:13.5px; color:var(--muted); text-align:center;}
-  .hp-field{position:absolute; left:-9999px;}
   @media (max-width:900px){ .contact-box{grid-template-columns:1fr; padding:40px 24px; gap:40px; border-radius:24px;} }
   @media (max-width:480px){ .field-row{grid-template-columns:1fr; gap:0;} form{padding:22px;} }
 
@@ -563,7 +562,7 @@
         <div class="step">
           <div class="step-num">01</div>
           <h3>Nos contás tu situación</h3>
-          <p>Por WhatsApp o con el formulario de abajo, en un par de minutos.</p>
+          <p>Por WhatsApp, en un par de minutos. Sin formularios eternos.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
@@ -664,18 +663,16 @@
           </div>
         </div>
 
-        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contacto">
-          <p class="hp-field"><label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-          <h3>O dejanos tus datos</h3>
+        <form id="waForm" novalidate>
+          <h3>O completá y te lo mandamos armado</h3>
           <div class="field-row">
             <div class="field">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" autocomplete="name" required>
             </div>
             <div class="field">
-              <label for="contacto-medio">Teléfono o email</label>
-              <input type="text" id="contacto-medio" name="contacto" autocomplete="tel" required>
+              <label for="localidad">Localidad <span style="font-weight:400;color:var(--muted)">(opcional)</span></label>
+              <input type="text" id="localidad" name="localidad" autocomplete="address-level2">
             </div>
           </div>
           <div class="field">
@@ -696,8 +693,8 @@
             <label for="mensaje">Contanos un poco más <span style="font-weight:400;color:var(--muted)">(opcional)</span></label>
             <textarea id="mensaje" name="mensaje"></textarea>
           </div>
-          <button type="submit" class="btn btn-ink btn-block">Pedir cotización sin cargo</button>
-          <p class="micro">Te respondemos el mismo día. Sin compromiso.</p>
+          <button type="submit" class="btn btn-wa btn-block"><svg><use href="#i-wa"/></svg>Enviar por WhatsApp</button>
+          <p class="micro">Se abre WhatsApp con tu mensaje listo. Te respondemos el mismo día.</p>
         </form>
       </div>
     </div>
@@ -802,6 +799,22 @@
   }
   pills.forEach(function(pill){ pill.addEventListener('click', function(){ selectPill(pill); }); });
   selectPill(document.querySelector('.pill.active'));
+
+  // Formulario: arma el mensaje y abre WhatsApp
+  var waForm = document.getElementById('waForm');
+  waForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nombre = waForm.nombre.value.trim();
+    if(!nombre){ waForm.nombre.focus(); waForm.nombre.reportValidity && waForm.nombre.reportValidity(); return; }
+    var localidad = waForm.localidad.value.trim();
+    var tipo = waForm.tipo_seguro.value;
+    var mensaje = waForm.mensaje.value.trim();
+    var texto = 'Hola Andrea! Soy ' + nombre + (localidad ? ', de ' + localidad : '') + '.\nMe interesa: ' + tipo + '.';
+    if(mensaje) texto += '\n' + mensaje;
+    var url = waLink(texto);
+    var win = window.open(url, '_blank', 'noopener');
+    if(!win) window.location.href = url;
+  });
 
   // Saludo según la hora
   var greetingEl = document.getElementById('greeting');
