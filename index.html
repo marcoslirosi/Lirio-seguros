@@ -190,8 +190,24 @@
   .cov:hover,.cov.is-active{transform:translateY(-4px); box-shadow:0 24px 40px -24px rgba(27,45,74,.35); border-color:transparent;}
   .cov{border-color:transparent;}
   .cov:hover::before,.cov.is-active::before{width:140px; height:140px; background:var(--iris);}
-  .cov-icon{position:relative; width:46px; height:46px; color:var(--ink);}
-  .cov-icon svg{width:100%; height:100%;}
+  .cov-icon{position:relative; width:52px; height:52px; color:var(--ink); --ic:var(--iris);}
+  .cov-icon svg{width:100%; height:100%; overflow:visible; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transform-origin:50% 60%;}
+  .cov-icon .ic-a{fill:var(--ic); stroke:none; transform-box:fill-box; transform-origin:center; transition:transform .45s cubic-bezier(.3,1.7,.5,1);}
+  .cov-icon .ic-s{stroke:var(--ic); stroke-dasharray:46; stroke-dashoffset:0;}
+  .cov-icon .ic-k{stroke:#fff; stroke-width:2.4;}
+  .cov.feature .cov-icon{--ic:var(--signal);}
+  .cov.feature .cov-icon .ic-k{stroke:var(--ink);}
+  .cov:hover .ic-a,.cov.is-active .ic-a{transform:translate(2px,-2px) scale(1.15);}
+  .cov:hover .ani-drive svg,.cov.is-active .ani-drive svg{animation:drive .9s ease;}
+  .cov:hover .ani-beat svg,.cov.is-active .ani-beat svg{animation:beat .9s ease;}
+  .cov:hover .ani-beat .ic-s,.cov.is-active .ani-beat .ic-s{animation:draw 1s ease;}
+  .cov:hover .ani-flip svg,.cov.is-active .ani-flip svg{animation:flip .9s cubic-bezier(.6,0,.3,1);}
+  .cov:hover .ani-pop svg,.cov.is-active .ani-pop svg{animation:pop .6s ease;}
+  @keyframes drive{0%{transform:none}25%{transform:translateX(-4px) rotate(-2deg)}60%{transform:translateX(7px)}100%{transform:none}}
+  @keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.14)}40%{transform:scale(.96)}60%{transform:scale(1.08)}}
+  @keyframes draw{from{stroke-dashoffset:46}to{stroke-dashoffset:0}}
+  @keyframes flip{from{transform:rotate(0)}to{transform:rotate(180deg)}}
+  @keyframes pop{0%,100%{transform:none}40%{transform:translateY(-4px) rotate(-4deg)}}
   .cov h3{font-size:22px; font-weight:600; margin-top:auto; padding-top:28px;}
   .cov p{margin-top:8px; font-size:15px; color:var(--muted); line-height:1.5;}
   .cov .go{margin-top:16px; font-size:14px; font-weight:700; color:var(--iris); display:flex; align-items:center; gap:6px;}
@@ -221,7 +237,7 @@
     .cov{min-height:0; padding:20px; display:grid; grid-template-columns:40px 1fr; column-gap:16px; align-items:start;}
     .cov::before{width:56px; height:56px;}
     .cov:hover::before,.cov.is-active::before{width:84px; height:84px;}
-    .cov-icon{width:36px; height:36px; grid-row:span 3;}
+    .cov-icon{width:40px; height:40px; grid-row:span 3;}
     .cov h3{padding-top:4px; font-size:20px;}
     .cov p{margin-top:4px;}
     .cov .go{margin-top:10px;}
@@ -388,7 +404,39 @@
   }
 
   /* ---------- Reveal ---------- */
-  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);}
+  /* Títulos del hero palabra por palabra */
+  .hero h1 .w{display:inline-block; opacity:0; transform:translateY(.45em) rotate(2deg); animation:wordIn .8s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:calc(var(--i) * 70ms + 150ms);}
+  @keyframes wordIn{to{opacity:1; transform:none;}}
+  .hero-copy > :not(h1){opacity:0; animation:fadeUp .8s ease forwards; animation-delay:.9s;}
+  .hero-copy > .eyebrow{animation-delay:.05s;}
+  .hero-copy > .hero-actions{animation-delay:1.05s;}
+  .hero-copy > .hand-note{animation-delay:1.3s;}
+  .hero-copy > .proof{animation-delay:1.45s;}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(16px);}to{opacity:1; transform:none;}}
+  /* Triángulos del fondo flotando */
+  .hero-art{animation:drift 12s ease-in-out infinite alternate;}
+  @keyframes drift{from{translate:0 0; rotate:0deg;}to{translate:18px -22px; rotate:3deg;}}
+  .quote-card{animation:floaty 6s ease-in-out infinite;}
+  @keyframes floaty{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
+  .badge-float{animation:wobble 3.5s ease-in-out infinite;}
+  @keyframes wobble{0%,100%{rotate:0deg;}50%{rotate:5deg;}}
+  /* Franja de triángulos en movimiento */
+  .tri-band{animation:slide 4s linear infinite;}
+  @keyframes slide{to{background-position:28px 0;}}
+  @media (max-width:720px){ @keyframes slide{to{background-position:20px 0;}} }
+  /* Línea de las etiquetas que se dibuja */
+  .reveal .eyebrow::before,.section-head.reveal .eyebrow::before{width:0; transition:width .8s .3s ease;}
+  .reveal.is-visible .eyebrow::before{width:32px;}
+  /* Auto de la sección de trámites que entra */
+  .gestoria-car{opacity:0; translate:120px 0; transition:opacity 1.2s ease, translate 1.4s cubic-bezier(.2,.8,.2,1);}
+  .gestoria.in .gestoria-car{opacity:1; translate:0 0;}
+  /* Botones de WhatsApp */
+  .btn:hover svg{animation:ring .6s ease;}
+  @keyframes ring{0%,100%{rotate:0deg;}25%{rotate:-14deg;}50%{rotate:12deg;}75%{rotate:-6deg;}}
+  .step,.trust li,.g-list li,.cmp{transition:transform .3s ease, box-shadow .3s ease, opacity .8s ease;}
+  .step:hover,.g-list li:hover,.cmp:hover{transform:translateY(-4px);}
+  .g-list li:hover{background:rgba(255,255,255,.1);}
   .reveal.is-visible{opacity:1; transform:none;}
   .no-js .reveal{opacity:1; transform:none;}
 </style>
@@ -502,55 +550,55 @@
       </div>
       <div class="cov-grid">
         <a class="cov feature reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de auto." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg></div>
+          <div class="cov-icon ani-drive"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M19.5 17.5h9l5 6.3h-19z"/><path d="M9 32.8H6.8C5.8 32.8 5 32 5 31v-5.5c0-1 .8-1.8 1.8-1.8H11l5.4-8.4A3 3 0 0 1 18.9 14h10.6a3 3 0 0 1 2.4 1.2l6.4 8.5h3.9c1 0 1.8.8 1.8 1.8V31c0 1-.8 1.8-1.8 1.8H39M17 32.8h14"/><circle cx="13" cy="33" r="4"/><circle cx="35" cy="33" r="4"/></svg></div>
           <h3>Seguro de Auto</h3>
           <p>Terceros completo o todo riesgo, cotizado con varias aseguradoras para que compares precio y cobertura lado a lado.</p>
           <span class="go">Cotizar mi auto <span>→</span></span>
         </a>
         <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de hogar." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5L12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"/><path d="M10 20v-5h4v5"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 7L8 23h16z"/><path d="M8 23L24 7l16 16"/><path d="M11 20.5V40h26V20.5"/><path d="M21 40v-9h6v9"/></svg></div>
           <h3>Hogar</h3>
           <p>Tu casa y sus contenidos, ante incendio, robo o daños.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
         <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de comercio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l1-4h14l1 4"/><path d="M4 8a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M5 8v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8"/><path d="M10 20v-6h4v6"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12l2-5h28l2 5"/><path d="M6 12h36l-2 7H8z"/><path class="ic-a" d="M10 12h8l-4 7zM26 12h8l-4 7z"/><path d="M9 19v21h30V19"/><path d="M14 40V28h8v12M27 27h7v6h-7z"/></svg></div>
           <h3>Comercio</h3>
           <p>Tu local o pyme, cubierto a medida de tu rubro.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
         <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de consorcio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17"/><path d="M15 9h3a1 1 0 0 1 1 1v11"/><path d="M3 21h18"/><path d="M8 7h1M11 7h1M8 11h1M11 11h1M8 15h1M11 15h1"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M28 8h10v10z"/><path d="M10 42V8h18v34M28 18h10v24M6 42h36"/><path d="M15 14h2M21 14h2M15 20h2M21 20h2M15 26h2M21 26h2M15 32h2M21 32h2M32 25h2M32 31h2"/></svg></div>
           <h3>Consorcios</h3>
           <p>Integral de consorcio: edificio, espacios comunes y responsabilidad del administrador.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
         <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de accidentes personales." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M15.5 14.2c2.6.4 4.5 2.6 4.5 5.8"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="13" r="5.5"/><path d="M7 41v-3a12 12 0 0 1 19-9.8"/><path class="ic-a" d="M25 43L43 25v18z"/><path class="ic-k" d="M36.5 33.5v6M33.5 36.5h6"/></svg></div>
           <h3>Accidentes personales</h3>
           <p>Cobertura para vos o tu equipo ante accidentes, en el trabajo o la vida diaria.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
         <a class="cov reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de vida." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9.5-8.5C.8 8.2 2.4 5 5.6 5c1.9 0 3.3 1 4.4 2.5C11.1 6 12.5 5 14.4 5c3.2 0 4.8 3.2 3.1 6.5C15 15.65 12 20 12 20z"/></svg></div>
+          <div class="cov-icon ani-beat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41S7 31 7 19.2a8.6 8.6 0 0 1 17-2 8.6 8.6 0 0 1 17 2C41 31 24 41 24 41z"/><path class="ic-s" d="M11 24h7l3-5 4.5 9 3-5h8.5"/></svg></div>
           <h3>Vida</h3>
           <p>Respaldo económico para quienes dependen de vos.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
         <a class="cov reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de responsabilidad civil." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 5v37C15.4 39.6 9 31.5 9 22V11z"/><path d="M24 5l15 6v11c0 9.5-6.4 17.6-15 20-8.6-2.4-15-10.5-15-20V11z"/></svg></div>
           <h3>Responsabilidad civil</h3>
           <p>Por si un tercero reclama daños causados por vos, tu actividad o tu comercio.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
         <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de retiro." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg></div>
+          <div class="cov-icon ani-flip"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 6h22M13 42h22"/><path d="M15 6c0 9 9 12 9 18s-9 9-9 18M33 6c0 9-9 12-9 18s9 9 9 18"/><path class="ic-a" d="M18 39.5l6-8 6 8z"/><path class="ic-a" style="opacity:.45" d="M19.5 12h9l-4.5 5.5z"/></svg></div>
           <h3>Retiro</h3>
           <p>Un ahorro planificado para sostener tu nivel de vida a futuro.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
         <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar una ART." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0 1 16 0"/><path d="M2 15h20"/><path d="M2 15v2a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2"/><path d="M12 4v3"/></svg></div>
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 17a15 15 0 0 1 15 15H24z"/><path d="M9 32a15 15 0 0 1 30 0"/><path d="M5 32h38v4.5H5z"/><path d="M20 17v-5h8v5"/></svg></div>
           <h3>ART</h3>
           <p>Riesgos del trabajo para tu empresa o comercio.</p>
           <span class="go">Cotizar <span>→</span></span>
@@ -852,19 +900,55 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
+  // Hero: separar el título en palabras para animarlas
+  (function(){
+    var h1 = document.querySelector('.hero h1'); var i = 0;
+    function wrap(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part) return;
+            if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+            var sp = document.createElement('span'); sp.className = 'w'; sp.style.setProperty('--i', i++); sp.textContent = part; frag.appendChild(sp);
+          });
+          n.parentNode.replaceChild(frag, n);
+        } else if(n.nodeType === 1){ wrap(n); }
+      });
+    }
+    if(h1) wrap(h1);
+  })();
+
+  // Escalonar la aparición de tarjetas dentro de cada grilla
+  document.querySelectorAll('.cov-grid, .steps, .g-list, .trust, .compare-grid, .faq-list').forEach(function(grid){
+    Array.prototype.forEach.call(grid.children, function(el, idx){
+      el.style.transitionDelay = (idx % 4) * 90 + 'ms';
+      if(!el.classList.contains('reveal') && !grid.classList.contains('reveal')) el.classList.add('reveal');
+    });
+  });
+  document.querySelectorAll('.steps, .g-list, .trust').forEach(function(grid){
+    grid.classList.remove('reveal');
+    Array.prototype.forEach.call(grid.children, function(el){ el.classList.add('reveal'); });
+  });
+
   // Animación de aparición
   if('IntersectionObserver' in window){
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          var el = entry.target;
+          el.classList.add('is-visible');
+          observer.unobserve(el);
+          setTimeout(function(){ el.style.transitionDelay = ''; }, 1400);
         }
       });
     }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
     document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+    var gest = document.querySelector('.gestoria');
+    new IntersectionObserver(function(en, obs){ if(en[0].isIntersecting){ gest.classList.add('in'); obs.disconnect(); } }, {threshold:.3}).observe(gest);
   } else {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+    document.querySelector('.gestoria').classList.add('in');
   }
 
   // Coberturas en pantallas táctiles: se resalta la tarjeta que pasa por el centro
