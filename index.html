@@ -168,9 +168,6 @@
     .quote-card{padding:22px;}
   }
 
-  /* ---------- Franja de triángulos ---------- */
-  .tri-band{height:28px; margin:0 16px 16px; background-color:var(--ink); background-image:linear-gradient(135deg, transparent 50%, var(--paper) 50%); background-size:28px 28px; border-radius:6px; opacity:.9;}
-  @media (max-width:720px){ .tri-band{margin:0 8px 8px; height:20px; background-size:20px 20px;} }
   /* ---------- Insurers marquee ---------- */
   .insurers{padding:28px 0; background:var(--ink); color:#fff; overflow:hidden;}
   .insurers-inner{display:flex; align-items:center; gap:40px;}
@@ -183,49 +180,47 @@
 
   /* ---------- Coverage ---------- */
   .cov-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
-  .cov{position:relative; display:flex; flex-direction:column; min-height:250px; padding:26px; background:var(--white); border-radius:var(--radius); text-decoration:none; border:1px solid var(--line); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s;}
-  .cov.tone-sand{background:var(--sand);}
-  .cov.tone-sand::before{background:var(--sand-2);}
-  .cov::before{content:""; position:absolute; right:0; top:0; width:84px; height:84px; background:var(--iris-tint); clip-path:polygon(0 0,100% 0,100% 100%); transition:all .3s ease;}
-  .cov:hover,.cov.is-active{transform:translateY(-4px); box-shadow:0 24px 40px -24px rgba(27,45,74,.35); border-color:transparent;}
-  .cov{border-color:transparent;}
-  .cov:hover::before,.cov.is-active::before{width:140px; height:140px; background:var(--iris);}
-  .cov-icon{position:relative; width:52px; height:52px; color:var(--ink); --ic:var(--iris);}
-  .cov-icon svg{width:100%; height:100%; overflow:visible; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transform-origin:50% 60%;}
-  .cov-icon .ic-a{fill:var(--ic); stroke:none; transform-box:fill-box; transform-origin:center; transition:transform .45s cubic-bezier(.3,1.7,.5,1);}
-  .cov-icon .ic-s{stroke:var(--ic); stroke-dasharray:46; stroke-dashoffset:0;}
-  .cov-icon .ic-k{stroke:#fff; stroke-width:2.4;}
-  .cov.feature .cov-icon{--ic:var(--signal);}
-  .cov.feature .cov-icon .ic-k{stroke:var(--ink);}
-  .cov:hover .ic-a,.cov.is-active .ic-a{transform:translate(2px,-2px) scale(1.15);}
+  .cov{--acc:var(--iris); --tint:var(--iris-tint); position:relative; display:flex; flex-direction:column; min-height:270px; padding:24px; background:var(--white); border:1.5px solid rgba(27,45,74,.07); border-radius:24px; text-decoration:none; transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease, opacity .8s ease;}
+  .c-blue{--acc:#2457D6; --tint:#E3EBFD;}
+  .c-amber{--acc:#9A5B0B; --tint:#FBEBD3;}
+  .c-violet{--acc:#5B45C2; --tint:#EAE6FB;}
+  .c-coral{--acc:#B93A26; --tint:#FBE2DC;}
+  .c-green{--acc:#1F7A55; --tint:#DDF2E8;}
+  .cov:hover,.cov.is-active{transform:translateY(-6px); border-color:var(--acc); box-shadow:0 28px 50px -30px rgba(27,45,74,.45);}
+  .cov-icon{width:64px; height:64px; border-radius:20px; background:var(--tint); color:var(--acc); display:grid; place-items:center; transition:transform .45s cubic-bezier(.3,1.6,.5,1);}
+  .cov-icon svg{width:44px; height:44px; overflow:visible; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; transform-origin:50% 60%;}
+  .cov-icon .d{fill:currentColor; stroke:none; opacity:.22;}
+  .cov-icon .ic-s{stroke-dasharray:40; stroke-dashoffset:0;}
+  .cov:hover .cov-icon,.cov.is-active .cov-icon{transform:rotate(-6deg) scale(1.06);}
   .cov:hover .ani-drive svg,.cov.is-active .ani-drive svg{animation:drive .9s ease;}
   .cov:hover .ani-beat svg,.cov.is-active .ani-beat svg{animation:beat .9s ease;}
   .cov:hover .ani-beat .ic-s,.cov.is-active .ani-beat .ic-s{animation:draw 1s ease;}
-  .cov:hover .ani-flip svg,.cov.is-active .ani-flip svg{animation:flip .9s cubic-bezier(.6,0,.3,1);}
+  .cov:hover .ani-grow svg,.cov.is-active .ani-grow svg{animation:grow .8s ease;}
   .cov:hover .ani-pop svg,.cov.is-active .ani-pop svg{animation:pop .6s ease;}
-  @keyframes drive{0%{transform:none}25%{transform:translateX(-4px) rotate(-2deg)}60%{transform:translateX(7px)}100%{transform:none}}
-  @keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.14)}40%{transform:scale(.96)}60%{transform:scale(1.08)}}
-  @keyframes draw{from{stroke-dashoffset:46}to{stroke-dashoffset:0}}
-  @keyframes flip{from{transform:rotate(0)}to{transform:rotate(180deg)}}
-  @keyframes pop{0%,100%{transform:none}40%{transform:translateY(-4px) rotate(-4deg)}}
-  .cov h3{font-size:22px; font-weight:600; margin-top:auto; padding-top:28px;}
+  @keyframes drive{0%{transform:none}25%{transform:translateX(-3px) rotate(-3deg)}60%{transform:translateX(6px)}100%{transform:none}}
+  @keyframes beat{0%,100%{transform:scale(1)}20%{transform:scale(1.15)}40%{transform:scale(.95)}60%{transform:scale(1.08)}}
+  @keyframes draw{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}
+  @keyframes grow{0%,100%{transform:none}45%{transform:translateY(-4px) scale(1.1)}}
+  @keyframes pop{0%,100%{transform:none}40%{transform:translateY(-4px)}}
+  .cov h3{font-size:22px; font-weight:600; margin-top:auto; padding-top:26px;}
   .cov p{margin-top:8px; font-size:15px; color:var(--muted); line-height:1.5;}
-  .cov .go{margin-top:16px; font-size:14px; font-weight:700; color:var(--iris); display:flex; align-items:center; gap:6px;}
-  .cov .go span{transition:transform .2s;}
-  .cov:hover .go span,.cov.is-active .go span{transform:translateX(4px);}
-  .cov-help{grid-column:span 2; background:var(--iris); color:#fff; border-color:transparent; justify-content:flex-end;}
-  .cov-help p{color:rgba(255,255,255,.85);}
-  .cov-help .go{color:#fff;}
-  .cov-help::before{background:rgba(255,255,255,.18);}
-  .cov-help:hover::before,.cov-help.is-active::before{background:var(--signal);}
-  .cov-help h3{padding-top:0; font-size:26px;}
-  .cov.feature{grid-column:span 2; background:linear-gradient(135deg,var(--ink) 0%,#23407A 100%); color:#fff; border-color:var(--ink);}
-  .cov.feature::before{background:var(--iris); width:120px; height:120px;}
-  .cov.feature:hover::before,.cov.feature.is-active::before{background:var(--signal); width:180px; height:180px;}
+  .cov .go{display:flex; justify-content:space-between; align-items:center; margin-top:18px; padding-top:14px; border-top:1px solid rgba(27,45,74,.08); font-size:14.5px; font-weight:600; color:var(--acc);}
+  .cov .go span{width:34px; height:34px; border-radius:50%; border:1.5px solid currentColor; display:grid; place-items:center; font-size:15px; transition:background .25s, color .25s, transform .25s;}
+  .cov:hover .go span,.cov.is-active .go span{background:var(--acc); border-color:var(--acc); color:#fff; transform:rotate(-45deg);}
+  .cov.feature{--acc:#8DB4FF; --tint:rgba(255,255,255,.1); grid-column:span 2; background:linear-gradient(135deg,var(--ink) 0%,#23407A 100%); color:#fff; border-color:transparent; overflow:hidden;}
   .cov.feature .cov-icon{color:#fff;}
+  .cov.feature .cov-icon .d{fill:#8DB4FF; opacity:.6;}
   .cov.feature h3{font-size:30px;}
-  .cov.feature p{color:rgba(255,255,255,.72); max-width:380px;}
-  .cov.feature .go{color:var(--signal);}
+  .cov.feature p{color:rgba(255,255,255,.75); max-width:380px;}
+  .cov.feature .go{border-top-color:rgba(255,255,255,.14);}
+  .cov.feature:hover .go span,.cov.feature.is-active .go span{color:var(--ink);}
+  .cov.feature::after{content:""; position:absolute; right:-30px; bottom:-30px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(141,180,255,.28),transparent 70%); pointer-events:none; transition:transform .5s ease;}
+  .cov.feature:hover::after,.cov.feature.is-active::after{transform:scale(1.3);}
+  .cov-help{--acc:#fff; grid-column:span 2; background:var(--iris); color:#fff; border-color:transparent; justify-content:flex-end;}
+  .cov-help p{color:rgba(255,255,255,.85);}
+  .cov-help .go{border-top-color:rgba(255,255,255,.2);}
+  .cov-help:hover .go span,.cov-help.is-active .go span{color:var(--iris);}
+  .cov-help h3{padding-top:0; font-size:26px;}
   .extras{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; align-items:center;}
   .extras .lbl{font-size:14px; font-weight:700; color:var(--muted); margin-right:6px;}
   .chip{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; background:var(--paper-2); font-size:15px; font-weight:600;}
@@ -234,16 +229,14 @@
   @media (max-width:560px){
     .cov-grid{grid-template-columns:1fr; gap:12px;}
     .cov.feature,.cov-help{grid-column:auto;}
-    .cov{min-height:0; padding:20px; display:grid; grid-template-columns:40px 1fr; column-gap:16px; align-items:start;}
-    .cov::before{width:56px; height:56px;}
-    .cov:hover::before,.cov.is-active::before{width:84px; height:84px;}
-    .cov-icon{width:40px; height:40px; grid-row:span 3;}
-    .cov h3{padding-top:4px; font-size:20px;}
+    .cov{min-height:0; padding:18px; display:grid; grid-template-columns:56px 1fr; column-gap:16px; align-items:start;}
+    .cov-icon{width:56px; height:56px; border-radius:16px; grid-row:span 3;}
+    .cov-icon svg{width:38px; height:38px;}
+    .cov h3{padding-top:2px; font-size:20px;}
     .cov p{margin-top:4px;}
-    .cov .go{margin-top:10px;}
+    .cov .go{margin-top:12px; padding-top:10px;}
+    .cov .go span{width:30px; height:30px;}
     .cov.feature h3{font-size:24px;}
-    .cov.feature::before{width:60px; height:60px;}
-    .cov.feature:hover::before,.cov.feature.is-active::before{width:84px; height:84px;}
     .cov-help{display:flex;}
     .cov-help h3{font-size:22px;}
   }
@@ -421,10 +414,6 @@
   @keyframes floaty{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
   .badge-float{animation:wobble 3.5s ease-in-out infinite;}
   @keyframes wobble{0%,100%{rotate:0deg;}50%{rotate:5deg;}}
-  /* Franja de triángulos en movimiento */
-  .tri-band{animation:slide 4s linear infinite;}
-  @keyframes slide{to{background-position:28px 0;}}
-  @media (max-width:720px){ @keyframes slide{to{background-position:20px 0;}} }
   /* Línea de las etiquetas que se dibuja */
   .reveal .eyebrow::before,.section-head.reveal .eyebrow::before{width:0; transition:width .8s .3s ease;}
   .reveal.is-visible .eyebrow::before{width:32px;}
@@ -525,8 +514,6 @@
     </div>
   </section>
 
-  <div class="tri-band" aria-hidden="true"></div>
-
   <!-- ===== INSURERS ===== -->
   <section class="insurers panel" aria-label="Aseguradoras">
     <div class="wrap insurers-inner">
@@ -550,55 +537,55 @@
       </div>
       <div class="cov-grid">
         <a class="cov feature reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de auto." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-drive"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M19.5 17.5h9l5 6.3h-19z"/><path d="M9 32.8H6.8C5.8 32.8 5 32 5 31v-5.5c0-1 .8-1.8 1.8-1.8H11l5.4-8.4A3 3 0 0 1 18.9 14h10.6a3 3 0 0 1 2.4 1.2l6.4 8.5h3.9c1 0 1.8.8 1.8 1.8V31c0 1-.8 1.8-1.8 1.8H39M17 32.8h14"/><circle cx="13" cy="33" r="4"/><circle cx="35" cy="33" r="4"/></svg></div>
+          <div class="cov-icon ani-drive"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M4 21.5v-4c0-.8.6-1.4 1.4-1.5l3.4-.5 3-4.4c.4-.6 1.1-1 1.8-1h6.9c.7 0 1.3.3 1.7.8l3.5 4.6h1.8c.8 0 1.5.7 1.5 1.5v4.5z"/><path d="M4 21.5v-4c0-.8.6-1.4 1.4-1.5l3.4-.5 3-4.4c.4-.6 1.1-1 1.8-1h6.9c.7 0 1.3.3 1.7.8l3.5 4.6h1.8c.8 0 1.5.7 1.5 1.5v4.5z"/><path d="M13.5 15.5h9"/><circle cx="9.5" cy="22" r="2.6" fill="currentColor"/><circle cx="22.5" cy="22" r="2.6" fill="currentColor"/></svg></div>
           <h3>Seguro de Auto</h3>
           <p>Terceros completo o todo riesgo, cotizado con varias aseguradoras para que compares precio y cobertura lado a lado.</p>
           <span class="go">Cotizar mi auto <span>→</span></span>
         </a>
-        <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de hogar." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 7L8 23h16z"/><path d="M8 23L24 7l16 16"/><path d="M11 20.5V40h26V20.5"/><path d="M21 40v-9h6v9"/></svg></div>
+        <a class="cov reveal c-blue" data-wa="Hola Andrea! Quiero cotizar un seguro de hogar." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M5 14.5L16 5l11 9.5V26a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M5 14.5L16 5l11 9.5V26a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M13 27v-7h6v7"/></svg></div>
           <h3>Hogar</h3>
           <p>Tu casa y sus contenidos, ante incendio, robo o daños.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
-        <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de comercio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12l2-5h28l2 5"/><path d="M6 12h36l-2 7H8z"/><path class="ic-a" d="M10 12h8l-4 7zM26 12h8l-4 7z"/><path d="M9 19v21h30V19"/><path d="M14 40V28h8v12M27 27h7v6h-7z"/></svg></div>
+        <a class="cov reveal c-amber" data-wa="Hola Andrea! Quiero cotizar un seguro de comercio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M6 13h20v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path d="M6 13h20v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path class="d" d="M4 13l2.5-7h19L28 13z"/><path d="M4 13l2.5-7h19L28 13"/><path d="M4 13a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M13 27v-6h6v6"/></svg></div>
           <h3>Comercio</h3>
           <p>Tu local o pyme, cubierto a medida de tu rubro.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
-        <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar un seguro de consorcio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M28 8h10v10z"/><path d="M10 42V8h18v34M28 18h10v24M6 42h36"/><path d="M15 14h2M21 14h2M15 20h2M21 20h2M15 26h2M21 26h2M15 32h2M21 32h2M32 25h2M32 31h2"/></svg></div>
+        <a class="cov reveal c-violet" data-wa="Hola Andrea! Quiero cotizar un seguro de consorcio." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M7 27V6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v21z"/><path d="M7 27V6a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v21z"/><path class="d" d="M19 12h6a1 1 0 0 1 1 1v14h-7z"/><path d="M19 12h6a1 1 0 0 1 1 1v14M4 27h24M11 10h1.5M14.5 10H16M11 15h1.5M14.5 15H16M11 20h1.5M14.5 20H16M22 17h1M22 21.5h1"/></svg></div>
           <h3>Consorcios</h3>
           <p>Integral de consorcio: edificio, espacios comunes y responsabilidad del administrador.</p>
           <span class="go">Cotizar <span>→</span></span>
         </a>
-        <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de accidentes personales." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="13" r="5.5"/><path d="M7 41v-3a12 12 0 0 1 19-9.8"/><path class="ic-a" d="M25 43L43 25v18z"/><path class="ic-k" d="M36.5 33.5v6M33.5 36.5h6"/></svg></div>
+        <a class="cov reveal c-amber" data-wa="Hola Andrea! Quiero consultar por un seguro de accidentes personales." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><circle class="d" cx="12" cy="10" r="4.5"/><circle cx="12" cy="10" r="4.5"/><path d="M4 27c0-4.4 3.6-8 8-8 1.6 0 3 .4 4.3 1.2"/><circle class="d" cx="23" cy="22" r="6" style="opacity:.35"/><circle cx="23" cy="22" r="6"/><path d="M23 19v6M20 22h6"/></svg></div>
           <h3>Accidentes personales</h3>
           <p>Cobertura para vos o tu equipo ante accidentes, en el trabajo o la vida diaria.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
-        <a class="cov reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de vida." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-beat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41S7 31 7 19.2a8.6 8.6 0 0 1 17-2 8.6 8.6 0 0 1 17 2C41 31 24 41 24 41z"/><path class="ic-s" d="M11 24h7l3-5 4.5 9 3-5h8.5"/></svg></div>
+        <a class="cov reveal c-coral" data-wa="Hola Andrea! Quiero consultar por un seguro de vida." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-beat"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M16 27s-11-6.3-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 13c0 7.7-11 14-11 14z"/><path d="M16 27s-11-6.3-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 13c0 7.7-11 14-11 14z"/><path class="ic-s" d="M8.5 15h4l2-3.5 3 6.5 2-3h4"/></svg></div>
           <h3>Vida</h3>
           <p>Respaldo económico para quienes dependen de vos.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
-        <a class="cov reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de responsabilidad civil." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 5v37C15.4 39.6 9 31.5 9 22V11z"/><path d="M24 5l15 6v11c0 9.5-6.4 17.6-15 20-8.6-2.4-15-10.5-15-20V11z"/></svg></div>
+        <a class="cov reveal c-green" data-wa="Hola Andrea! Quiero consultar por un seguro de responsabilidad civil." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M16 4l10 4v7c0 6.2-4.2 11.3-10 13-5.8-1.7-10-6.8-10-13V8z"/><path d="M16 4l10 4v7c0 6.2-4.2 11.3-10 13-5.8-1.7-10-6.8-10-13V8z"/><path d="M11.5 16l3 3 6-6"/></svg></div>
           <h3>Responsabilidad civil</h3>
           <p>Por si un tercero reclama daños causados por vos, tu actividad o tu comercio.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
-        <a class="cov tone-sand reveal" data-wa="Hola Andrea! Quiero consultar por un seguro de retiro." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-flip"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M13 6h22M13 42h22"/><path d="M15 6c0 9 9 12 9 18s-9 9-9 18M33 6c0 9-9 12-9 18s9 9 9 18"/><path class="ic-a" d="M18 39.5l6-8 6 8z"/><path class="ic-a" style="opacity:.45" d="M19.5 12h9l-4.5 5.5z"/></svg></div>
+        <a class="cov reveal c-green" data-wa="Hola Andrea! Quiero consultar por un seguro de retiro." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-grow"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse class="d" cx="16" cy="25" rx="8" ry="3"/><ellipse cx="16" cy="22" rx="8" ry="3"/><path d="M8 22v3c0 1.7 3.6 3 8 3s8-1.3 8-3v-3"/><path d="M16 19v-7"/><path class="d" d="M16 13c0-3 2.4-5.2 6-5.2 0 3.2-2.4 5.2-6 5.2zM16 15.5c0-2.6-2.1-4.5-5-4.5 0 2.7 2.1 4.5 5 4.5z" style="opacity:.5"/><path d="M16 13c0-3 2.4-5.2 6-5.2 0 3.2-2.4 5.2-6 5.2zM16 15.5c0-2.6-2.1-4.5-5-4.5 0 2.7 2.1 4.5 5 4.5z"/></svg></div>
           <h3>Retiro</h3>
           <p>Un ahorro planificado para sostener tu nivel de vida a futuro.</p>
           <span class="go">Consultar <span>→</span></span>
         </a>
-        <a class="cov reveal" data-wa="Hola Andrea! Quiero cotizar una ART." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
-          <div class="cov-icon ani-pop"><svg viewBox="0 0 48 48" aria-hidden="true"><path class="ic-a" d="M24 17a15 15 0 0 1 15 15H24z"/><path d="M9 32a15 15 0 0 1 30 0"/><path d="M5 32h38v4.5H5z"/><path d="M20 17v-5h8v5"/></svg></div>
+        <a class="cov reveal c-blue" data-wa="Hola Andrea! Quiero cotizar una ART." href="https://wa.me/5491164898985" target="_blank" rel="noopener">
+          <div class="cov-icon ani-pop"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="d" d="M5 22a11 11 0 0 1 22 0z"/><path d="M5 22a11 11 0 0 1 22 0z"/><path d="M3 22h26v2.5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM13 11.6V9h6v2.6M16 9v6"/></svg></div>
           <h3>ART</h3>
           <p>Riesgos del trabajo para tu empresa o comercio.</p>
           <span class="go">Cotizar <span>→</span></span>
