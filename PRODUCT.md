@@ -32,14 +32,14 @@ Una sola persona real resuelve el seguro y los papeles del auto: Andrea es a la 
 
 - El contacto se hace por WhatsApp (11 6489-8985). Todos los botones y el formulario abren WhatsApp con un mensaje ya armado; no hay envío por mail ni backend.
 - Email de contacto: afgimenezseguros@gmail.com.
-- Dominio previsto: segurosytramites.com.ar (disponible al momento de la decisión; pendiente de registro y conexión).
+- Dominio oficial: segurosytramites.com.ar (elegido; la conexión DNS a GitHub Pages queda pendiente). La web ya usa este dominio como dirección canónica, en sitemap.xml y robots.txt.
 
 ## Capabilities and Constraints
 
-- Coberturas: auto, hogar, comercio, consorcios, accidentes personales, responsabilidad civil, vida, retiro, ART. Adicionales: servicio de grúa y asistencia al viajero.
+- Coberturas principales: autos y motos, hogar, comercio, caución, accidentes personales, responsabilidad civil, vida, retiro, ART. Adicionales: servicio de grúa, asistencia al viajero y consorcios.
 - Trámites como Mandataria: transferencias de dominio, informes de dominio, denuncias de venta, patentamientos, cédulas verde y azul, trámites integrales ante el Registro del Automotor.
 - Cotización y asesoramiento inicial sin cargo y sin compromiso.
-- Prioridad comercial: **seguro de auto** es el servicio que la web debe empujar más.
+- Prioridad comercial: **seguros de autos y motos** es el servicio que la web debe empujar más.
 - Abierto / a confirmar: si Retiro, ART, Patentamientos y Cédulas se siguen ofreciendo (no figuran en la tarjeta de presentación); la lista de aseguradoras con las que trabaja hoy.
 
 ## Brand Commitments
