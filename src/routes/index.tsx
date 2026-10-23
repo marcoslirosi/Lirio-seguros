@@ -518,8 +518,8 @@ function Index() {
           aria-hidden
           className="zan-float pointer-events-none absolute -right-20 bottom-8 h-80 w-80 rounded-full bg-duffy-plum/20 blur-3xl"
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
+        <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-28">
+          <div className="flex flex-wrap items-start justify-between gap-6">
             <div>
               <img
                 src={duffyLogo.url}
