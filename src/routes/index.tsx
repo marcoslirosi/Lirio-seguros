@@ -561,14 +561,14 @@ function Index() {
                     <h3 className="font-display text-xl font-black leading-tight text-zinc-900">
                       {p.name}
                     </h3>
-                    <p className="mt-1 text-xs font-bold uppercase tracking-wide text-duffy-plum">
+                    <p className="mt-1 mb-5 text-xs font-bold uppercase tracking-wide text-duffy-plum">
                       {p.note}
                     </p>
                     <a
                       href={p.ml}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-duffy-plum px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
+                      className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-duffy-plum px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
                     >
                       Comprar <span aria-hidden>→</span>
                     </a>
