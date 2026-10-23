@@ -109,7 +109,6 @@ const duffyProducts = [
     note: "P · M · G · XG · XXG",
     bg: "bg-duffy-cream",
     ml: ML.cotton,
-    offset: "",
   },
   {
     img: premiumPack,
@@ -118,7 +117,6 @@ const duffyProducts = [
     note: "Hiperpack · P a XXG",
     bg: "bg-duffy-orange-soft",
     ml: ML.premium,
-    offset: "lg:mt-10",
   },
   {
     img: juniorPack,
@@ -127,7 +125,6 @@ const duffyProducts = [
     note: "XXXG · +18 kg",
     bg: "bg-duffy-yellow-soft",
     ml: ML.junior,
-    offset: "",
   },
   {
     img: wipesPlastic,
@@ -136,7 +133,6 @@ const duffyProducts = [
     note: "Tapa plástica · x48",
     bg: "bg-duffy-plum-soft/50",
     ml: ML.toallitas,
-    offset: "lg:mt-10",
   },
 ];
 
@@ -541,9 +537,9 @@ function Index() {
             Tres líneas para acompañar cada etapa, del recién nacido al que ya
             corre libre. Y toallitas húmedas para la limpieza de cada día.
           </p>
-          <div className="mt-14 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {duffyProducts.map((p, i) => (
-              <Reveal key={p.name} delay={i * 120} className={p.offset}>
+              <Reveal key={p.name} delay={i * 120} className="h-full">
                 <article className="group flex flex-col overflow-hidden rounded-[36px] bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <div
                     className={`flex h-52 items-center justify-center overflow-hidden px-5 ${p.bg}`}
