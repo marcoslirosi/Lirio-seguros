@@ -485,8 +485,19 @@ function Index() {
       </section>
 
       {/* Duffy lineup */}
-      <section id="duffy" className="scroll-mt-24 bg-duffy-yellow">
-        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
+      <section
+        id="duffy"
+        className="relative scroll-mt-24 overflow-hidden bg-duffy-yellow"
+      >
+        <div
+          aria-hidden
+          className="zan-float-slow pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-white/45 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="zan-float pointer-events-none absolute -right-20 bottom-8 h-80 w-80 rounded-full bg-duffy-plum/20 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-12 lg:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <img
@@ -496,54 +507,52 @@ function Index() {
                 height={360}
                 className="h-14 w-auto sm:h-16"
               />
-              <h2 className="mt-4 font-display text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl">
+              <p className="mt-4 font-script text-3xl text-duffy-plum sm:text-4xl">
+                del primer upa a correr libres
+              </p>
+              <h2 className="mt-1 font-display text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl">
                 Nuestros pañales
               </h2>
               <p className="mt-3 max-w-xl text-zinc-800">
                 Tres líneas para acompañar cada etapa, del recién nacido al que
-                ya corre libre.
+                ya corre libre. Y toallitas húmedas para la limpieza de cada
+                día.
               </p>
             </div>
             <span className="rounded-full bg-duffy-plum px-5 py-2 text-sm font-bold text-white">
               Tecnología japonesa N°1
             </span>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {duffyProducts.map((p, i) => (
-              <Reveal key={p.name} delay={i * 120} className="h-full">
-              <article
-                className={`group flex h-full flex-col overflow-hidden rounded-[36px] ${p.bg} shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl`}
-              >
-                <img
-                  src={p.img}
-                  alt={p.alt}
-                  className="aspect-square w-full object-contain p-6 transition-transform duration-500 group-hover:scale-[1.06]"
-                />
-                <div className="flex flex-1 flex-col p-7 pt-0">
-                  <h3 className="font-display text-2xl font-black">{p.name}</h3>
-                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-duffy-plum">
-                    {p.note}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {p.chips.map((c) => (
-                      <li
-                        key={c}
-                        className="rounded-full bg-white/70 px-3 py-1 text-xs font-bold"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href={p.ml}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-duffy-plum px-6 py-2.5 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
+              <Reveal key={p.name} delay={i * 120} className={`h-full ${p.offset}`}>
+                <article className="group flex h-full flex-col overflow-hidden rounded-[36px] bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <div
+                    className={`flex h-44 items-center justify-center overflow-hidden px-5 ${p.bg}`}
                   >
-                    Comprar <span aria-hidden>→</span>
-                  </a>
-                </div>
-              </article>
+                    <img
+                      src={p.img}
+                      alt={p.alt}
+                      className="max-h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.07]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-display text-xl font-black leading-tight text-zinc-900">
+                      {p.name}
+                    </h3>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-wide text-duffy-plum">
+                      {p.note}
+                    </p>
+                    <a
+                      href={p.ml}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-duffy-plum px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-duffy-plum/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-duffy-plum focus-visible:ring-offset-2"
+                    >
+                      Comprar <span aria-hidden>→</span>
+                    </a>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
