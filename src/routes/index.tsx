@@ -519,37 +519,34 @@ function Index() {
           className="zan-float pointer-events-none absolute -right-20 bottom-8 h-80 w-80 rounded-full bg-duffy-plum/20 blur-3xl"
         />
         <div className="relative mx-auto max-w-7xl px-6 py-14 lg:px-12 lg:py-28">
-          <div className="flex flex-wrap items-start justify-between gap-6">
-            <div>
-              <img
-                src={duffyLogo.url}
-                alt="Duffy"
-                width={480}
-                height={360}
-                className="h-14 w-auto sm:h-16"
-              />
-              <p className="mt-4 font-script text-3xl text-duffy-plum sm:text-4xl">
-                del primer upa a correr libres
-              </p>
-              <h2 className="mt-1 font-display text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl">
-                Nuestros pañales
-              </h2>
-              <p className="mt-3 max-w-xl text-zinc-800">
-                Tres líneas para acompañar cada etapa, del recién nacido al que
-                ya corre libre. Y toallitas húmedas para la limpieza de cada
-                día.
-              </p>
-            </div>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <img
+              src={duffyLogo.url}
+              alt="Duffy"
+              width={480}
+              height={360}
+              className="h-14 w-auto sm:h-16"
+            />
             <span className="rounded-full bg-duffy-plum px-5 py-2 text-sm font-bold text-white">
               Tecnología japonesa N°1
             </span>
           </div>
+          <p className="mt-8 font-script text-3xl text-duffy-plum sm:text-4xl">
+            del primer upa a correr libres
+          </p>
+          <h2 className="mt-1 font-display text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl">
+            Nuestros pañales
+          </h2>
+          <p className="mt-3 max-w-xl text-zinc-800">
+            Tres líneas para acompañar cada etapa, del recién nacido al que ya
+            corre libre. Y toallitas húmedas para la limpieza de cada día.
+          </p>
           <div className="mt-14 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {duffyProducts.map((p, i) => (
               <Reveal key={p.name} delay={i * 120} className={`h-full ${p.offset}`}>
                 <article className="group flex h-full flex-col overflow-hidden rounded-[36px] bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <div
-                    className={`flex h-44 items-center justify-center overflow-hidden px-5 ${p.bg}`}
+                    className={`flex h-52 items-center justify-center overflow-hidden px-5 ${p.bg}`}
                   >
                     <img
                       src={p.img}
