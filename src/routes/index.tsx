@@ -107,7 +107,7 @@ const duffyProducts = [
     alt: "Pañales Duffy Cotton",
     name: "Duffy Cotton",
     note: "P · M · G · XG · XXG",
-    bg: "bg-duffy-cream",
+    bg: "bg-white",
     ml: ML.cotton,
   },
   {
@@ -115,7 +115,7 @@ const duffyProducts = [
     alt: "Pañales Duffy Premium Cotton",
     name: "Duffy Premium Cotton",
     note: "Hiperpack · P a XXG",
-    bg: "bg-duffy-orange-soft",
+    bg: "bg-white",
     ml: ML.premium,
   },
   {
@@ -123,7 +123,7 @@ const duffyProducts = [
     alt: "Pañales Duffy Junior",
     name: "Duffy Junior",
     note: "XXXG · +18 kg",
-    bg: "bg-duffy-yellow-soft",
+    bg: "bg-white",
     ml: ML.junior,
   },
   {
@@ -131,7 +131,7 @@ const duffyProducts = [
     alt: "Toallitas húmedas Duffy tapa plástica",
     name: "Toallitas Húmedas",
     note: "Tapa plástica · x48",
-    bg: "bg-duffy-plum-soft/50",
+    bg: "bg-white",
     ml: ML.toallitas,
   },
 ];
