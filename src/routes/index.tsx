@@ -543,8 +543,8 @@ function Index() {
           </p>
           <div className="mt-14 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {duffyProducts.map((p, i) => (
-              <Reveal key={p.name} delay={i * 120} className={`h-full ${p.offset}`}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-[36px] bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <Reveal key={p.name} delay={i * 120} className={p.offset}>
+                <article className="group flex flex-col overflow-hidden rounded-[36px] bg-white shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <div
                     className={`flex h-52 items-center justify-center overflow-hidden px-5 ${p.bg}`}
                   >
