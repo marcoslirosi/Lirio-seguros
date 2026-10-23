@@ -3,11 +3,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroEtapaBebeAsset from "@/assets/hero-etapa-bebe.png.asset.json";
 import heroEtapaAdultosAsset from "@/assets/hero-etapa-adultos.jpg.asset.json";
 import heroEtapaMujeresAsset from "@/assets/hero-etapa-mujeres.jpg.asset.json";
-import productCotton from "@/assets/product-cotton.jpg";
-import productPremium from "@/assets/product-premium.jpg";
 import duffyLogo from "@/assets/duffy-logo.png.asset.json";
 import zanhangLogo from "@/assets/zanhang-logo.png.asset.json";
-import productJuniorAsset from "@/assets/duffy-junior.png.asset.json";
+import cottonPackAsset from "@/assets/duffy-cotton-pack.png.asset.json";
+import premiumPackAsset from "@/assets/duffy-premium-pack.png.asset.json";
+import juniorPackAsset from "@/assets/duffy-junior-pack.png.asset.json";
+import wipesPlasticAsset from "@/assets/duffy-wipes-plastic.png.asset.json";
 import wipesFlexAsset from "@/assets/duffy-wipes-flex.png.asset.json";
 import wipesHardAsset from "@/assets/duffy-wipes-hard.png.asset.json";
 import duffyBrandAsset from "@/assets/duffy-brand.png.asset.json";
@@ -17,7 +18,10 @@ import lalasBrandAsset from "@/assets/lalas-brand-v2.png.asset.json";
 const heroEtapaBebe = heroEtapaBebeAsset.url;
 const heroEtapaAdultos = heroEtapaAdultosAsset.url;
 const heroEtapaMujeres = heroEtapaMujeresAsset.url;
-const productJunior = productJuniorAsset.url;
+const cottonPack = cottonPackAsset.url;
+const premiumPack = premiumPackAsset.url;
+const juniorPack = juniorPackAsset.url;
+const wipesPlastic = wipesPlasticAsset.url;
 const wipesFlex = wipesFlexAsset.url;
 const wipesHard = wipesHardAsset.url;
 const duffyBrand = duffyBrandAsset.url;
@@ -27,6 +31,14 @@ const lalasBrand = lalasBrandAsset.url;
 const ML = {
   duffy:
     "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Cotton",
+  cotton:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Cotton",
+  premium:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Duffy-Premium",
+  junior:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Junior",
+  toallitas:
+    "https://listado.mercadolibre.com.ar/tienda/duffy/_Container_ESP-CEF1182EF34742269B309C284F2C39C63243800372-Toallitas-H%C3%BAmedas",
   promise: "https://listado.mercadolibre.com.ar/panales-adultos-promise",
   lalas: "https://listado.mercadolibre.com.ar/toallas-femeninas-lalas",
 };
@@ -91,31 +103,40 @@ const brands = [
 
 const duffyProducts = [
   {
-    img: productCotton,
+    img: cottonPack,
     alt: "Pañales Duffy Cotton",
     name: "Duffy Cotton",
-    note: "Megapack · Hiperpack · Mega Ahorro",
-    chips: ["Suave", "Cintura elástica", "Barreras de protección"],
-    bg: "bg-duffy-yellow-soft",
-    ml: ML.duffy,
+    note: "P · M · G · XG · XXG",
+    bg: "bg-duffy-cream",
+    ml: ML.cotton,
+    offset: "",
   },
   {
-    img: productPremium,
+    img: premiumPack,
     alt: "Pañales Duffy Premium Cotton",
     name: "Duffy Premium Cotton",
-    note: "Hiperpack",
-    chips: ["Súper suave", "Orejas elastizadas", "Caminitos de aire"],
+    note: "Hiperpack · P a XXG",
     bg: "bg-duffy-orange-soft",
-    ml: ML.duffy,
+    ml: ML.premium,
+    offset: "lg:mt-10",
   },
   {
-    img: productJunior,
+    img: juniorPack,
     alt: "Pañales Duffy Junior",
     name: "Duffy Junior",
-    note: "Pack x30 · x50 — Talle XXXG",
-    chips: ["Para grandes", "Súper seco 12 h", "Ajuste flexible"],
+    note: "XXXG · +18 kg",
     bg: "bg-duffy-yellow-soft",
-    ml: ML.duffy,
+    ml: ML.junior,
+    offset: "",
+  },
+  {
+    img: wipesPlastic,
+    alt: "Toallitas húmedas Duffy tapa plástica",
+    name: "Toallitas Húmedas",
+    note: "Tapa plástica · x48",
+    bg: "bg-duffy-plum-soft/50",
+    ml: ML.toallitas,
+    offset: "lg:mt-10",
   },
 ];
 
